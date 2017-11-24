@@ -1,0 +1,26 @@
+#!/bin/sh
+#CS 35L Yang Pochao
+sed '/<!DOCTYPE/,/Adopt<\/td>/d' | \
+#reomove everything before
+sed '/<\/table>/,/<\/html>/d' | \
+#remove everything after
+grep '<td>.\{1,\}<\/td>' | \
+#grep every English and Hawaian words
+sed -n '2~2!p' - | \
+#only Hawaian words are left
+tr "[:upper:]\`" "[:lower:]\'" | \
+#translate upper case and ` into lower case and '
+sed -e '/-/d' |\
+#delete Hawaian words with -
+sed -e '/?/d' |\
+#delete Hawaian words with ?
+sed 's/<td>//g;s/<\/td>//g;s/<u>//g;s/<\/u>//g' | \
+#clear all the disturbing things
+sed "s/^\s*//g" | \
+#delete all empty line
+sed -E "s/,\s|\s/\n/g" | \
+#treat comma and space as new line character
+tr -cs "pk\'mnwlhaeiou" '[\n*]' | \
+#delete wrong hawaian words
+sort -u 
+#sort the final file 

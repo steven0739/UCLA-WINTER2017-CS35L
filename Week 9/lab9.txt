@@ -1,0 +1,223 @@
+CS35L LAB6 ASSIGNMENT9 
+LAB PART
+Yang Pochao 204631541
+1.
+Get a copy of the Diffutils repository：
+$ git clone ~eggert/src/gnu/diffutils
+
+2.
+Get a log of changes to Diffutils’ master branch：
+$ cd diffutils
+
+$ git log > git-log.txt
+
+3.
+Generate a list of tags used for Diffutils：
+$ git tag > git-tags.txt
+
+4.
+I first look at the log text file:
+$ emacs git-log.txt
+
+then I find the hash id of that commit and generate a patch for that commit:
+$ git show 62ca21c8c1a5aa3488589dcb191a4ef04ae9ed4f > quote-patch.txt
+
+5.
+Check out version 3.0 of Diffutils:
+$ git checkout v3.0
+
+6.
+Use the patch command to apply quote-patch.txt to version 3.0:
+$ patch -p1 < quote-patch.txt
+
+error:
+can't find file to patch at input line 35
+Perhaps you used the wrong -p or --strip option? ...
+
+some patching falied some succeeded (return all the time)
+
+patching file NEWS
+Hunk #1 succeeded at 30 (offset -28 lines).
+Hunk #2 succeeded at 66 (offset -28 lines).
+Hunk #3 succeeded at 106 (offset -28 lines).
+Hunk #4 succeeded at 140 (offset -28 lines).
+Hunk #5 succeeded at 184 (offset -28 lines).
+Hunk #6 succeeded at 197 (offset -28 lines).
+Hunk #7 succeeded at 209 (offset -28 lines).
+Hunk #8 succeeded at 221 (offset -28 lines).
+
+patching file README
+Hunk #1 FAILED at 9.
+Hunk #3 FAILED at 60.
+2 out of 3 hunks FAILED -- saving rejects to file README.rej
+
+7.
+Use the git status command to get an overview:
+$ git status
+
+# HEAD detached at v3.0
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   NEWS
+#	modified:   README
+#	modified:   TODO
+#	modified:   doc/diagmeet.note
+#	modified:   ms/config.bat
+#	modified:   ms/config.site
+#	modified:   po/en.po
+#	modified:   src/analyze.c
+#	modified:   src/cmp.c
+#	modified:   src/context.c
+#	modified:   src/diff.c
+#	modified:   src/diff.h
+#	modified:   src/diff3.c
+#	modified:   src/dir.c
+#	modified:   src/ifdef.c
+#	modified:   src/io.c
+#	modified:   src/sdiff.c
+#	modified:   src/side.c
+#	modified:   src/system.h
+#	modified:   src/util.c
+#	modified:   tests/help-version
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	NEWS.orig
+#	README-hacking.orig
+#	README-hacking.rej
+#	README.orig
+#	README.rej
+#	cfg.mk.orig
+#	cfg.mk.rej
+#	git-log.txt
+#	git-tags.txt
+#	ms/config.site.orig
+#	quote-patch.txt
+#	src/cmp.c.orig
+#	src/context.c.orig
+#	src/diff.c.orig
+#	src/diff.c.rej
+#	src/diff.h.orig
+#	src/diff3.c.orig
+#	src/diff3.c.rej
+#	src/dir.c.orig
+#	src/sdiff.c.orig
+#	src/system.h.orig
+#	src/util.c.orig
+#	tests/help-version.orig
+no changes added to commit (use "git add" and/or "git commit -a")
+
+8-9.
+for those files, we don't want to modify them:
+$ emacs NEWS
+$ emacs README
+$ emacs TODO
+$ emacs doc/diagmeet.note
+$ emacs ms/config.bat
+$ emacs ms/config.site
+$ emacs po/en.po
+$ emacs src/diff.h
+$ emacs src/system.h
+$ emacs tests/help-version
+
+so we simply revert all the changes:
+C-x v = means vc-diff
+C-x v u means vc-revert
+and for the notice:
+Discard changes in /u/eng/class/classpya/diffutils/README? (yes or no) yes //I chose yes here
+
+those files need manully change:
+$ emacs src/analyze.c
+$ emacs src/cmp.c
+$ emacs src/context.c
+$ emacs src/diff.c
+$ emacs src/diff3.c
+$ emacs src/dir.c
+$ emacs src/ifdef.c
+$ emacs src/io.c
+$ emacs src/sdiff.c
+$ emacs src/side.c
+$ emacs src/util.c
+
+C-x v = vc-diff
+C-c C-c means go to the source file and line corresponding to this hunk
+if we don't want the change:
+C-u C-c C-a means revert applied hunk
+if we want that change:
+M-n means move to the next hunk-start
+and repeat this process for all the files
+
+10.
+$ emacs src/*.c.rej
+find out two files
+manully change ‘ to ' at corresponding lines
+$ emacs src/diff3.c
+$ emacs src/diff.c
+
+11.
+Remove all untracked files:
+$ find . -type f -name '*.orig' -delete
+$ find . -type f -name '*.rej' -delete
+$ git status
+modified:   src/cmp.c
+#	modified:   src/diff.c
+#	modified:   src/diff3.c
+#	modified:   src/dir.c
+#	modified:   src/sdiff.c
+#	modified:   src/util.c
+
+:half-dozen modified files
+
+12.
+git diff > quote-3.0-patch.txt
+
+13.
+Build the resulting modified version of Diffutils:
+./bootstrap
+./configure
+make
+make check
+
+$ diff . -
+diff: cannot compare '-' to a directory
+
+$diff --help
+LTYPE is 'old', 'new', or 'unchanged'.  GTYPE is LTYPE or 'changed'.
+FILES are 'FILE1 FILE2' or 'DIR1 DIR2' or 'DIR FILE...' or 'FILE... DIR'.
+
+so we see my patch works.
+
+14.
+those are the commands I use:
+$ cd ..
+$ mkdir diffutils-3.0
+$ mkdir diffutils-3.0-patch
+$ cd diffutils
+$ cd src
+$ cp * ../../diffutils-3.0-patch
+$ git checkout -f v3.0
+HEAD is now at 022cd5c... version 3.0
+$ cp * ../../diffutils-3.0
+$ cd .. now under diffutils
+$ diff -pru ../diffutils-3.0 ../diffutils-3.0-patch > quote-3.0-test.txt
+
+15.
+$ diff quote-3.0-test.txt quote-3.0-patch.txt
+they are innocuous, just the difference between ‘ and '
+
+> -	     ? "subsidiary program `%s' could not be invoked"
+> +	     ? "subsidiary program '%s' could not be invoked"
+>  	     : status == 127
+> -	     ? "subsidiary program `%s' not found"
+> +	     ? "subsidiary program '%s' not found"
+>  	     : status == INT_MAX
+> -	     ? "subsidiary program `%s' failed"
+> -	     : "subsidiary program `%s' failed (exit status %d)"),
+> +	     ? "subsidiary program '%s' failed"
+> +	     : "subsidiary program '%s' failed (exit status %d)"),
+
+
+

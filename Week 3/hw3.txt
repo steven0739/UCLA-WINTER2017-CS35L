@@ -1,0 +1,16 @@
+hw3.txt
+
+1.
+Because that line is duplicated, we can see it appears twice. And since it's in a switch statement, we don't really need it, so we just clean it up.
+
+2.
+The first problem is that foreign people will not understand that format, which will create unexpected result. Also, for some programs built strictly according to the former format, they will not recognize the new format, thus when being run, errors will occur.
+
+3.
+Since the file is empty, it contradicts to the preassumption of randlines.py that the file it takes has something at least. Thus creating "IndexError: list index out of range"
+
+4.
+There will be a syntax error since python2 and python3 use different syntaxs in many aspects.
+The error looks like:
+File "randline.py", line 65
+    except IOError as (errno, strerror):

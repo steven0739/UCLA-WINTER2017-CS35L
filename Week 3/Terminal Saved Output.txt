@@ -1,0 +1,4300 @@
+Last login: Fri Jan 27 21:10:07 on ttys000
+yangbochaodeMacBook-Pro:~ StevenYang$ ssh classpya@lnxsrv09.seas.ucla.edu
+classpya@lnxsrv09.seas.ucla.edu's password: 
+Permission denied, please try again.
+classpya@lnxsrv09.seas.ucla.edu's password: 
+Last failed login: Fri Jan 27 21:42:47 PST 2017 from vpn-128-97-245-65.host.ucla.edu on ssh:notty
+There was 1 failed login attempt since the last successful login.
+Last login: Thu Jan 26 12:15:44 2017 from 169.232.212.125
+*****************************************************************************
+                        lnxsrv09.seas.ucla.edu RHEL 7
+*****************************************************************************
+
+        RedHat 7 -- may not behave the same as other lnxsrv
+        Will be used by CS 35L, CS 33, CS 111, and CS 131
+
+*****************************************************************************
+*****************************************************************************
+* ========================================================================= *
+* ACCOUNT RENEWALS                                             May 23, 2016 *
+*                                                                           *
+* SEASnet has begun notifying users of the account renewal process.  The    *
+* first notification has already been sent via email to your SEASnet        *
+* account or Official UCLA Email Address.  Although the account renewal     *
+* process actually takes place in October, we send out the first notice     *
+* early as a courtesy in case you are planning on taking a leave of absence *
+* for the upcoming fall quarter.  Please make sure you check your email for *
+* this important announcement.  Accounts that are not renewed or placed on  *
+* hold by October 31, 2016 will be removed and will NOT be restored.        *
+*                                                                           *
+* Detailed information about the renewal process can also be found here:    *
+*       http://www.seasnet.ucla.edu/seasnet-accounts                        *
+* ========================================================================= *
+* Starting winter quarter 2016, SEASnet will be restricting access to our   *
+* instructional linux and eeapps servers to on campus IP addresses.  Users  *
+* needing to use these machines will need to connect from:                  *
+*       -a machine on the campus network                                    *
+*       -machines off-campus, but connected to the campus VPN server        *
+*       -SEASnet's terminal server                                          *
+* ========================================================================= *
+* SEASnet Computing Access                                                  *
+*                                                                           *
+* Priority is given both on the servers and in the student labs to those    *
+* students doing coursework. Computing support for research is provided by  *
+* each department.                                                          *
+*****************************************************************************
+* For assistance please contact help@seas.ucla.edu or call 206-6864.        *
+*****************************************************************************
+[classpya@lnxsrv09 ~]$ wget ftp://ftp.gnu.org/gnu/coreutils/coreutils-7.6.tar.gz
+--2017-01-27 21:53:58--  ftp://ftp.gnu.org/gnu/coreutils/coreutils-7.6.tar.gz
+           => ‘coreutils-7.6.tar.gz’
+Resolving ftp.gnu.org (ftp.gnu.org)... 208.118.235.20, 2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:21... connected.
+Logging in as anonymous ... Logged in!
+==> SYST ... done.    ==> PWD ... done.
+==> TYPE I ... done.  ==> CWD (1) /gnu/coreutils ... done.
+==> SIZE coreutils-7.6.tar.gz ... 10014650
+==> PASV ... done.    ==> RETR coreutils-7.6.tar.gz ... done.
+Length: 10014650 (9.5M) (unauthoritative)
+
+100%[======================================>] 10,014,650  8.27MB/s   in 1.2s   
+
+2017-01-27 21:54:01 (8.27 MB/s) - ‘coreutils-7.6.tar.gz’ saved [10014650]
+
+[classpya@lnxsrv09 ~]$ tar -xzvf coreutils-7.6.tar.gz
+coreutils-7.6/
+coreutils-7.6/old/
+coreutils-7.6/old/fileutils/
+coreutils-7.6/old/fileutils/ChangeLog-1997
+coreutils-7.6/old/fileutils/ChangeLog
+coreutils-7.6/old/fileutils/NEWS
+coreutils-7.6/old/textutils/
+coreutils-7.6/old/textutils/ChangeLog
+coreutils-7.6/old/textutils/NEWS
+coreutils-7.6/old/sh-utils/
+coreutils-7.6/old/sh-utils/ChangeLog
+coreutils-7.6/old/sh-utils/NEWS
+coreutils-7.6/old/sh-utils/ChangeLog.0
+coreutils-7.6/.x-sc_useless_cpp_parens
+coreutils-7.6/ChangeLog-2008
+coreutils-7.6/.x-sc_prohibit_tab_based_indentation
+coreutils-7.6/Makefile.in
+coreutils-7.6/.x-sc_obsolete_symbols
+coreutils-7.6/.x-sc_prohibit_atoi_atof
+coreutils-7.6/configure.ac
+coreutils-7.6/tests/
+coreutils-7.6/tests/ls/
+coreutils-7.6/tests/ls/stat-dtype
+coreutils-7.6/tests/ls/readdir-mountpoint-inode
+coreutils-7.6/tests/ls/dired
+coreutils-7.6/tests/ls/inode
+coreutils-7.6/tests/ls/dangle
+coreutils-7.6/tests/ls/capability
+coreutils-7.6/tests/ls/proc-selinux-segfault
+coreutils-7.6/tests/ls/stat-vs-dirent
+coreutils-7.6/tests/ls/symlink-slash
+coreutils-7.6/tests/ls/multihardlink
+coreutils-7.6/tests/ls/abmon-align
+coreutils-7.6/tests/ls/no-cap
+coreutils-7.6/tests/ls/stat-failed
+coreutils-7.6/tests/ls/color-clear-to-eol
+coreutils-7.6/tests/ls/rt-1
+coreutils-7.6/tests/ls/follow-slink
+coreutils-7.6/tests/ls/nameless-uid
+coreutils-7.6/tests/ls/file-type
+coreutils-7.6/tests/ls/m-option
+coreutils-7.6/tests/ls/recursive
+coreutils-7.6/tests/ls/x-option
+coreutils-7.6/tests/ls/infloop
+coreutils-7.6/tests/ls/color-dtype-dir
+coreutils-7.6/tests/ls/no-arg
+coreutils-7.6/tests/ls/stat-free-symlinks
+coreutils-7.6/tests/Coreutils.pm
+coreutils-7.6/tests/df/
+coreutils-7.6/tests/df/total-verify
+coreutils-7.6/tests/df/unreadable
+coreutils-7.6/tests/Makefile.in
+coreutils-7.6/tests/readlink/
+coreutils-7.6/tests/readlink/can-e
+coreutils-7.6/tests/readlink/can-m
+coreutils-7.6/tests/readlink/rl-1
+coreutils-7.6/tests/readlink/can-f
+coreutils-7.6/tests/cp/
+coreutils-7.6/tests/cp/dir-rm-dest
+coreutils-7.6/tests/cp/abuse
+coreutils-7.6/tests/cp/cp-mv-enotsup-xattr
+coreutils-7.6/tests/cp/link-heap
+coreutils-7.6/tests/cp/cp-mv-backup
+coreutils-7.6/tests/cp/cp-HL
+coreutils-7.6/tests/cp/cp-a-selinux
+coreutils-7.6/tests/cp/symlink-slash
+coreutils-7.6/tests/cp/preserve-gid
+coreutils-7.6/tests/cp/link-no-deref
+coreutils-7.6/tests/cp/no-deref-link3
+coreutils-7.6/tests/cp/backup-is-src
+coreutils-7.6/tests/cp/reflink-auto
+coreutils-7.6/tests/cp/reflink-perm
+coreutils-7.6/tests/cp/backup-dir
+coreutils-7.6/tests/cp/link-preserve
+coreutils-7.6/tests/cp/sparse
+coreutils-7.6/tests/cp/backup-1
+coreutils-7.6/tests/cp/no-deref-link2
+coreutils-7.6/tests/cp/fail-perm
+coreutils-7.6/tests/cp/parent-perm
+coreutils-7.6/tests/cp/cp-parents
+coreutils-7.6/tests/cp/proc-short-read
+coreutils-7.6/tests/cp/thru-dangling
+coreutils-7.6/tests/cp/cp-i
+coreutils-7.6/tests/cp/existing-perm-race
+coreutils-7.6/tests/cp/preserve-2
+coreutils-7.6/tests/cp/dir-slash
+coreutils-7.6/tests/cp/dir-vs-file
+coreutils-7.6/tests/cp/same-file
+coreutils-7.6/tests/cp/into-self
+coreutils-7.6/tests/cp/file-perm-race
+coreutils-7.6/tests/cp/perm
+coreutils-7.6/tests/cp/special-bits
+coreutils-7.6/tests/cp/preserve-slink-time
+coreutils-7.6/tests/cp/r-vs-symlink
+coreutils-7.6/tests/cp/no-deref-link1
+coreutils-7.6/tests/cp/cp-deref
+coreutils-7.6/tests/cp/special-f
+coreutils-7.6/tests/cp/acl
+coreutils-7.6/tests/cp/link
+coreutils-7.6/tests/cp/src-base-dot
+coreutils-7.6/tests/cp/slink-2-slink
+coreutils-7.6/tests/cp/deref-slink
+coreutils-7.6/tests/cp/proc-zero-len
+coreutils-7.6/tests/cp/parent-perm-race
+coreutils-7.6/tests/require-perl
+coreutils-7.6/tests/tail-2/
+coreutils-7.6/tests/tail-2/assert-2
+coreutils-7.6/tests/tail-2/proc-ksyms
+coreutils-7.6/tests/tail-2/pid
+coreutils-7.6/tests/tail-2/infloop-1
+coreutils-7.6/tests/tail-2/tail-n0f
+coreutils-7.6/tests/tail-2/assert
+coreutils-7.6/tests/tail-2/pipe-f2
+coreutils-7.6/tests/tail-2/append-only
+coreutils-7.6/tests/tail-2/wait
+coreutils-7.6/tests/tail-2/start-middle
+coreutils-7.6/tests/tail-2/follow-stdin
+coreutils-7.6/tests/tail-2/flush-initial
+coreutils-7.6/tests/tail-2/pipe-f
+coreutils-7.6/tests/tail-2/big-4gb
+coreutils-7.6/tests/test-lib.sh
+coreutils-7.6/tests/ln/
+coreutils-7.6/tests/ln/backup-1
+coreutils-7.6/tests/ln/target-1
+coreutils-7.6/tests/ln/misc
+coreutils-7.6/tests/ln/slash-decorated-nonexistent-dest
+coreutils-7.6/tests/ln/hard-backup
+coreutils-7.6/tests/ln/sf-1
+coreutils-7.6/tests/pr/
+coreutils-7.6/tests/pr/b3l15-t
+coreutils-7.6/tests/pr/W20l24f-ll
+coreutils-7.6/tests/pr/b2l17-FF
+coreutils-7.6/tests/pr/W26l24f-ll
+coreutils-7.6/tests/pr/nN1+3l24f-bl
+coreutils-7.6/tests/pr/l24-FF
+coreutils-7.6/tests/pr/tta3-FF
+coreutils-7.6/tests/pr/nSml20-bl-FF
+coreutils-7.6/tests/pr/0FFnt
+coreutils-7.6/tests/pr/n+2l24f-bl
+coreutils-7.6/tests/pr/W72Jl24f-ll
+coreutils-7.6/tests/pr/n+5-8b3l17f-FF
+coreutils-7.6/tests/pr/a3l24f-lm
+coreutils-7.6/tests/pr/3b3l15f-t
+coreutils-7.6/tests/pr/Jb3l24f-lm
+coreutils-7.6/tests/pr/tt-0FF
+coreutils-7.6/tests/pr/o3b3l24f-tn
+coreutils-7.6/tests/pr/tt-FF
+coreutils-7.6/tests/pr/n+6b3l13f-FF
+coreutils-7.6/tests/pr/n+2l24f-0FF
+coreutils-7.6/tests/pr/3-5l24f-t
+coreutils-7.6/tests/pr/tt-bl
+coreutils-7.6/tests/pr/ml24-t
+coreutils-7.6/tests/pr/b3l15f-t
+coreutils-7.6/tests/pr/3b3f-0FF
+coreutils-7.6/tests/pr/o3mSl24f-bl-tn
+coreutils-7.6/tests/pr/tn2e8o3-t_tab
+coreutils-7.6/tests/pr/tne8o3-t_tab
+coreutils-7.6/tests/pr/n+3l24f-bl
+coreutils-7.6/tests/pr/2sw60f-t_notab
+coreutils-7.6/tests/pr/3a2l17-FF
+coreutils-7.6/tests/pr/0FFt
+coreutils-7.6/tests/pr/w72l24f-ll
+coreutils-7.6/tests/pr/4l24-FF
+coreutils-7.6/tests/pr/3a3l15-t
+coreutils-7.6/tests/pr/b3l24f-lm
+coreutils-7.6/tests/pr/W27l24f-ll
+coreutils-7.6/tests/pr/3b3l15-t
+coreutils-7.6/tests/pr/W35a3l24f-lm
+coreutils-7.6/tests/pr/ml24f-t-0F
+coreutils-7.6/tests/pr/W35Jb3l24f-lm
+coreutils-7.6/tests/pr/o3ml24f-bl-tn
+coreutils-7.6/tests/pr/t-t
+coreutils-7.6/tests/pr/FFtn
+coreutils-7.6/tests/pr/o3a3l24f-tn
+coreutils-7.6/tests/pr/pr-tests
+coreutils-7.6/tests/pr/o3a3Sl24f-tn
+coreutils-7.6/tests/pr/tFFt-lm
+coreutils-7.6/tests/pr/a3l15f-t
+coreutils-7.6/tests/pr/n+3ml24f-bl-tn
+coreutils-7.6/tests/pr/W35b3l24f-lm
+coreutils-7.6/tests/pr/l24-t
+coreutils-7.6/tests/pr/ml24f-0F
+coreutils-7.6/tests/pr/ttb3-FF
+coreutils-7.6/tests/pr/2f-t_notab
+coreutils-7.6/tests/pr/nSml20-t-t-FF
+coreutils-7.6/tests/pr/nN15l24f-bl
+coreutils-7.6/tests/pr/3ml24-t-FF
+coreutils-7.6/tests/pr/3ml24f-t
+coreutils-7.6/tests/pr/b2l15-FF
+coreutils-7.6/tests/pr/n+7l24-FF
+coreutils-7.6/tests/pr/tne8-t_tab
+coreutils-7.6/tests/pr/t_tab
+coreutils-7.6/tests/pr/n+6a2l17-FF
+coreutils-7.6/tests/pr/W35ml24f-lm-lo
+coreutils-7.6/tests/pr/3a3l15f-t
+coreutils-7.6/tests/pr/W28l24f-ll
+coreutils-7.6/tests/pr/b3f-0FF
+coreutils-7.6/tests/pr/a2l17-FF
+coreutils-7.6/tests/pr/ml24-FF
+coreutils-7.6/tests/pr/ml20-FF-t
+coreutils-7.6/tests/pr/nSml24-t-tFFFF
+coreutils-7.6/tests/pr/3f-0F
+coreutils-7.6/tests/pr/3f-FF
+coreutils-7.6/tests/pr/0FnFnt
+coreutils-7.6/tests/pr/o3b3Snl24f-tn
+coreutils-7.6/tests/pr/2-Sf-t_notab
+coreutils-7.6/tests/pr/nSml20-t-tFFFF
+coreutils-7.6/tests/pr/2s_w60f-t_nota
+coreutils-7.6/tests/pr/3b3f-0F
+coreutils-7.6/tests/pr/nSml24-bl-FF
+coreutils-7.6/tests/pr/W-72l24f-ll
+coreutils-7.6/tests/pr/3l24f-t
+coreutils-7.6/tests/pr/a3f-0FF
+coreutils-7.6/tests/pr/3l24-t
+coreutils-7.6/tests/pr/t-bl
+coreutils-7.6/tests/pr/0FF
+coreutils-7.6/tests/pr/b3f-FF
+coreutils-7.6/tests/pr/W35Ja3l24f-lm
+coreutils-7.6/tests/pr/FFn
+coreutils-7.6/tests/pr/a3f-0F
+coreutils-7.6/tests/pr/tb3-FF
+coreutils-7.6/tests/pr/a3l15-t
+coreutils-7.6/tests/pr/tFFt
+coreutils-7.6/tests/pr/Jml24f-lm-lo
+coreutils-7.6/tests/pr/a2l15-FF
+coreutils-7.6/tests/pr/0Ft
+coreutils-7.6/tests/pr/nSml24-t-t-FF
+coreutils-7.6/tests/pr/ta3-0FF
+coreutils-7.6/tests/pr/tn2e5o3-t_tab
+coreutils-7.6/tests/pr/l24f-t
+coreutils-7.6/tests/pr/W35Jml24f-lmlo
+coreutils-7.6/tests/pr/ml24-t-FF
+coreutils-7.6/tests/pr/t_notab
+coreutils-7.6/tests/pr/tt-t
+coreutils-7.6/tests/pr/tFFn
+coreutils-7.6/tests/pr/0FnFt
+coreutils-7.6/tests/pr/3b3f-FF
+coreutils-7.6/tests/pr/Ja3l24f-lm
+coreutils-7.6/tests/pr/n+3l24f-0FF
+coreutils-7.6/tests/pr/0F
+coreutils-7.6/tests/pr/n+5a3l13f-0FF
+coreutils-7.6/tests/pr/a3-0F
+coreutils-7.6/tests/pr/n+3-7l24-FF
+coreutils-7.6/tests/pr/n+4-8a2l17-FF
+coreutils-7.6/tests/pr/2s_f-t_notab
+coreutils-7.6/tests/pr/ml24f-lm-lo
+coreutils-7.6/tests/pr/3b2l17-FF
+coreutils-7.6/tests/pr/t_tab_
+coreutils-7.6/tests/pr/o3Jml24f-lm-lo
+coreutils-7.6/tests/pr/ml24f-t
+coreutils-7.6/tests/pr/FnFn
+coreutils-7.6/tests/pr/b3-0F
+coreutils-7.6/tests/pr/n+3ml24f-tn-bl
+coreutils-7.6/tests/pr/o3a3Snl24f-tn
+coreutils-7.6/tests/pr/b3f-0F
+coreutils-7.6/tests/pr/tn2e8-t_tab
+coreutils-7.6/tests/pr/tn_2e8-t_tab
+coreutils-7.6/tests/pr/nJml24f-lmlmlo
+coreutils-7.6/tests/pr/4-7l24-FF
+coreutils-7.6/tests/pr/2sf-t_notab
+coreutils-7.6/tests/pr/loli
+coreutils-7.6/tests/pr/tta3-0FF
+coreutils-7.6/tests/pr/tb3-0FF
+coreutils-7.6/tests/pr/tn
+coreutils-7.6/tests/pr/FF
+coreutils-7.6/tests/pr/ttb3-0FF
+coreutils-7.6/tests/pr/n+3ml20f-bl-FF
+coreutils-7.6/tests/pr/0Fnt
+coreutils-7.6/tests/pr/tFFt-ll
+coreutils-7.6/tests/pr/t-0FF
+coreutils-7.6/tests/pr/3-FF
+coreutils-7.6/tests/pr/t-FF
+coreutils-7.6/tests/pr/tFFt-bl
+coreutils-7.6/tests/pr/n+4b2l17f-0FF
+coreutils-7.6/tests/pr/3ml24-FF
+coreutils-7.6/tests/pr/3ml24-t
+coreutils-7.6/tests/pr/nl24f-bl
+coreutils-7.6/tests/pr/o3mSnl24fbltn
+coreutils-7.6/tests/pr/2w60f-t_notab
+coreutils-7.6/tests/pr/o3b3Sl24f-tn
+coreutils-7.6/tests/pr/ta3-FF
+coreutils-7.6/tests/pr/n+2-5l24f-0FF
+coreutils-7.6/tests/pr/tn_2e8S-t_tab
+coreutils-7.6/tests/pr/3-0F
+coreutils-7.6/tests/pr/tFnFt
+coreutils-7.6/tests/pr/n+8l20-FF
+coreutils-7.6/tests/pr/2-S_f-t_notab
+coreutils-7.6/tests/pr/nJml24f-lmlolm
+coreutils-7.6/tests/pr/3a3f-0F
+coreutils-7.6/tests/pr/a3f-FF
+coreutils-7.6/tests/dd/
+coreutils-7.6/tests/dd/not-rewound
+coreutils-7.6/tests/dd/direct
+coreutils-7.6/tests/dd/unblock-sync
+coreutils-7.6/tests/dd/skip-seek-past-file
+coreutils-7.6/tests/dd/skip-seek2
+coreutils-7.6/tests/dd/misc
+coreutils-7.6/tests/dd/unblock
+coreutils-7.6/tests/dd/reblock
+coreutils-7.6/tests/dd/skip-seek-past-dev
+coreutils-7.6/tests/dd/skip-seek
+coreutils-7.6/tests/dd/stderr
+coreutils-7.6/tests/rmdir/
+coreutils-7.6/tests/rmdir/fail-perm
+coreutils-7.6/tests/rmdir/ignore
+coreutils-7.6/tests/rmdir/t-slash
+coreutils-7.6/tests/sample-test
+coreutils-7.6/tests/mkdir/
+coreutils-7.6/tests/mkdir/p-slashdot
+coreutils-7.6/tests/mkdir/p-3
+coreutils-7.6/tests/mkdir/writable-under-readonly
+coreutils-7.6/tests/mkdir/p-2
+coreutils-7.6/tests/mkdir/t-slash
+coreutils-7.6/tests/mkdir/selinux
+coreutils-7.6/tests/mkdir/special-1
+coreutils-7.6/tests/mkdir/perm
+coreutils-7.6/tests/mkdir/p-v
+coreutils-7.6/tests/mkdir/p-1
+coreutils-7.6/tests/mkdir/parents
+coreutils-7.6/tests/mkdir/p-thru-slink
+coreutils-7.6/tests/envvar-check
+coreutils-7.6/tests/chgrp/
+coreutils-7.6/tests/chgrp/basic
+coreutils-7.6/tests/chgrp/default-no-deref
+coreutils-7.6/tests/chgrp/deref
+coreutils-7.6/tests/chgrp/posix-H
+coreutils-7.6/tests/chgrp/recurse
+coreutils-7.6/tests/chgrp/no-x
+coreutils-7.6/tests/Makefile.am
+coreutils-7.6/tests/CuTmpdir.pm
+coreutils-7.6/tests/rm/
+coreutils-7.6/tests/rm/r-3
+coreutils-7.6/tests/rm/fail-eperm
+coreutils-7.6/tests/rm/rm5
+coreutils-7.6/tests/rm/rm3
+coreutils-7.6/tests/rm/dot-rel
+coreutils-7.6/tests/rm/unreadable
+coreutils-7.6/tests/rm/unread2
+coreutils-7.6/tests/rm/dangling-symlink
+coreutils-7.6/tests/rm/deep-2
+coreutils-7.6/tests/rm/readdir-bug
+coreutils-7.6/tests/rm/sunos-1
+coreutils-7.6/tests/rm/interactive-always
+coreutils-7.6/tests/rm/ir-1
+coreutils-7.6/tests/rm/r-4
+coreutils-7.6/tests/rm/hash
+coreutils-7.6/tests/rm/i-1
+coreutils-7.6/tests/rm/cycle
+coreutils-7.6/tests/rm/dir-no-w
+coreutils-7.6/tests/rm/ignorable
+coreutils-7.6/tests/rm/fail-eacces
+coreutils-7.6/tests/rm/rm1
+coreutils-7.6/tests/rm/deep-1
+coreutils-7.6/tests/rm/i-no-r
+coreutils-7.6/tests/rm/empty-name
+coreutils-7.6/tests/rm/unread3
+coreutils-7.6/tests/rm/no-give-up
+coreutils-7.6/tests/rm/one-file-system
+coreutils-7.6/tests/rm/i-never
+coreutils-7.6/tests/rm/dir-nonrecur
+coreutils-7.6/tests/rm/isatty
+coreutils-7.6/tests/rm/rm4
+coreutils-7.6/tests/rm/rm2
+coreutils-7.6/tests/rm/empty-inacc
+coreutils-7.6/tests/rm/inaccessible
+coreutils-7.6/tests/rm/fail-2eperm
+coreutils-7.6/tests/rm/r-1
+coreutils-7.6/tests/rm/interactive-once
+coreutils-7.6/tests/rm/ext3-perf
+coreutils-7.6/tests/rm/f-1
+coreutils-7.6/tests/rm/r-2
+coreutils-7.6/tests/rm/v-slash
+coreutils-7.6/tests/README
+coreutils-7.6/tests/chroot/
+coreutils-7.6/tests/chroot/credentials
+coreutils-7.6/tests/check.mk
+coreutils-7.6/tests/misc/
+coreutils-7.6/tests/misc/arch
+coreutils-7.6/tests/misc/false-status
+coreutils-7.6/tests/misc/tr
+coreutils-7.6/tests/misc/tac
+coreutils-7.6/tests/misc/close-stdout
+coreutils-7.6/tests/misc/sort-version
+coreutils-7.6/tests/misc/df
+coreutils-7.6/tests/misc/sort
+coreutils-7.6/tests/misc/stty-row-col
+coreutils-7.6/tests/misc/paste
+coreutils-7.6/tests/misc/sha1sum
+coreutils-7.6/tests/misc/sha224sum
+coreutils-7.6/tests/misc/truncate-fail-diag
+coreutils-7.6/tests/misc/pathchk1
+coreutils-7.6/tests/misc/sort-continue
+coreutils-7.6/tests/misc/printf-cov
+coreutils-7.6/tests/misc/nl
+coreutils-7.6/tests/misc/base64
+coreutils-7.6/tests/misc/dirname
+coreutils-7.6/tests/misc/fold
+coreutils-7.6/tests/misc/head-c
+coreutils-7.6/tests/misc/stty
+coreutils-7.6/tests/misc/factor
+coreutils-7.6/tests/misc/date
+coreutils-7.6/tests/misc/sort-files0-from
+coreutils-7.6/tests/misc/pwd-long
+coreutils-7.6/tests/misc/pr
+coreutils-7.6/tests/misc/ls-time
+coreutils-7.6/tests/misc/date-sec
+coreutils-7.6/tests/misc/unexpand
+coreutils-7.6/tests/misc/tsort
+coreutils-7.6/tests/misc/csplit
+coreutils-7.6/tests/misc/invalid-opt
+coreutils-7.6/tests/misc/sum-sysv
+coreutils-7.6/tests/misc/shuf
+coreutils-7.6/tests/misc/test
+coreutils-7.6/tests/misc/fmt
+coreutils-7.6/tests/misc/sum
+coreutils-7.6/tests/misc/uniq
+coreutils-7.6/tests/misc/truncate-dangling-symlink
+coreutils-7.6/tests/misc/tee
+coreutils-7.6/tests/misc/pwd-unreadable-parent
+coreutils-7.6/tests/misc/cat-proc
+coreutils-7.6/tests/misc/mktemp
+coreutils-7.6/tests/misc/tail
+coreutils-7.6/tests/misc/head-elide-tail
+coreutils-7.6/tests/misc/xstrtol
+coreutils-7.6/tests/misc/sort-merge-fdlimit
+coreutils-7.6/tests/misc/wc-files0-from
+coreutils-7.6/tests/misc/split-a
+coreutils-7.6/tests/misc/od
+coreutils-7.6/tests/misc/dircolors
+coreutils-7.6/tests/misc/split-fail
+coreutils-7.6/tests/misc/truncate-parameters
+coreutils-7.6/tests/misc/shred-exact
+coreutils-7.6/tests/misc/xattr
+coreutils-7.6/tests/misc/selinux
+coreutils-7.6/tests/misc/printf
+coreutils-7.6/tests/misc/fmt-long-line
+coreutils-7.6/tests/misc/nice
+coreutils-7.6/tests/misc/wc
+coreutils-7.6/tests/misc/nohup
+coreutils-7.6/tests/misc/truncate-relative
+coreutils-7.6/tests/misc/od-N
+coreutils-7.6/tests/misc/sha512sum
+coreutils-7.6/tests/misc/cat-buf
+coreutils-7.6/tests/misc/head-pos
+coreutils-7.6/tests/misc/truncate-owned-by-other
+coreutils-7.6/tests/misc/tee-dash
+coreutils-7.6/tests/misc/tty-eof
+coreutils-7.6/tests/misc/timeout
+coreutils-7.6/tests/misc/expr
+coreutils-7.6/tests/misc/sha1sum-vec
+coreutils-7.6/tests/misc/seq-long-double
+coreutils-7.6/tests/misc/timeout-parameters
+coreutils-7.6/tests/misc/od-x8
+coreutils-7.6/tests/misc/stty-invalid
+coreutils-7.6/tests/misc/chcon
+coreutils-7.6/tests/misc/groups-dash
+coreutils-7.6/tests/misc/wc-files0
+coreutils-7.6/tests/misc/printf-hex
+coreutils-7.6/tests/misc/head
+coreutils-7.6/tests/misc/printf-surprise
+coreutils-7.6/tests/misc/ptx
+coreutils-7.6/tests/misc/cut
+coreutils-7.6/tests/misc/sort-rand
+coreutils-7.6/tests/misc/split-l
+coreutils-7.6/tests/misc/seq
+coreutils-7.6/tests/misc/chcon-fail
+coreutils-7.6/tests/misc/shred-remove
+coreutils-7.6/tests/misc/sort-compress
+coreutils-7.6/tests/misc/groups-version
+coreutils-7.6/tests/misc/stdbuf
+coreutils-7.6/tests/misc/sort-merge
+coreutils-7.6/tests/misc/truncate-no-create-missing
+coreutils-7.6/tests/misc/ls-misc
+coreutils-7.6/tests/misc/truncate-overflow
+coreutils-7.6/tests/misc/truncate-fifo
+coreutils-7.6/tests/misc/md5sum
+coreutils-7.6/tests/misc/stat-fmt
+coreutils-7.6/tests/misc/id-groups
+coreutils-7.6/tests/misc/id-context
+coreutils-7.6/tests/misc/md5sum-newline
+coreutils-7.6/tests/misc/sha384sum
+coreutils-7.6/tests/misc/date-next-dow
+coreutils-7.6/tests/misc/help-version
+coreutils-7.6/tests/misc/tac-continue
+coreutils-7.6/tests/misc/runcon-no-reorder
+coreutils-7.6/tests/misc/pwd-option
+coreutils-7.6/tests/misc/shred-passes
+coreutils-7.6/tests/misc/df-P
+coreutils-7.6/tests/misc/od-multiple-t
+coreutils-7.6/tests/misc/expand
+coreutils-7.6/tests/misc/basename
+coreutils-7.6/tests/misc/comm
+coreutils-7.6/tests/misc/readlink-fp-loop
+coreutils-7.6/tests/misc/sha256sum
+coreutils-7.6/tests/misc/ptx-overrun
+coreutils-7.6/tests/misc/truncate-dir-fail
+coreutils-7.6/tests/misc/join
+coreutils-7.6/tests/misc/mknod
+coreutils-7.6/tests/misc/test-diag
+coreutils-7.6/tests/misc/stat-printf
+coreutils-7.6/tests/du/
+coreutils-7.6/tests/du/basic
+coreutils-7.6/tests/du/trailing-slash
+coreutils-7.6/tests/du/restore-wd
+coreutils-7.6/tests/du/long-from-unreadable
+coreutils-7.6/tests/du/slash
+coreutils-7.6/tests/du/hard-link
+coreutils-7.6/tests/du/inaccessible-cwd
+coreutils-7.6/tests/du/deref-args
+coreutils-7.6/tests/du/two-args
+coreutils-7.6/tests/du/no-deref
+coreutils-7.6/tests/du/fd-leak
+coreutils-7.6/tests/du/exclude
+coreutils-7.6/tests/du/deref
+coreutils-7.6/tests/du/one-file-system
+coreutils-7.6/tests/du/long-sloop
+coreutils-7.6/tests/du/2g
+coreutils-7.6/tests/du/inacc-dest
+coreutils-7.6/tests/du/slink
+coreutils-7.6/tests/du/no-x
+coreutils-7.6/tests/du/inacc-dir
+coreutils-7.6/tests/du/files0-from
+coreutils-7.6/tests/du/8gb
+coreutils-7.6/tests/install/
+coreutils-7.6/tests/install/d-slashdot
+coreutils-7.6/tests/install/create-leading
+coreutils-7.6/tests/install/trap
+coreutils-7.6/tests/install/basic-1
+coreutils-7.6/tests/install/strip-program
+coreutils-7.6/tests/install/install-C-root
+coreutils-7.6/tests/install/install-C
+coreutils-7.6/tests/install/install-C-selinux
+coreutils-7.6/tests/chmod/
+coreutils-7.6/tests/chmod/umask-x
+coreutils-7.6/tests/chmod/setgid
+coreutils-7.6/tests/chmod/equals
+coreutils-7.6/tests/chmod/octal
+coreutils-7.6/tests/chmod/silent
+coreutils-7.6/tests/chmod/thru-dangling
+coreutils-7.6/tests/chmod/c-option
+coreutils-7.6/tests/chmod/inaccessible
+coreutils-7.6/tests/chmod/equal-x
+coreutils-7.6/tests/chmod/usage
+coreutils-7.6/tests/chmod/no-x
+coreutils-7.6/tests/chown/
+coreutils-7.6/tests/chown/basic
+coreutils-7.6/tests/chown/separator
+coreutils-7.6/tests/chown/deref
+coreutils-7.6/tests/chown/preserve-root
+coreutils-7.6/tests/lang-default
+coreutils-7.6/tests/other-fs-tmpdir
+coreutils-7.6/tests/mv/
+coreutils-7.6/tests/mv/dir-file
+coreutils-7.6/tests/mv/into-self-4
+coreutils-7.6/tests/mv/mv-special-1
+coreutils-7.6/tests/mv/diag
+coreutils-7.6/tests/mv/hard-link-1
+coreutils-7.6/tests/mv/leak-fd
+coreutils-7.6/tests/mv/trailing-slash
+coreutils-7.6/tests/mv/part-symlink
+coreutils-7.6/tests/mv/i-4
+coreutils-7.6/tests/mv/i-5
+coreutils-7.6/tests/mv/backup-is-src
+coreutils-7.6/tests/mv/i-1
+coreutils-7.6/tests/mv/part-rename
+coreutils-7.6/tests/mv/i-2
+coreutils-7.6/tests/mv/backup-dir
+coreutils-7.6/tests/mv/hard-verbose
+coreutils-7.6/tests/mv/sticky-to-xpart
+coreutils-7.6/tests/mv/atomic2
+coreutils-7.6/tests/mv/dup-source
+coreutils-7.6/tests/mv/i-3
+coreutils-7.6/tests/mv/into-self-3
+coreutils-7.6/tests/mv/force
+coreutils-7.6/tests/mv/no-target-dir
+coreutils-7.6/tests/mv/childproof
+coreutils-7.6/tests/mv/partition-perm
+coreutils-7.6/tests/mv/into-self
+coreutils-7.6/tests/mv/mv-n
+coreutils-7.6/tests/mv/perm-1
+coreutils-7.6/tests/mv/part-hardlink
+coreutils-7.6/tests/mv/hard-4
+coreutils-7.6/tests/mv/to-symlink
+coreutils-7.6/tests/mv/hard-3
+coreutils-7.6/tests/mv/part-fail
+coreutils-7.6/tests/mv/i-link-no
+coreutils-7.6/tests/mv/acl
+coreutils-7.6/tests/mv/dir2dir
+coreutils-7.6/tests/mv/update
+coreutils-7.6/tests/mv/into-self-2
+coreutils-7.6/tests/mv/atomic
+coreutils-7.6/tests/mv/hard-2
+coreutils-7.6/tests/touch/
+coreutils-7.6/tests/touch/empty-file
+coreutils-7.6/tests/touch/no-rights
+coreutils-7.6/tests/touch/dangling-symlink
+coreutils-7.6/tests/touch/now-owned-by-other
+coreutils-7.6/tests/touch/obsolescent
+coreutils-7.6/tests/touch/no-create-missing
+coreutils-7.6/tests/touch/fifo
+coreutils-7.6/tests/touch/fail-diag
+coreutils-7.6/tests/touch/not-owner
+coreutils-7.6/tests/touch/dir-1
+coreutils-7.6/tests/touch/read-only
+coreutils-7.6/tests/touch/relative
+coreutils-7.6/.x-sc_system_h_headers
+coreutils-7.6/ChangeLog-2005
+coreutils-7.6/INSTALL
+coreutils-7.6/src/
+coreutils-7.6/src/system.h
+coreutils-7.6/src/cat.c
+coreutils-7.6/src/logname.c
+coreutils-7.6/src/cksum.c
+coreutils-7.6/src/pwd.c
+coreutils-7.6/src/mkfifo.c
+coreutils-7.6/src/stty.c
+coreutils-7.6/src/setuidgid.c
+coreutils-7.6/src/Makefile.in
+coreutils-7.6/src/mktemp.c
+coreutils-7.6/src/wheel.h
+coreutils-7.6/src/true.c
+coreutils-7.6/src/chcon.c
+coreutils-7.6/src/operand2sig.h
+coreutils-7.6/src/remove.c
+coreutils-7.6/src/shred.c
+coreutils-7.6/src/fold.c
+coreutils-7.6/src/mv.c
+coreutils-7.6/src/id.c
+coreutils-7.6/src/date.c
+coreutils-7.6/src/sum.c
+coreutils-7.6/src/truncate.c
+coreutils-7.6/src/uname-uname.c
+coreutils-7.6/src/ln.c
+coreutils-7.6/src/dd.c
+coreutils-7.6/src/dcgen
+coreutils-7.6/src/whoami.c
+coreutils-7.6/src/mkdir.c
+coreutils-7.6/src/libstdbuf.c
+coreutils-7.6/src/tr.c
+coreutils-7.6/src/chgrp.c
+coreutils-7.6/src/nice.c
+coreutils-7.6/src/dirname.c
+coreutils-7.6/src/uname.c
+coreutils-7.6/src/comm.c
+coreutils-7.6/src/split.c
+coreutils-7.6/src/hostid.c
+coreutils-7.6/src/pathchk.c
+coreutils-7.6/src/env.c
+coreutils-7.6/src/expr.c
+coreutils-7.6/src/yes.c
+coreutils-7.6/src/nl.c
+coreutils-7.6/src/tail.c
+coreutils-7.6/src/Makefile.am
+coreutils-7.6/src/dircolors.h
+coreutils-7.6/src/seq.c
+coreutils-7.6/src/tac.c
+coreutils-7.6/src/wheel-gen.pl
+coreutils-7.6/src/groups.c
+coreutils-7.6/src/touch.c
+coreutils-7.6/src/cp-hash.c
+coreutils-7.6/src/expand.c
+coreutils-7.6/src/chmod.c
+coreutils-7.6/src/wheel-size.h
+coreutils-7.6/src/dircolors.hin
+coreutils-7.6/src/base64.c
+coreutils-7.6/src/unlink.c
+coreutils-7.6/src/factor.c
+coreutils-7.6/src/users.c
+coreutils-7.6/src/tee.c
+coreutils-7.6/src/sync.c
+coreutils-7.6/src/rm.c
+coreutils-7.6/src/unexpand.c
+coreutils-7.6/src/stat.c
+coreutils-7.6/src/lbracket.c
+coreutils-7.6/src/fs.h
+coreutils-7.6/src/c99-to-c89.diff
+coreutils-7.6/src/hostname.c
+coreutils-7.6/src/group-list.h
+coreutils-7.6/src/ls-vdir.c
+coreutils-7.6/src/uniq.c
+coreutils-7.6/src/mknod.c
+coreutils-7.6/src/rmdir.c
+coreutils-7.6/src/ls.c
+coreutils-7.6/src/shuf.c
+coreutils-7.6/src/od.c
+coreutils-7.6/src/false.c
+coreutils-7.6/src/printf.c
+coreutils-7.6/src/operand2sig.c
+coreutils-7.6/src/remove.h
+coreutils-7.6/src/join.c
+coreutils-7.6/src/wc.c
+coreutils-7.6/src/getlimits.c
+coreutils-7.6/src/readlink.c
+coreutils-7.6/src/sleep.c
+coreutils-7.6/src/kill.c
+coreutils-7.6/src/sort.c
+coreutils-7.6/src/copy.c
+coreutils-7.6/src/ptx.c
+coreutils-7.6/src/copy.h
+coreutils-7.6/src/dircolors.c
+coreutils-7.6/src/ls-ls.c
+coreutils-7.6/src/nohup.c
+coreutils-7.6/src/du.c
+coreutils-7.6/src/chown-core.c
+coreutils-7.6/src/runcon.c
+coreutils-7.6/src/tsort.c
+coreutils-7.6/src/extract-magic
+coreutils-7.6/src/prog-fprintf.c
+coreutils-7.6/src/chown.c
+coreutils-7.6/src/uname-arch.c
+coreutils-7.6/src/csplit.c
+coreutils-7.6/src/chroot.c
+coreutils-7.6/src/uptime.c
+coreutils-7.6/src/cp-hash.h
+coreutils-7.6/src/who.c
+coreutils-7.6/src/stdbuf.c
+coreutils-7.6/src/chown-core.h
+coreutils-7.6/src/paste.c
+coreutils-7.6/src/prog-fprintf.h
+coreutils-7.6/src/printenv.c
+coreutils-7.6/src/ls-dir.c
+coreutils-7.6/src/cut.c
+coreutils-7.6/src/echo.c
+coreutils-7.6/src/md5sum.c
+coreutils-7.6/src/basename.c
+coreutils-7.6/src/df.c
+coreutils-7.6/src/tty.c
+coreutils-7.6/src/cp.c
+coreutils-7.6/src/su.c
+coreutils-7.6/src/install.c
+coreutils-7.6/src/uname.h
+coreutils-7.6/src/group-list.c
+coreutils-7.6/src/head.c
+coreutils-7.6/src/test.c
+coreutils-7.6/src/ls.h
+coreutils-7.6/src/tac-pipe.c
+coreutils-7.6/src/pr.c
+coreutils-7.6/src/link.c
+coreutils-7.6/src/timeout.c
+coreutils-7.6/src/fmt.c
+coreutils-7.6/src/pinky.c
+coreutils-7.6/GNUmakefile
+coreutils-7.6/ABOUT-NLS
+coreutils-7.6/po/
+coreutils-7.6/po/zh_CN.gmo
+coreutils-7.6/po/it.po
+coreutils-7.6/po/sv.po
+coreutils-7.6/po/cs.po
+coreutils-7.6/po/quot.sed
+coreutils-7.6/po/zh_CN.po
+coreutils-7.6/po/en@quot.header
+coreutils-7.6/po/af.gmo
+coreutils-7.6/po/pl.gmo
+coreutils-7.6/po/fi.po
+coreutils-7.6/po/en@boldquot.header
+coreutils-7.6/po/bg.po
+coreutils-7.6/po/it.gmo
+coreutils-7.6/po/pt.gmo
+coreutils-7.6/po/eu.po
+coreutils-7.6/po/coreutils.pot
+coreutils-7.6/po/tr.po
+coreutils-7.6/po/de.po
+coreutils-7.6/po/bg.gmo
+coreutils-7.6/po/sk.gmo
+coreutils-7.6/po/pl.po
+coreutils-7.6/po/ga.gmo
+coreutils-7.6/po/ga.po
+coreutils-7.6/po/de.gmo
+coreutils-7.6/po/lt.gmo
+coreutils-7.6/po/fr.po
+coreutils-7.6/po/id.po
+coreutils-7.6/po/pt_BR.po
+coreutils-7.6/po/es.gmo
+coreutils-7.6/po/lt.po
+coreutils-7.6/po/sl.po
+coreutils-7.6/po/fr.gmo
+coreutils-7.6/po/ja.po
+coreutils-7.6/po/zh_TW.gmo
+coreutils-7.6/po/sk.po
+coreutils-7.6/po/boldquot.sed
+coreutils-7.6/po/es.po
+coreutils-7.6/po/ms.gmo
+coreutils-7.6/po/POTFILES.in
+coreutils-7.6/po/stamp-po
+coreutils-7.6/po/be.po
+coreutils-7.6/po/Makevars
+coreutils-7.6/po/ja.gmo
+coreutils-7.6/po/hu.gmo
+coreutils-7.6/po/uk.gmo
+coreutils-7.6/po/id.gmo
+coreutils-7.6/po/da.po
+coreutils-7.6/po/gl.gmo
+coreutils-7.6/po/vi.po
+coreutils-7.6/po/sl.gmo
+coreutils-7.6/po/tr.gmo
+coreutils-7.6/po/sv.gmo
+coreutils-7.6/po/ru.gmo
+coreutils-7.6/po/el.gmo
+coreutils-7.6/po/zh_TW.po
+coreutils-7.6/po/Makefile.in.in
+coreutils-7.6/po/ko.gmo
+coreutils-7.6/po/nl.po
+coreutils-7.6/po/insert-header.sin
+coreutils-7.6/po/LINGUAS
+coreutils-7.6/po/ko.po
+coreutils-7.6/po/nb.gmo
+coreutils-7.6/po/ChangeLog-2007
+coreutils-7.6/po/remove-potcdate.sin
+coreutils-7.6/po/ms.po
+coreutils-7.6/po/pt_BR.gmo
+coreutils-7.6/po/Rules-quot
+coreutils-7.6/po/gl.po
+coreutils-7.6/po/hu.po
+coreutils-7.6/po/pt.po
+coreutils-7.6/po/ru.po
+coreutils-7.6/po/eu.gmo
+coreutils-7.6/po/ca.po
+coreutils-7.6/po/et.gmo
+coreutils-7.6/po/vi.gmo
+coreutils-7.6/po/da.gmo
+coreutils-7.6/po/af.po
+coreutils-7.6/po/nb.po
+coreutils-7.6/po/be.gmo
+coreutils-7.6/po/cs.gmo
+coreutils-7.6/po/fi.gmo
+coreutils-7.6/po/ca.gmo
+coreutils-7.6/po/et.po
+coreutils-7.6/po/uk.po
+coreutils-7.6/po/el.po
+coreutils-7.6/po/nl.gmo
+coreutils-7.6/.x-sc_require_config_h_first
+coreutils-7.6/man/
+coreutils-7.6/man/users.x
+coreutils-7.6/man/mktemp.1
+coreutils-7.6/man/chmod.1
+coreutils-7.6/man/tr.1
+coreutils-7.6/man/shred.x
+coreutils-7.6/man/link.1
+coreutils-7.6/man/vdir.1
+coreutils-7.6/man/readlink.1
+coreutils-7.6/man/od.1
+coreutils-7.6/man/uptime.x
+coreutils-7.6/man/id.x
+coreutils-7.6/man/cksum.1
+coreutils-7.6/man/link.x
+coreutils-7.6/man/Makefile.in
+coreutils-7.6/man/cat.1
+coreutils-7.6/man/paste.x
+coreutils-7.6/man/basename.1
+coreutils-7.6/man/tee.1
+coreutils-7.6/man/pr.1
+coreutils-7.6/man/split.1
+coreutils-7.6/man/nl.1
+coreutils-7.6/man/chroot.1
+coreutils-7.6/man/unlink.x
+coreutils-7.6/man/users.1
+coreutils-7.6/man/dd.x
+coreutils-7.6/man/printf.x
+coreutils-7.6/man/comm.x
+coreutils-7.6/man/sum.x
+coreutils-7.6/man/dirname.x
+coreutils-7.6/man/chcon.x
+coreutils-7.6/man/sort.x
+coreutils-7.6/man/printenv.x
+coreutils-7.6/man/tsort.1
+coreutils-7.6/man/unexpand.x
+coreutils-7.6/man/unlink.1
+coreutils-7.6/man/uname.1
+coreutils-7.6/man/yes.x
+coreutils-7.6/man/false.x
+coreutils-7.6/man/ln.1
+coreutils-7.6/man/stty.1
+coreutils-7.6/man/mv.1
+coreutils-7.6/man/tac.x
+coreutils-7.6/man/stat.x
+coreutils-7.6/man/nice.1
+coreutils-7.6/man/chgrp.1
+coreutils-7.6/man/test.x
+coreutils-7.6/man/nohup.1
+coreutils-7.6/man/head.x
+coreutils-7.6/man/sha224sum.1
+coreutils-7.6/man/sha224sum.x
+coreutils-7.6/man/stdbuf.1
+coreutils-7.6/man/uname.x
+coreutils-7.6/man/truncate.x
+coreutils-7.6/man/hostid.1
+coreutils-7.6/man/fold.x
+coreutils-7.6/man/base64.x
+coreutils-7.6/man/runcon.1
+coreutils-7.6/man/du.1
+coreutils-7.6/man/cat.x
+coreutils-7.6/man/whoami.x
+coreutils-7.6/man/install.1
+coreutils-7.6/man/groups.1
+coreutils-7.6/man/mkdir.x
+coreutils-7.6/man/mkdir.1
+coreutils-7.6/man/mkfifo.x
+coreutils-7.6/man/false.1
+coreutils-7.6/man/mknod.x
+coreutils-7.6/man/rmdir.x
+coreutils-7.6/man/printenv.1
+coreutils-7.6/man/dirname.1
+coreutils-7.6/man/Makefile.am
+coreutils-7.6/man/date.1
+coreutils-7.6/man/env.x
+coreutils-7.6/man/mknod.1
+coreutils-7.6/man/touch.x
+coreutils-7.6/man/truncate.1
+coreutils-7.6/man/seq.1
+coreutils-7.6/man/seq.x
+coreutils-7.6/man/install.x
+coreutils-7.6/man/true.x
+coreutils-7.6/man/sum.1
+coreutils-7.6/man/df.x
+coreutils-7.6/man/sha1sum.1
+coreutils-7.6/man/chown.x
+coreutils-7.6/man/wc.x
+coreutils-7.6/man/echo.1
+coreutils-7.6/man/hostname.x
+coreutils-7.6/man/arch.x
+coreutils-7.6/man/chroot.x
+coreutils-7.6/man/help2man
+coreutils-7.6/man/head.1
+coreutils-7.6/man/uptime.1
+coreutils-7.6/man/ls.x
+coreutils-7.6/man/whoami.1
+coreutils-7.6/man/nohup.x
+coreutils-7.6/man/tr.x
+coreutils-7.6/man/sha384sum.1
+coreutils-7.6/man/nl.x
+coreutils-7.6/man/uniq.1
+coreutils-7.6/man/runcon.x
+coreutils-7.6/man/fmt.x
+coreutils-7.6/man/rm.1
+coreutils-7.6/man/join.x
+coreutils-7.6/man/rm.x
+coreutils-7.6/man/shred.1
+coreutils-7.6/man/yes.1
+coreutils-7.6/man/chcon.1
+coreutils-7.6/man/dir.1
+coreutils-7.6/man/pr.x
+coreutils-7.6/man/cut.1
+coreutils-7.6/man/cp.x
+coreutils-7.6/man/sleep.1
+coreutils-7.6/man/tail.1
+coreutils-7.6/man/tsort.x
+coreutils-7.6/man/id.1
+coreutils-7.6/man/echo.x
+coreutils-7.6/man/kill.x
+coreutils-7.6/man/df.1
+coreutils-7.6/man/sha384sum.x
+coreutils-7.6/man/mv.x
+coreutils-7.6/man/sort.1
+coreutils-7.6/man/chgrp.x
+coreutils-7.6/man/env.1
+coreutils-7.6/man/comm.1
+coreutils-7.6/man/basename.x
+coreutils-7.6/man/cp.1
+coreutils-7.6/man/tee.x
+coreutils-7.6/man/dircolors.x
+coreutils-7.6/man/tail.x
+coreutils-7.6/man/factor.1
+coreutils-7.6/man/timeout.x
+coreutils-7.6/man/md5sum.x
+coreutils-7.6/man/dd.1
+coreutils-7.6/man/chown.1
+coreutils-7.6/man/sha1sum.x
+coreutils-7.6/man/sync.1
+coreutils-7.6/man/fold.1
+coreutils-7.6/man/timeout.1
+coreutils-7.6/man/ptx.x
+coreutils-7.6/man/logname.1
+coreutils-7.6/man/csplit.1
+coreutils-7.6/man/md5sum.1
+coreutils-7.6/man/du.x
+coreutils-7.6/man/pwd.1
+coreutils-7.6/man/readlink.x
+coreutils-7.6/man/true.1
+coreutils-7.6/man/fmt.1
+coreutils-7.6/man/sync.x
+coreutils-7.6/man/stty.x
+coreutils-7.6/man/cksum.x
+coreutils-7.6/man/base64.1
+coreutils-7.6/man/unexpand.1
+coreutils-7.6/man/chmod.x
+coreutils-7.6/man/uniq.x
+coreutils-7.6/man/rmdir.1
+coreutils-7.6/man/dircolors.1
+coreutils-7.6/man/pinky.x
+coreutils-7.6/man/who.x
+coreutils-7.6/man/factor.x
+coreutils-7.6/man/cut.x
+coreutils-7.6/man/su.x
+coreutils-7.6/man/sha512sum.x
+coreutils-7.6/man/stat.1
+coreutils-7.6/man/mktemp.x
+coreutils-7.6/man/date.x
+coreutils-7.6/man/ln.x
+coreutils-7.6/man/mkfifo.1
+coreutils-7.6/man/expr.x
+coreutils-7.6/man/csplit.x
+coreutils-7.6/man/hostid.x
+coreutils-7.6/man/dir.x
+coreutils-7.6/man/pathchk.1
+coreutils-7.6/man/sha256sum.x
+coreutils-7.6/man/ptx.1
+coreutils-7.6/man/test.1
+coreutils-7.6/man/sha256sum.1
+coreutils-7.6/man/sleep.x
+coreutils-7.6/man/expr.1
+coreutils-7.6/man/groups.x
+coreutils-7.6/man/shuf.x
+coreutils-7.6/man/kill.1
+coreutils-7.6/man/expand.1
+coreutils-7.6/man/split.x
+coreutils-7.6/man/ls.1
+coreutils-7.6/man/who.1
+coreutils-7.6/man/nice.x
+coreutils-7.6/man/tty.1
+coreutils-7.6/man/touch.1
+coreutils-7.6/man/stdbuf.x
+coreutils-7.6/man/sha512sum.1
+coreutils-7.6/man/pinky.1
+coreutils-7.6/man/printf.1
+coreutils-7.6/man/paste.1
+coreutils-7.6/man/shuf.1
+coreutils-7.6/man/tty.x
+coreutils-7.6/man/pathchk.x
+coreutils-7.6/man/pwd.x
+coreutils-7.6/man/wc.1
+coreutils-7.6/man/tac.1
+coreutils-7.6/man/expand.x
+coreutils-7.6/man/logname.x
+coreutils-7.6/man/join.1
+coreutils-7.6/man/od.x
+coreutils-7.6/man/vdir.x
+coreutils-7.6/lib/
+coreutils-7.6/lib/fpurge.c
+coreutils-7.6/lib/inttostr.h
+coreutils-7.6/lib/inttypes.in.h
+coreutils-7.6/lib/memcmp2.c
+coreutils-7.6/lib/verror.c
+coreutils-7.6/lib/ignore-value.h
+coreutils-7.6/lib/btowc.c
+coreutils-7.6/lib/unicodeio.c
+coreutils-7.6/lib/iconv_open-solaris.h
+coreutils-7.6/lib/u64.h
+coreutils-7.6/lib/readtokens.h
+coreutils-7.6/lib/xprintf.c
+coreutils-7.6/lib/mkdir-p.h
+coreutils-7.6/lib/strnlen1.c
+coreutils-7.6/lib/rand-isaac.c
+coreutils-7.6/lib/unistd-safer.h
+coreutils-7.6/lib/se-context.in.h
+coreutils-7.6/lib/propername.h
+coreutils-7.6/lib/unsetenv.c
+coreutils-7.6/lib/save-cwd.h
+coreutils-7.6/lib/stdlib.in.h
+coreutils-7.6/lib/physmem.h
+coreutils-7.6/lib/fchmodat.c
+coreutils-7.6/lib/openat-priv.h
+coreutils-7.6/lib/printf-frexp.h
+coreutils-7.6/lib/mbscasecmp.c
+coreutils-7.6/lib/openat.h
+coreutils-7.6/lib/close-hook.h
+coreutils-7.6/lib/yesno.h
+coreutils-7.6/lib/same.h
+coreutils-7.6/lib/memxfrm.h
+coreutils-7.6/lib/mbswidth.c
+coreutils-7.6/lib/utimecmp.h
+coreutils-7.6/lib/xstrtod.h
+coreutils-7.6/lib/regex.c
+coreutils-7.6/lib/malloca.h
+coreutils-7.6/lib/hash.h
+coreutils-7.6/lib/freadseek.c
+coreutils-7.6/lib/cloexec.c
+coreutils-7.6/lib/close-stream.h
+coreutils-7.6/lib/modechange.h
+coreutils-7.6/lib/modechange.c
+coreutils-7.6/lib/creat-safer.c
+coreutils-7.6/lib/xfts.c
+coreutils-7.6/lib/canon-host.c
+coreutils-7.6/lib/stripslash.c
+coreutils-7.6/lib/close-stream.c
+coreutils-7.6/lib/mkdirat.c
+coreutils-7.6/lib/Makefile.in
+coreutils-7.6/lib/filemode.h
+coreutils-7.6/lib/iconv_open-solaris.gperf
+coreutils-7.6/lib/fprintftime.c
+coreutils-7.6/lib/stddef.in.h
+coreutils-7.6/lib/fd-reopen.h
+coreutils-7.6/lib/xnanosleep.h
+coreutils-7.6/lib/progname.h
+coreutils-7.6/lib/closein.h
+coreutils-7.6/lib/strnumcmp.c
+coreutils-7.6/lib/priv-set.c
+coreutils-7.6/lib/xnanosleep.c
+coreutils-7.6/lib/xfreopen.h
+coreutils-7.6/lib/randperm.h
+coreutils-7.6/lib/posixtm.h
+coreutils-7.6/lib/full-write.c
+coreutils-7.6/lib/float.in.h
+coreutils-7.6/lib/fd-reopen.c
+coreutils-7.6/lib/hash-triple.c
+coreutils-7.6/lib/alignof.h
+coreutils-7.6/lib/dirchownmod.c
+coreutils-7.6/lib/mgetgroups.h
+coreutils-7.6/lib/memmove.c
+coreutils-7.6/lib/long-options.h
+coreutils-7.6/lib/gethrxtime.c
+coreutils-7.6/lib/fstatat.c
+coreutils-7.6/lib/argmatch.h
+coreutils-7.6/lib/c-strtod.c
+coreutils-7.6/lib/backupfile.c
+coreutils-7.6/lib/mpsort.c
+coreutils-7.6/lib/printf-frexpl.h
+coreutils-7.6/lib/lstat.c
+coreutils-7.6/lib/regexec.c
+coreutils-7.6/lib/posixtm.c
+coreutils-7.6/lib/safe-read.h
+coreutils-7.6/lib/quotearg.c
+coreutils-7.6/lib/fileblocks.c
+coreutils-7.6/lib/printf-frexp.c
+coreutils-7.6/lib/selinux-at.c
+coreutils-7.6/lib/human.h
+coreutils-7.6/lib/acl-internal.h
+coreutils-7.6/lib/openat-proc.c
+coreutils-7.6/lib/stat-time.h
+coreutils-7.6/lib/version-etc.h
+coreutils-7.6/lib/strverscmp.c
+coreutils-7.6/lib/close-hook.c
+coreutils-7.6/lib/xstrtoul.c
+coreutils-7.6/lib/mbswidth.h
+coreutils-7.6/lib/select.c
+coreutils-7.6/lib/strdup.c
+coreutils-7.6/lib/fts_.h
+coreutils-7.6/lib/posixver.h
+coreutils-7.6/lib/freadptr.c
+coreutils-7.6/lib/version-etc-fsf.c
+coreutils-7.6/lib/isapipe.c
+coreutils-7.6/lib/posixver.c
+coreutils-7.6/lib/iconv_open-osf.h
+coreutils-7.6/lib/openat-safer.c
+coreutils-7.6/lib/netinet_in.in.h
+coreutils-7.6/lib/fflush.c
+coreutils-7.6/lib/lchown.c
+coreutils-7.6/lib/euidaccess-stat.h
+coreutils-7.6/lib/fsusage.h
+coreutils-7.6/lib/wchar.in.h
+coreutils-7.6/lib/diacrit.c
+coreutils-7.6/lib/strtoumax.c
+coreutils-7.6/lib/isnanl-nolibm.h
+coreutils-7.6/lib/signbitf.c
+coreutils-7.6/lib/getdate.c
+coreutils-7.6/lib/printf-parse.h
+coreutils-7.6/lib/dirent.in.h
+coreutils-7.6/lib/str-kmp.h
+coreutils-7.6/lib/c-strcasecmp.c
+coreutils-7.6/lib/areadlink.h
+coreutils-7.6/lib/rpmatch.c
+coreutils-7.6/lib/utimens.c
+coreutils-7.6/lib/pathmax.h
+coreutils-7.6/lib/fts-cycle.c
+coreutils-7.6/lib/mbsalign.h
+coreutils-7.6/lib/fchownat.c
+coreutils-7.6/lib/getopt_int.h
+coreutils-7.6/lib/cycle-check.c
+coreutils-7.6/lib/getopt.c
+coreutils-7.6/lib/stpcpy.c
+coreutils-7.6/lib/copy-acl.c
+coreutils-7.6/lib/canonicalize.c
+coreutils-7.6/lib/freadahead.c
+coreutils-7.6/lib/buffer-lcm.c
+coreutils-7.6/lib/mktime.c
+coreutils-7.6/lib/obstack.c
+coreutils-7.6/lib/cloexec.h
+coreutils-7.6/lib/fseeko.c
+coreutils-7.6/lib/offtostr.c
+coreutils-7.6/lib/xgetcwd.h
+coreutils-7.6/lib/xalloc-die.c
+coreutils-7.6/lib/acl.h
+coreutils-7.6/lib/memchr.c
+coreutils-7.6/lib/isnanf.c
+coreutils-7.6/lib/localcharset.c
+coreutils-7.6/lib/userspec.c
+coreutils-7.6/lib/fcntl--.h
+coreutils-7.6/lib/inttostr.c
+coreutils-7.6/lib/group-member.c
+coreutils-7.6/lib/iconv_open-aix.h
+coreutils-7.6/lib/signbitl.c
+coreutils-7.6/lib/mkdir.c
+coreutils-7.6/lib/fd-safer.c
+coreutils-7.6/lib/rename-dest-slash.c
+coreutils-7.6/lib/fchown-stub.c
+coreutils-7.6/lib/long-options.c
+coreutils-7.6/lib/calloc.c
+coreutils-7.6/lib/exclude.h
+coreutils-7.6/lib/xstrtoimax.c
+coreutils-7.6/lib/xgetcwd.c
+coreutils-7.6/lib/sha1.c
+coreutils-7.6/lib/savedir.h
+coreutils-7.6/lib/hard-locale.h
+coreutils-7.6/lib/getcwd.c
+coreutils-7.6/lib/float+.h
+coreutils-7.6/lib/printf-parse.c
+coreutils-7.6/lib/fclose.c
+coreutils-7.6/lib/memcmp.c
+coreutils-7.6/lib/dirname.c
+coreutils-7.6/lib/fts.c
+coreutils-7.6/lib/inet_ntop.c
+coreutils-7.6/lib/localcharset.h
+coreutils-7.6/lib/fnmatch.c
+coreutils-7.6/lib/stdio--.h
+coreutils-7.6/lib/xmemcoll.c
+coreutils-7.6/lib/filevercmp.c
+coreutils-7.6/lib/wcwidth.c
+coreutils-7.6/lib/trim.h
+coreutils-7.6/lib/tempname.c
+coreutils-7.6/lib/umaxtostr.c
+coreutils-7.6/lib/xstrndup.c
+coreutils-7.6/lib/nanosleep.c
+coreutils-7.6/lib/freadseek.h
+coreutils-7.6/lib/open.c
+coreutils-7.6/lib/xvasprintf.h
+coreutils-7.6/lib/strtol.c
+coreutils-7.6/lib/dirent-safer.h
+coreutils-7.6/lib/filevercmp.h
+coreutils-7.6/lib/freadahead.h
+coreutils-7.6/lib/getugroups.h
+coreutils-7.6/lib/xstrtold.c
+coreutils-7.6/lib/strstr.c
+coreutils-7.6/lib/getopt.in.h
+coreutils-7.6/lib/quote.h
+coreutils-7.6/lib/unicodeio.h
+coreutils-7.6/lib/str-two-way.h
+coreutils-7.6/lib/regex_internal.c
+coreutils-7.6/lib/xgethostname.h
+coreutils-7.6/lib/printf-args.h
+coreutils-7.6/lib/mbuiter.h
+coreutils-7.6/lib/memxfrm.c
+coreutils-7.6/lib/memcmp2.h
+coreutils-7.6/lib/asnprintf.c
+coreutils-7.6/lib/exitfail.c
+coreutils-7.6/lib/putenv.c
+coreutils-7.6/lib/getaddrinfo.c
+coreutils-7.6/lib/time_r.c
+coreutils-7.6/lib/memcoll.h
+coreutils-7.6/lib/snprintf.c
+coreutils-7.6/lib/malloc.c
+coreutils-7.6/lib/fnmatch.in.h
+coreutils-7.6/lib/canonicalize.h
+coreutils-7.6/lib/isnand.c
+coreutils-7.6/lib/Makefile.am
+coreutils-7.6/lib/userspec.h
+coreutils-7.6/lib/linebuffer.h
+coreutils-7.6/lib/at-func.c
+coreutils-7.6/lib/mbchar.h
+coreutils-7.6/lib/same.c
+coreutils-7.6/lib/xstriconv.c
+coreutils-7.6/lib/human.c
+coreutils-7.6/lib/freading.c
+coreutils-7.6/lib/xsize.h
+coreutils-7.6/lib/xprintf.h
+coreutils-7.6/lib/file-type.c
+coreutils-7.6/lib/sha1.h
+coreutils-7.6/lib/version-etc.c
+coreutils-7.6/lib/getline.c
+coreutils-7.6/lib/set-mode-acl.c
+coreutils-7.6/lib/xfreopen.c
+coreutils-7.6/lib/getgroups.c
+coreutils-7.6/lib/xstriconv.h
+coreutils-7.6/lib/unlocked-io.h
+coreutils-7.6/lib/mbsrtowcs.c
+coreutils-7.6/lib/regex_internal.h
+coreutils-7.6/lib/randread.c
+coreutils-7.6/lib/size_max.h
+coreutils-7.6/lib/stdbool.in.h
+coreutils-7.6/lib/memcpy.c
+coreutils-7.6/lib/c-ctype.c
+coreutils-7.6/lib/trim.c
+coreutils-7.6/lib/memcasecmp.c
+coreutils-7.6/lib/uniwidth.h
+coreutils-7.6/lib/base64.h
+coreutils-7.6/lib/regex.h
+coreutils-7.6/lib/realloc.c
+coreutils-7.6/lib/unistd.in.h
+coreutils-7.6/lib/fchdir.c
+coreutils-7.6/lib/sockets.c
+coreutils-7.6/lib/uinttostr.c
+coreutils-7.6/lib/argv-iter.c
+coreutils-7.6/lib/malloca.c
+coreutils-7.6/lib/strpbrk.c
+coreutils-7.6/lib/mbsstr.c
+coreutils-7.6/lib/fseterr.c
+coreutils-7.6/lib/readtokens0.h
+coreutils-7.6/lib/xvasprintf.c
+coreutils-7.6/lib/fsusage.c
+coreutils-7.6/lib/memcoll.c
+coreutils-7.6/lib/mbrlen.c
+coreutils-7.6/lib/se-selinux.in.h
+coreutils-7.6/lib/wctype.in.h
+coreutils-7.6/lib/string.in.h
+coreutils-7.6/lib/gnulib.mk
+coreutils-7.6/lib/filenamecat.c
+coreutils-7.6/lib/base64.c
+coreutils-7.6/lib/vasprintf.c
+coreutils-7.6/lib/argmatch.c
+coreutils-7.6/lib/root-dev-ino.h
+coreutils-7.6/lib/errno.in.h
+coreutils-7.6/lib/write.c
+coreutils-7.6/lib/xalloc.h
+coreutils-7.6/lib/memchr2.valgrind
+coreutils-7.6/lib/setenv.c
+coreutils-7.6/lib/isnanf-nolibm.h
+coreutils-7.6/lib/fnmatch_loop.c
+coreutils-7.6/lib/signbitd.c
+coreutils-7.6/lib/mbchar.c
+coreutils-7.6/lib/memchr2.c
+coreutils-7.6/lib/hard-locale.c
+coreutils-7.6/lib/stdio-impl.h
+coreutils-7.6/lib/obstack.h
+coreutils-7.6/lib/sigaction.c
+coreutils-7.6/lib/settime.c
+coreutils-7.6/lib/memcasecmp.h
+coreutils-7.6/lib/backupfile.h
+coreutils-7.6/lib/stdio-write.c
+coreutils-7.6/lib/w32sock.h
+coreutils-7.6/lib/gai_strerror.c
+coreutils-7.6/lib/strtoll.c
+coreutils-7.6/lib/fcntl.in.h
+coreutils-7.6/lib/strftime.h
+coreutils-7.6/lib/sig-handler.h
+coreutils-7.6/lib/randint.h
+coreutils-7.6/lib/dirname.h
+coreutils-7.6/lib/sigprocmask.c
+coreutils-7.6/lib/dup-safer.c
+coreutils-7.6/lib/arpa_inet.in.h
+coreutils-7.6/lib/c-strncasecmp.c
+coreutils-7.6/lib/md5.h
+coreutils-7.6/lib/math.in.h
+coreutils-7.6/lib/alloca.in.h
+coreutils-7.6/lib/timespec.h
+coreutils-7.6/lib/group-member.h
+coreutils-7.6/lib/mgetgroups.c
+coreutils-7.6/lib/savewd.h
+coreutils-7.6/lib/gethostname.c
+coreutils-7.6/lib/close.c
+coreutils-7.6/lib/getdate.h
+coreutils-7.6/lib/file-type.h
+coreutils-7.6/lib/mbsalign.c
+coreutils-7.6/lib/frexpl.c
+coreutils-7.6/lib/xstrndup.h
+coreutils-7.6/lib/exitfail.h
+coreutils-7.6/lib/stdio.in.h
+coreutils-7.6/lib/i-ring.h
+coreutils-7.6/lib/xasprintf.c
+coreutils-7.6/lib/unitypes.h
+coreutils-7.6/lib/strndup.c
+coreutils-7.6/lib/mkdir-p.c
+coreutils-7.6/lib/progname.c
+coreutils-7.6/lib/file-has-acl.c
+coreutils-7.6/lib/sys_time.in.h
+coreutils-7.6/lib/fpending.h
+coreutils-7.6/lib/mkstemp.c
+coreutils-7.6/lib/memset.c
+coreutils-7.6/lib/save-cwd.c
+coreutils-7.6/lib/hash-pjw.c
+coreutils-7.6/lib/xmalloc.c
+coreutils-7.6/lib/wcrtomb.c
+coreutils-7.6/lib/sys_socket.in.h
+coreutils-7.6/lib/mkstemp-safer.c
+coreutils-7.6/lib/getopt1.c
+coreutils-7.6/lib/xstrtol.h
+coreutils-7.6/lib/printf-args.c
+coreutils-7.6/lib/dirfd.c
+coreutils-7.6/lib/mempcpy.c
+coreutils-7.6/lib/idcache.c
+coreutils-7.6/lib/file-set.h
+coreutils-7.6/lib/atexit.c
+coreutils-7.6/lib/buffer-lcm.h
+coreutils-7.6/lib/rmdir.c
+coreutils-7.6/lib/openat.c
+coreutils-7.6/lib/closeout.c
+coreutils-7.6/lib/stat-macros.h
+coreutils-7.6/lib/iconv_open-aix.gperf
+coreutils-7.6/lib/isnan.c
+coreutils-7.6/lib/error.c
+coreutils-7.6/lib/isnand-nolibm.h
+coreutils-7.6/lib/chdir-long.h
+coreutils-7.6/lib/fopen-safer.c
+coreutils-7.6/lib/asprintf.c
+coreutils-7.6/lib/stdarg.in.h
+coreutils-7.6/lib/openat-die.c
+coreutils-7.6/lib/gethrxtime.h
+coreutils-7.6/lib/physmem.c
+coreutils-7.6/lib/stdio-safer.h
+coreutils-7.6/lib/c-strtod.h
+coreutils-7.6/lib/strftime.c
+coreutils-7.6/lib/utimecmp.c
+coreutils-7.6/lib/c-strcase.h
+coreutils-7.6/lib/strnlen1.h
+coreutils-7.6/lib/error.h
+coreutils-7.6/lib/mbsrtowcs-state.c
+coreutils-7.6/lib/getndelim2.c
+coreutils-7.6/lib/strerror.c
+coreutils-7.6/lib/full-write.h
+coreutils-7.6/lib/strtoul.c
+coreutils-7.6/lib/xmemcoll.h
+coreutils-7.6/lib/same-inode.h
+coreutils-7.6/lib/strcspn.c
+coreutils-7.6/lib/uniwidth/
+coreutils-7.6/lib/uniwidth/width.c
+coreutils-7.6/lib/uniwidth/cjk.h
+coreutils-7.6/lib/propername.c
+coreutils-7.6/lib/iconv_open-irix.gperf
+coreutils-7.6/lib/pipe-safer.c
+coreutils-7.6/lib/hash-triple.h
+coreutils-7.6/lib/stdlib-safer.h
+coreutils-7.6/lib/frexp.c
+coreutils-7.6/lib/safe-read.c
+coreutils-7.6/lib/readlink.c
+coreutils-7.6/lib/exclude.c
+coreutils-7.6/lib/fdopendir.c
+coreutils-7.6/lib/priv-set.h
+coreutils-7.6/lib/acl_entries.c
+coreutils-7.6/lib/selinux-at.h
+coreutils-7.6/lib/i-ring.c
+coreutils-7.6/lib/xmemxfrm.c
+coreutils-7.6/lib/mbiter.h
+coreutils-7.6/lib/iconv_open-irix.h
+coreutils-7.6/lib/vasnprintf.h
+coreutils-7.6/lib/printf-frexpl.c
+coreutils-7.6/lib/randint.c
+coreutils-7.6/lib/root-dev-ino.c
+coreutils-7.6/lib/sha256.h
+coreutils-7.6/lib/readutmp.c
+coreutils-7.6/lib/getpass.h
+coreutils-7.6/lib/randperm.c
+coreutils-7.6/lib/fpending.c
+coreutils-7.6/lib/raise.c
+coreutils-7.6/lib/mbrtowc.c
+coreutils-7.6/lib/isapipe.h
+coreutils-7.6/lib/ftruncate.c
+coreutils-7.6/lib/iconv_open-osf.gperf
+coreutils-7.6/lib/safe-write.h
+coreutils-7.6/lib/xfts.h
+coreutils-7.6/lib/tempname.h
+coreutils-7.6/lib/iconv_open-hpux.h
+coreutils-7.6/lib/xstrtod.c
+coreutils-7.6/lib/readtokens0.c
+coreutils-7.6/lib/filenamecat.h
+coreutils-7.6/lib/ChangeLog-2007
+coreutils-7.6/lib/yesno.c
+coreutils-7.6/lib/xgethostname.c
+coreutils-7.6/lib/savedir.c
+coreutils-7.6/lib/cycle-check.h
+coreutils-7.6/lib/malloca.valgrind
+coreutils-7.6/lib/dev-ino.h
+coreutils-7.6/lib/intprops.h
+coreutils-7.6/lib/chown.c
+coreutils-7.6/lib/readutmp.h
+coreutils-7.6/lib/write-any-file.h
+coreutils-7.6/lib/mbslen.c
+coreutils-7.6/lib/stdlib--.h
+coreutils-7.6/lib/euidaccess-stat.c
+coreutils-7.6/lib/readtokens.c
+coreutils-7.6/lib/bitrotate.h
+coreutils-7.6/lib/hash-pjw.h
+coreutils-7.6/lib/chdir-long.c
+coreutils-7.6/lib/closein.c
+coreutils-7.6/lib/ref-del.sin
+coreutils-7.6/lib/netdb.in.h
+coreutils-7.6/lib/mpsort.h
+coreutils-7.6/lib/getugroups.c
+coreutils-7.6/lib/freading.h
+coreutils-7.6/lib/strnumcmp-in.h
+coreutils-7.6/lib/dirent--.h
+coreutils-7.6/lib/strnlen.c
+coreutils-7.6/lib/fpucw.h
+coreutils-7.6/lib/striconv.c
+coreutils-7.6/lib/mkancesdirs.h
+coreutils-7.6/lib/quotearg.h
+coreutils-7.6/lib/sha512.h
+coreutils-7.6/lib/gettime.c
+coreutils-7.6/lib/fprintftime.h
+coreutils-7.6/lib/time.in.h
+coreutils-7.6/lib/mbsinit.c
+coreutils-7.6/lib/rename.c
+coreutils-7.6/lib/sha256.c
+coreutils-7.6/lib/iconv_open-hpux.gperf
+coreutils-7.6/lib/md5.c
+coreutils-7.6/lib/safe-write.c
+coreutils-7.6/lib/freadptr.h
+coreutils-7.6/lib/sockets.h
+coreutils-7.6/lib/strtoull.c
+coreutils-7.6/lib/sys_stat.in.h
+coreutils-7.6/lib/iconv.in.h
+coreutils-7.6/lib/savewd.c
+coreutils-7.6/lib/linebuffer.c
+coreutils-7.6/lib/xtime.h
+coreutils-7.6/lib/euidaccess.c
+coreutils-7.6/lib/xmemxfrm.h
+coreutils-7.6/lib/isnanl.c
+coreutils-7.6/lib/rand-isaac.h
+coreutils-7.6/lib/verror.h
+coreutils-7.6/lib/unistr.h
+coreutils-7.6/lib/stdint.in.h
+coreutils-7.6/lib/mountlist.c
+coreutils-7.6/lib/mountlist.h
+coreutils-7.6/lib/sha512.c
+coreutils-7.6/lib/strintcmp.c
+coreutils-7.6/lib/vprintf.c
+coreutils-7.6/lib/getndelim2.h
+coreutils-7.6/lib/xstrtol-error.c
+coreutils-7.6/lib/closeout.h
+coreutils-7.6/lib/mkancesdirs.c
+coreutils-7.6/lib/canon-host.h
+coreutils-7.6/lib/getusershell.c
+coreutils-7.6/lib/getpagesize.c
+coreutils-7.6/lib/memchr.valgrind
+coreutils-7.6/lib/memchr2.h
+coreutils-7.6/lib/fseterr.h
+coreutils-7.6/lib/sig2str.h
+coreutils-7.6/lib/basename.c
+coreutils-7.6/lib/verify.h
+coreutils-7.6/lib/c-strtold.c
+coreutils-7.6/lib/stpncpy.c
+coreutils-7.6/lib/utimens.h
+coreutils-7.6/lib/dup2.c
+coreutils-7.6/lib/gettext.h
+coreutils-7.6/lib/getpass.c
+coreutils-7.6/lib/fcntl-safer.h
+coreutils-7.6/lib/strtod.c
+coreutils-7.6/lib/sig2str.c
+coreutils-7.6/lib/areadlink-with-size.c
+coreutils-7.6/lib/regcomp.c
+coreutils-7.6/lib/unistd--.h
+coreutils-7.6/lib/getloadavg.c
+coreutils-7.6/lib/dirchownmod.h
+coreutils-7.6/lib/filemode.c
+coreutils-7.6/lib/streq.h
+coreutils-7.6/lib/file-set.c
+coreutils-7.6/lib/fopen.c
+coreutils-7.6/lib/ftello.c
+coreutils-7.6/lib/diacrit.h
+coreutils-7.6/lib/idcache.h
+coreutils-7.6/lib/sys_select.in.h
+coreutils-7.6/lib/unlinkdir.c
+coreutils-7.6/lib/imaxtostr.c
+coreutils-7.6/lib/quote.c
+coreutils-7.6/lib/argv-iter.h
+coreutils-7.6/lib/vasnprintf.c
+coreutils-7.6/lib/striconv.h
+coreutils-7.6/lib/getdelim.c
+coreutils-7.6/lib/memrchr.c
+coreutils-7.6/lib/alloca.c
+coreutils-7.6/lib/unistr/
+coreutils-7.6/lib/unistr/u8-uctomb.c
+coreutils-7.6/lib/unistr/u8-uctomb-aux.c
+coreutils-7.6/lib/xstrtol.c
+coreutils-7.6/lib/strtoimax.c
+coreutils-7.6/lib/config.charset
+coreutils-7.6/lib/write-any-file.c
+coreutils-7.6/lib/strnumcmp.h
+coreutils-7.6/lib/gettimeofday.c
+coreutils-7.6/lib/randread.h
+coreutils-7.6/lib/link.c
+coreutils-7.6/lib/c-ctype.h
+coreutils-7.6/lib/full-read.h
+coreutils-7.6/lib/unlinkdir.h
+coreutils-7.6/lib/signal.in.h
+coreutils-7.6/lib/hash.c
+coreutils-7.6/lib/config.hin
+coreutils-7.6/lib/getdate.y
+coreutils-7.6/lib/opendir-safer.c
+coreutils-7.6/lib/xstrtoumax.c
+coreutils-7.6/lib/ref-add.sin
+coreutils-7.6/lib/vfprintf.c
+coreutils-7.6/lib/open-safer.c
+coreutils-7.6/lib/lseek.c
+coreutils-7.6/lib/full-read.c
+coreutils-7.6/lib/iconv_open.c
+coreutils-7.6/build-aux/
+coreutils-7.6/build-aux/config.sub
+coreutils-7.6/build-aux/mdate-sh
+coreutils-7.6/build-aux/vc-list-files
+coreutils-7.6/build-aux/update-copyright
+coreutils-7.6/build-aux/link-warning.h
+coreutils-7.6/build-aux/gitlog-to-changelog
+coreutils-7.6/build-aux/install-sh
+coreutils-7.6/build-aux/config.guess
+coreutils-7.6/build-aux/announce-gen
+coreutils-7.6/build-aux/gendocs.sh
+coreutils-7.6/build-aux/config.rpath
+coreutils-7.6/build-aux/git-version-gen
+coreutils-7.6/build-aux/gnupload
+coreutils-7.6/build-aux/useless-if-before-free
+coreutils-7.6/build-aux/texinfo.tex
+coreutils-7.6/build-aux/ylwrap
+coreutils-7.6/build-aux/ChangeLog-2007
+coreutils-7.6/build-aux/missing
+coreutils-7.6/build-aux/compile
+coreutils-7.6/build-aux/depcomp
+coreutils-7.6/build-aux/cvsu
+coreutils-7.6/THANKStt.in
+coreutils-7.6/cfg.mk
+coreutils-7.6/Makefile.am
+coreutils-7.6/gl/
+coreutils-7.6/gl/modules/
+coreutils-7.6/gl/modules/getloadavg.diff
+coreutils-7.6/.x-sc_prohibit_strcmp
+coreutils-7.6/doc/
+coreutils-7.6/doc/fdl.texi
+coreutils-7.6/doc/Makefile.in
+coreutils-7.6/doc/version.texi
+coreutils-7.6/doc/perm.texi
+coreutils-7.6/doc/Makefile.am
+coreutils-7.6/doc/constants.texi
+coreutils-7.6/doc/getdate.texi
+coreutils-7.6/doc/ChangeLog-2007
+coreutils-7.6/doc/stamp-vti
+coreutils-7.6/doc/coreutils.texi
+coreutils-7.6/doc/coreutils.info
+coreutils-7.6/.x-sc_require_config_h
+coreutils-7.6/.version
+coreutils-7.6/TODO
+coreutils-7.6/ChangeLog
+coreutils-7.6/.prev-version
+coreutils-7.6/bootstrap
+coreutils-7.6/README
+coreutils-7.6/.x-sc_po_check
+coreutils-7.6/.x-sc_sun_os_names
+coreutils-7.6/m4/
+coreutils-7.6/m4/getgroups.m4
+coreutils-7.6/m4/xsize.m4
+coreutils-7.6/m4/mkstemp.m4
+coreutils-7.6/m4/fcntl_h.m4
+coreutils-7.6/m4/priv-set.m4
+coreutils-7.6/m4/strtoull.m4
+coreutils-7.6/m4/error.m4
+coreutils-7.6/m4/sockets.m4
+coreutils-7.6/m4/mktime.m4
+coreutils-7.6/m4/fseeko.m4
+coreutils-7.6/m4/strtoul.m4
+coreutils-7.6/m4/strverscmp.m4
+coreutils-7.6/m4/printf-frexpl.m4
+coreutils-7.6/m4/bison.m4
+coreutils-7.6/m4/eealloc.m4
+coreutils-7.6/m4/multiarch.m4
+coreutils-7.6/m4/getaddrinfo.m4
+coreutils-7.6/m4/stdlib-safer.m4
+coreutils-7.6/m4/mkancesdirs.m4
+coreutils-7.6/m4/xattr.m4
+coreutils-7.6/m4/check-decl.m4
+coreutils-7.6/m4/mmap-anon.m4
+coreutils-7.6/m4/perl.m4
+coreutils-7.6/m4/pathmax.m4
+coreutils-7.6/m4/mpsort.m4
+coreutils-7.6/m4/fchdir.m4
+coreutils-7.6/m4/strtoumax.m4
+coreutils-7.6/m4/lchown.m4
+coreutils-7.6/m4/safe-write.m4
+coreutils-7.6/m4/d-ino.m4
+coreutils-7.6/m4/locale-fr.m4
+coreutils-7.6/m4/getcwd-abort-bug.m4
+coreutils-7.6/m4/progtest.m4
+coreutils-7.6/m4/fnmatch.m4
+coreutils-7.6/m4/extensions.m4
+coreutils-7.6/m4/environ.m4
+coreutils-7.6/m4/canonicalize.m4
+coreutils-7.6/m4/gethrxtime.m4
+coreutils-7.6/m4/inet_pton.m4
+coreutils-7.6/m4/flexmember.m4
+coreutils-7.6/m4/mkdir-p.m4
+coreutils-7.6/m4/stdio_h.m4
+coreutils-7.6/m4/mbiter.m4
+coreutils-7.6/m4/fcntl-safer.m4
+coreutils-7.6/m4/gnu-make.m4
+coreutils-7.6/m4/jm-macros.m4
+coreutils-7.6/m4/exclude.m4
+coreutils-7.6/m4/assert.m4
+coreutils-7.6/m4/stat-prog.m4
+coreutils-7.6/m4/sys_time_h.m4
+coreutils-7.6/m4/stdarg.m4
+coreutils-7.6/m4/fpending.m4
+coreutils-7.6/m4/double-slash-root.m4
+coreutils-7.6/m4/gmp.m4
+coreutils-7.6/m4/select.m4
+coreutils-7.6/m4/float_h.m4
+coreutils-7.6/m4/unicodeio.m4
+coreutils-7.6/m4/stpncpy.m4
+coreutils-7.6/m4/euidaccess-stat.m4
+coreutils-7.6/m4/xalloc.m4
+coreutils-7.6/m4/rename.m4
+coreutils-7.6/m4/prereq.m4
+coreutils-7.6/m4/filenamecat.m4
+coreutils-7.6/m4/btowc.m4
+coreutils-7.6/m4/memrchr.m4
+coreutils-7.6/m4/localcharset.m4
+coreutils-7.6/m4/acl.m4
+coreutils-7.6/m4/getcwd-path-max.m4
+coreutils-7.6/m4/posixver.m4
+coreutils-7.6/m4/utimes.m4
+coreutils-7.6/m4/fstypename.m4
+coreutils-7.6/m4/xvasprintf.m4
+coreutils-7.6/m4/fopen.m4
+coreutils-7.6/m4/xnanosleep.m4
+coreutils-7.6/m4/vasprintf-posix.m4
+coreutils-7.6/m4/ftruncate.m4
+coreutils-7.6/m4/gethostname.m4
+coreutils-7.6/m4/alloca.m4
+coreutils-7.6/m4/euidaccess.m4
+coreutils-7.6/m4/codeset.m4
+coreutils-7.6/m4/ls-mntd-fs.m4
+coreutils-7.6/m4/xstrndup.m4
+coreutils-7.6/m4/sha1.m4
+coreutils-7.6/m4/quotearg.m4
+coreutils-7.6/m4/wcwidth.m4
+coreutils-7.6/m4/tempname.m4
+coreutils-7.6/m4/ungetc.m4
+coreutils-7.6/m4/lstat.m4
+coreutils-7.6/m4/inttostr.m4
+coreutils-7.6/m4/wcrtomb.m4
+coreutils-7.6/m4/isnanf.m4
+coreutils-7.6/m4/wchar_t.m4
+coreutils-7.6/m4/md5.m4
+coreutils-7.6/m4/regex.m4
+coreutils-7.6/m4/dirent_h.m4
+coreutils-7.6/m4/memxfrm.m4
+coreutils-7.6/m4/vfprintf-posix.m4
+coreutils-7.6/m4/memcasecmp.m4
+coreutils-7.6/m4/atexit.m4
+coreutils-7.6/m4/close-stream.m4
+coreutils-7.6/m4/mbsrtowcs.m4
+coreutils-7.6/m4/lib-prefix.m4
+coreutils-7.6/m4/readlink.m4
+coreutils-7.6/m4/setenv.m4
+coreutils-7.6/m4/po.m4
+coreutils-7.6/m4/settime.m4
+coreutils-7.6/m4/strpbrk.m4
+coreutils-7.6/m4/memmove.m4
+coreutils-7.6/m4/lseek.m4
+coreutils-7.6/m4/fileblocks.m4
+coreutils-7.6/m4/write-any-file.m4
+coreutils-7.6/m4/boottime.m4
+coreutils-7.6/m4/getcwd.m4
+coreutils-7.6/m4/00gnulib.m4
+coreutils-7.6/m4/hostent.m4
+coreutils-7.6/m4/frexp.m4
+coreutils-7.6/m4/time_h.m4
+coreutils-7.6/m4/inttypes-pri.m4
+coreutils-7.6/m4/stdint_h.m4
+coreutils-7.6/m4/socklen.m4
+coreutils-7.6/m4/memcpy.m4
+coreutils-7.6/m4/fprintftime.m4
+coreutils-7.6/m4/cycle-check.m4
+coreutils-7.6/m4/dirname.m4
+coreutils-7.6/m4/strstr.m4
+coreutils-7.6/m4/yesno.m4
+coreutils-7.6/m4/getugroups.m4
+coreutils-7.6/m4/filemode.m4
+coreutils-7.6/m4/savedir.m4
+coreutils-7.6/m4/nls.m4
+coreutils-7.6/m4/posix-shell.m4
+coreutils-7.6/m4/physmem.m4
+coreutils-7.6/m4/inttypes_h.m4
+coreutils-7.6/m4/nanosleep.m4
+coreutils-7.6/m4/rename-dest-slash.m4
+coreutils-7.6/m4/getpagesize.m4
+coreutils-7.6/m4/xstrtol.m4
+coreutils-7.6/m4/wctype.m4
+coreutils-7.6/m4/dup2.m4
+coreutils-7.6/m4/lib-ld.m4
+coreutils-7.6/m4/intlmacosx.m4
+coreutils-7.6/m4/isnand.m4
+coreutils-7.6/m4/strdup.m4
+coreutils-7.6/m4/version-etc.m4
+coreutils-7.6/m4/sys_stat_h.m4
+coreutils-7.6/m4/exitfail.m4
+coreutils-7.6/m4/gettime.m4
+coreutils-7.6/m4/vprintf-posix.m4
+coreutils-7.6/m4/warnings.m4
+coreutils-7.6/m4/sha256.m4
+coreutils-7.6/m4/manywarnings.m4
+coreutils-7.6/m4/exponentd.m4
+coreutils-7.6/m4/quote.m4
+coreutils-7.6/m4/netdb_h.m4
+coreutils-7.6/m4/printf.m4
+coreutils-7.6/m4/fts.m4
+coreutils-7.6/m4/iconv_open.m4
+coreutils-7.6/m4/base64.m4
+coreutils-7.6/m4/xgetcwd.m4
+coreutils-7.6/m4/ssize_t.m4
+coreutils-7.6/m4/unlinkdir.m4
+coreutils-7.6/m4/sig2str.m4
+coreutils-7.6/m4/stat-time.m4
+coreutils-7.6/m4/time_r.m4
+coreutils-7.6/m4/strcspn.m4
+coreutils-7.6/m4/close.m4
+coreutils-7.6/m4/sleep.m4
+coreutils-7.6/m4/sys_select_h.m4
+coreutils-7.6/m4/savewd.m4
+coreutils-7.6/m4/mbsinit.m4
+coreutils-7.6/m4/lib-check.m4
+coreutils-7.6/m4/lchmod.m4
+coreutils-7.6/m4/malloca.m4
+coreutils-7.6/m4/mempcpy.m4
+coreutils-7.6/m4/lib-link.m4
+coreutils-7.6/m4/memcmp.m4
+coreutils-7.6/m4/ldexpl.m4
+coreutils-7.6/m4/stdint.m4
+coreutils-7.6/m4/utimbuf.m4
+coreutils-7.6/m4/include-exclude-prog.m4
+coreutils-7.6/m4/backupfile.m4
+coreutils-7.6/m4/getdelim.m4
+coreutils-7.6/m4/readutmp.m4
+coreutils-7.6/m4/config-h.m4
+coreutils-7.6/m4/intmax_t.m4
+coreutils-7.6/m4/isnanl.m4
+coreutils-7.6/m4/math_h.m4
+coreutils-7.6/m4/vasnprintf.m4
+coreutils-7.6/m4/signbit.m4
+coreutils-7.6/m4/unistd-safer.m4
+coreutils-7.6/m4/sockpfaf.m4
+coreutils-7.6/m4/dos.m4
+coreutils-7.6/m4/jm-winsz2.m4
+coreutils-7.6/m4/fsusage.m4
+coreutils-7.6/m4/dirent-safer.m4
+coreutils-7.6/m4/tm_gmtoff.m4
+coreutils-7.6/m4/st_dm_mode.m4
+coreutils-7.6/m4/hash.m4
+coreutils-7.6/m4/putenv.m4
+coreutils-7.6/m4/gnulib-comp.m4
+coreutils-7.6/m4/errno_h.m4
+coreutils-7.6/m4/signalblocking.m4
+coreutils-7.6/m4/calloc.m4
+coreutils-7.6/m4/rmdir-errno.m4
+coreutils-7.6/m4/signal_h.m4
+coreutils-7.6/m4/snprintf.m4
+coreutils-7.6/m4/utimecmp.m4
+coreutils-7.6/m4/d-type.m4
+coreutils-7.6/m4/getopt.m4
+coreutils-7.6/m4/cloexec.m4
+coreutils-7.6/m4/stdlib_h.m4
+coreutils-7.6/m4/getloadavg.m4
+coreutils-7.6/m4/posixtm.m4
+coreutils-7.6/m4/mbrtowc.m4
+coreutils-7.6/m4/fflush.m4
+coreutils-7.6/m4/arpa_inet_h.m4
+coreutils-7.6/m4/gnulib-common.m4
+coreutils-7.6/m4/wchar.m4
+coreutils-7.6/m4/autobuild.m4
+coreutils-7.6/m4/malloc.m4
+coreutils-7.6/m4/xfts.m4
+coreutils-7.6/m4/write.m4
+coreutils-7.6/m4/open.m4
+coreutils-7.6/m4/utimens.m4
+coreutils-7.6/m4/same.m4
+coreutils-7.6/m4/perror.m4
+coreutils-7.6/m4/inline.m4
+coreutils-7.6/m4/chdir-long.m4
+coreutils-7.6/m4/mkdir-slash.m4
+coreutils-7.6/m4/fd-reopen.m4
+coreutils-7.6/m4/getusershell.m4
+coreutils-7.6/m4/selinux-context-h.m4
+coreutils-7.6/m4/readtokens.m4
+coreutils-7.6/m4/inttypes.m4
+coreutils-7.6/m4/glibc21.m4
+coreutils-7.6/m4/getline.m4
+coreutils-7.6/m4/inet_ntop.m4
+coreutils-7.6/m4/jm-winsz1.m4
+coreutils-7.6/m4/ftello.m4
+coreutils-7.6/m4/unlink-busy.m4
+coreutils-7.6/m4/link.m4
+coreutils-7.6/m4/mbchar.m4
+coreutils-7.6/m4/argmatch.m4
+coreutils-7.6/m4/mountlist.m4
+coreutils-7.6/m4/ChangeLog-2007
+coreutils-7.6/m4/unistd_h.m4
+coreutils-7.6/m4/longlong.m4
+coreutils-7.6/m4/gettext.m4
+coreutils-7.6/m4/stpcpy.m4
+coreutils-7.6/m4/file-type.m4
+coreutils-7.6/m4/include_next.m4
+coreutils-7.6/m4/strtol.m4
+coreutils-7.6/m4/fpurge.m4
+coreutils-7.6/m4/stdio-safer.m4
+coreutils-7.6/m4/strtoll.m4
+coreutils-7.6/m4/canon-host.m4
+coreutils-7.6/m4/link-follow.m4
+coreutils-7.6/m4/stddef_h.m4
+coreutils-7.6/m4/realloc.m4
+coreutils-7.6/m4/getndelim2.m4
+coreutils-7.6/m4/printf-frexp.m4
+coreutils-7.6/m4/wint_t.m4
+coreutils-7.6/m4/stdbool.m4
+coreutils-7.6/m4/getpass.m4
+coreutils-7.6/m4/uptime.m4
+coreutils-7.6/m4/safe-read.m4
+coreutils-7.6/m4/selinux-selinux-h.m4
+coreutils-7.6/m4/netinet_in_h.m4
+coreutils-7.6/m4/locale-tr.m4
+coreutils-7.6/m4/root-dev-ino.m4
+coreutils-7.6/m4/tzset.m4
+coreutils-7.6/m4/long-options.m4
+coreutils-7.6/m4/strftime.m4
+coreutils-7.6/m4/mbswidth.m4
+coreutils-7.6/m4/mbrlen.m4
+coreutils-7.6/m4/userspec.m4
+coreutils-7.6/m4/strtoimax.m4
+coreutils-7.6/m4/closein.m4
+coreutils-7.6/m4/frexpl.m4
+coreutils-7.6/m4/human.m4
+coreutils-7.6/m4/closeout.m4
+coreutils-7.6/m4/memchr.m4
+coreutils-7.6/m4/sys_socket_h.m4
+coreutils-7.6/m4/sigaction.m4
+coreutils-7.6/m4/sys_ioctl_h.m4
+coreutils-7.6/m4/servent.m4
+coreutils-7.6/m4/exponentl.m4
+coreutils-7.6/m4/iconv_h.m4
+coreutils-7.6/m4/mbstate_t.m4
+coreutils-7.6/m4/freading.m4
+coreutils-7.6/m4/wctob.m4
+coreutils-7.6/m4/rmdir.m4
+coreutils-7.6/m4/chown.m4
+coreutils-7.6/m4/isapipe.m4
+coreutils-7.6/m4/strnlen.m4
+coreutils-7.6/m4/mgetgroups.m4
+coreutils-7.6/m4/mode_t.m4
+coreutils-7.6/m4/idcache.m4
+coreutils-7.6/m4/read-file.m4
+coreutils-7.6/m4/lib-ignore.m4
+coreutils-7.6/m4/strnumcmp.m4
+coreutils-7.6/m4/string_h.m4
+coreutils-7.6/m4/nocrash.m4
+coreutils-7.6/m4/size_max.m4
+coreutils-7.6/m4/getdate.m4
+coreutils-7.6/m4/c-strtod.m4
+coreutils-7.6/m4/clock_time.m4
+coreutils-7.6/m4/sha512.m4
+coreutils-7.6/m4/locale-zh.m4
+coreutils-7.6/m4/timespec.m4
+coreutils-7.6/m4/rpmatch.m4
+coreutils-7.6/m4/group-member.m4
+coreutils-7.6/m4/xstrtod.m4
+coreutils-7.6/m4/hard-locale.m4
+coreutils-7.6/m4/memset.m4
+coreutils-7.6/m4/save-cwd.m4
+coreutils-7.6/m4/gettimeofday.m4
+coreutils-7.6/m4/exponentf.m4
+coreutils-7.6/m4/modechange.m4
+coreutils-7.6/m4/i-ring.m4
+coreutils-7.6/m4/locale-ja.m4
+coreutils-7.6/m4/strtod.m4
+coreutils-7.6/m4/strndup.m4
+coreutils-7.6/m4/unlocked-io.m4
+coreutils-7.6/m4/iconv.m4
+coreutils-7.6/m4/strerror.m4
+coreutils-7.6/m4/fclose.m4
+coreutils-7.6/m4/dirfd.m4
+coreutils-7.6/m4/fpieee.m4
+coreutils-7.6/m4/fdopendir.m4
+coreutils-7.6/m4/host-os.m4
+coreutils-7.6/m4/vasprintf.m4
+coreutils-7.6/m4/memcoll.m4
+coreutils-7.6/m4/openat.m4
+coreutils-7.6/ChangeLog-2006
+coreutils-7.6/.x-sc_file_system
+coreutils-7.6/dist-check.mk
+coreutils-7.6/configure
+coreutils-7.6/.x-sc_space_tab
+coreutils-7.6/maint.mk
+coreutils-7.6/ChangeLog-2007
+coreutils-7.6/.x-sc_prohibit_stat_st_blocks
+coreutils-7.6/aclocal.m4
+coreutils-7.6/NEWS
+coreutils-7.6/.x-sc_error_message_uppercase
+coreutils-7.6/bootstrap.conf
+coreutils-7.6/THANKS-to-translators
+coreutils-7.6/.tarball-version
+coreutils-7.6/.x-sc_trailing_blank
+coreutils-7.6/AUTHORS
+coreutils-7.6/.vg-suppressions
+coreutils-7.6/gnulib-tests/
+coreutils-7.6/gnulib-tests/test-mbsrtowcs1.sh
+coreutils-7.6/gnulib-tests/bind.c
+coreutils-7.6/gnulib-tests/test-fcntl-h.c
+coreutils-7.6/gnulib-tests/test-fopen.h
+coreutils-7.6/gnulib-tests/test-argmatch.c
+coreutils-7.6/gnulib-tests/test-xstrtol.c
+coreutils-7.6/gnulib-tests/test-stdint.c
+coreutils-7.6/gnulib-tests/test-gettimeofday.c
+coreutils-7.6/gnulib-tests/test-select-out.sh
+coreutils-7.6/gnulib-tests/test-wctype.c
+coreutils-7.6/gnulib-tests/test-getcwd.c
+coreutils-7.6/gnulib-tests/test-vc-list-files-cvs.sh
+coreutils-7.6/gnulib-tests/binary-io.h
+coreutils-7.6/gnulib-tests/test-environ.c
+coreutils-7.6/gnulib-tests/Makefile.in
+coreutils-7.6/gnulib-tests/test-yesno.c
+coreutils-7.6/gnulib-tests/test-xstrtoul.c
+coreutils-7.6/gnulib-tests/test-exclude6.sh
+coreutils-7.6/gnulib-tests/test-fpending.sh
+coreutils-7.6/gnulib-tests/test-fopen.c
+coreutils-7.6/gnulib-tests/test-xstrtol.sh
+coreutils-7.6/gnulib-tests/test-frexpl.c
+coreutils-7.6/gnulib-tests/read-file.h
+coreutils-7.6/gnulib-tests/test-copy-acl.sh
+coreutils-7.6/gnulib-tests/test-memchr2.c
+coreutils-7.6/gnulib-tests/test-btowc1.sh
+coreutils-7.6/gnulib-tests/test-netdb.c
+coreutils-7.6/gnulib-tests/test-filenamecat.c
+coreutils-7.6/gnulib-tests/test-xstrtoimax.sh
+coreutils-7.6/gnulib-tests/test-filevercmp.c
+coreutils-7.6/gnulib-tests/test-freading.c
+coreutils-7.6/gnulib-tests/test-canonicalize.sh
+coreutils-7.6/gnulib-tests/test-freadptr2.sh
+coreutils-7.6/gnulib-tests/test-exclude5.sh
+coreutils-7.6/gnulib-tests/test-stat-time.c
+coreutils-7.6/gnulib-tests/test-exclude1.sh
+coreutils-7.6/gnulib-tests/test-strerror.c
+coreutils-7.6/gnulib-tests/test-vc-list-files-git.sh
+coreutils-7.6/gnulib-tests/test-fflush.c
+coreutils-7.6/gnulib-tests/test-fpending.c
+coreutils-7.6/gnulib-tests/test-sameacls.c
+coreutils-7.6/gnulib-tests/test-printf-frexp.c
+coreutils-7.6/gnulib-tests/test-fnmatch.c
+coreutils-7.6/gnulib-tests/test-lseek.c
+coreutils-7.6/gnulib-tests/test-xvasprintf.c
+coreutils-7.6/gnulib-tests/test-copy-acl.c
+coreutils-7.6/gnulib-tests/test-mbsstr1.c
+coreutils-7.6/gnulib-tests/test-printf-frexpl.c
+coreutils-7.6/gnulib-tests/test-gethostname.c
+coreutils-7.6/gnulib-tests/test-time.c
+coreutils-7.6/gnulib-tests/test-strverscmp.c
+coreutils-7.6/gnulib-tests/socket.c
+coreutils-7.6/gnulib-tests/test-sleep.c
+coreutils-7.6/gnulib-tests/test-select-stdin.c
+coreutils-7.6/gnulib-tests/test-math.c
+coreutils-7.6/gnulib-tests/test-link.c
+coreutils-7.6/gnulib-tests/test-fflush2.c
+coreutils-7.6/gnulib-tests/wctob.c
+coreutils-7.6/gnulib-tests/test-sigaction.c
+coreutils-7.6/gnulib-tests/test-mbsinit.c
+coreutils-7.6/gnulib-tests/test-arpa_inet.c
+coreutils-7.6/gnulib-tests/test-sys_time.c
+coreutils-7.6/gnulib-tests/test-getopt_long.h
+coreutils-7.6/gnulib-tests/test-quotearg.sh
+coreutils-7.6/gnulib-tests/test-ftello2.sh
+coreutils-7.6/gnulib-tests/test-string.c
+coreutils-7.6/gnulib-tests/test-base64.c
+coreutils-7.6/gnulib-tests/test-unistd.c
+coreutils-7.6/gnulib-tests/test-strtod.c
+coreutils-7.6/gnulib-tests/test-stdbool.c
+coreutils-7.6/gnulib-tests/test-canonicalize.c
+coreutils-7.6/gnulib-tests/test-select-in.sh
+coreutils-7.6/gnulib-tests/test-getaddrinfo.c
+coreutils-7.6/gnulib-tests/test-memrchr.c
+coreutils-7.6/gnulib-tests/test-dup2.c
+coreutils-7.6/gnulib-tests/test-getndelim2.c
+coreutils-7.6/gnulib-tests/test-isnanl-nolibm.c
+coreutils-7.6/gnulib-tests/test-ftello.sh
+coreutils-7.6/gnulib-tests/test-fpurge.c
+coreutils-7.6/gnulib-tests/test-vfprintf-posix.c
+coreutils-7.6/gnulib-tests/test-alignof.c
+coreutils-7.6/gnulib-tests/test-lseek.sh
+coreutils-7.6/gnulib-tests/test-mbrtowc1.sh
+coreutils-7.6/gnulib-tests/test-getopt.h
+coreutils-7.6/gnulib-tests/test-exclude4.sh
+coreutils-7.6/gnulib-tests/test-sys_stat.c
+coreutils-7.6/gnulib-tests/Makefile.am
+coreutils-7.6/gnulib-tests/test-priv-set.c
+coreutils-7.6/gnulib-tests/test-netinet_in.c
+coreutils-7.6/gnulib-tests/test-fprintf-posix.h
+coreutils-7.6/gnulib-tests/test-wcwidth.c
+coreutils-7.6/gnulib-tests/read-file.c
+coreutils-7.6/gnulib-tests/nan.h
+coreutils-7.6/gnulib-tests/test-isnanf-nolibm.c
+coreutils-7.6/gnulib-tests/test-vasnprintf.c
+coreutils-7.6/gnulib-tests/test-fchdir.c
+coreutils-7.6/gnulib-tests/locale/
+coreutils-7.6/gnulib-tests/locale/fr/
+coreutils-7.6/gnulib-tests/locale/fr/LC_MESSAGES/
+coreutils-7.6/gnulib-tests/locale/fr/LC_MESSAGES/test-quotearg.mo
+coreutils-7.6/gnulib-tests/locale/fr/LC_MESSAGES/test-quotearg.po
+coreutils-7.6/gnulib-tests/test-xfprintf-posix.c
+coreutils-7.6/gnulib-tests/test-mbrtowc.c
+coreutils-7.6/gnulib-tests/test-i-ring.c
+coreutils-7.6/gnulib-tests/test-vprintf-posix.sh
+coreutils-7.6/gnulib-tests/test-set-mode-acl.c
+coreutils-7.6/gnulib-tests/test-freadptr.sh
+coreutils-7.6/gnulib-tests/test-freadahead.sh
+coreutils-7.6/gnulib-tests/test-mbrtowc2.sh
+coreutils-7.6/gnulib-tests/gnulib.mk
+coreutils-7.6/gnulib-tests/test-xstrtoumax.sh
+coreutils-7.6/gnulib-tests/test-closein.c
+coreutils-7.6/gnulib-tests/test-striconv.c
+coreutils-7.6/gnulib-tests/test-yesno.sh
+coreutils-7.6/gnulib-tests/test-vasprintf.c
+coreutils-7.6/gnulib-tests/test-fflush2.sh
+coreutils-7.6/gnulib-tests/test-binary-io.c
+coreutils-7.6/gnulib-tests/test-version-etc.sh
+coreutils-7.6/gnulib-tests/test-mbsrtowcs3.sh
+coreutils-7.6/gnulib-tests/test-c-strncasecmp.c
+coreutils-7.6/gnulib-tests/w32sock.h
+coreutils-7.6/gnulib-tests/test-printf-posix.h
+coreutils-7.6/gnulib-tests/test-fcntl-safer.c
+coreutils-7.6/gnulib-tests/test-c-strcasecmp.c
+coreutils-7.6/gnulib-tests/test-freadptr2.c
+coreutils-7.6/gnulib-tests/listen.c
+coreutils-7.6/gnulib-tests/test-isnanf.h
+coreutils-7.6/gnulib-tests/test-printf-posix.output
+coreutils-7.6/gnulib-tests/test-mbsrtowcs2.sh
+coreutils-7.6/gnulib-tests/test-bitrotate.c
+coreutils-7.6/gnulib-tests/test-mbsstr3.c
+coreutils-7.6/gnulib-tests/test-argv-iter.c
+coreutils-7.6/gnulib-tests/test-sha1.c
+coreutils-7.6/gnulib-tests/setsockopt.c
+coreutils-7.6/gnulib-tests/test-quotearg.c
+coreutils-7.6/gnulib-tests/test-perror.sh
+coreutils-7.6/gnulib-tests/test-alloca-opt.c
+coreutils-7.6/gnulib-tests/test-getline.c
+coreutils-7.6/gnulib-tests/test-vprintf-posix.c
+coreutils-7.6/gnulib-tests/inet_pton.c
+coreutils-7.6/gnulib-tests/test-c-ctype.c
+coreutils-7.6/gnulib-tests/test-binary-io.sh
+coreutils-7.6/gnulib-tests/test-read-file.c
+coreutils-7.6/gnulib-tests/test-sockets.c
+coreutils-7.6/gnulib-tests/test-sys_select.c
+coreutils-7.6/gnulib-tests/test-set-mode-acl.sh
+coreutils-7.6/gnulib-tests/test-md5.c
+coreutils-7.6/gnulib-tests/test-mbscasecmp.c
+coreutils-7.6/gnulib-tests/test-file-has-acl.c
+coreutils-7.6/gnulib-tests/test-exclude.c
+coreutils-7.6/gnulib-tests/test-frexp.c
+coreutils-7.6/gnulib-tests/test-xstrtoimax.c
+coreutils-7.6/gnulib-tests/test-fseeko2.sh
+coreutils-7.6/gnulib-tests/test-mbsstr2.sh
+coreutils-7.6/gnulib-tests/test-atexit.c
+coreutils-7.6/gnulib-tests/test-exclude3.sh
+coreutils-7.6/gnulib-tests/ioctl.c
+coreutils-7.6/gnulib-tests/test-mbsstr2.c
+coreutils-7.6/gnulib-tests/connect.c
+coreutils-7.6/gnulib-tests/test-inttypes.c
+coreutils-7.6/gnulib-tests/test-isnanl.h
+coreutils-7.6/gnulib-tests/uniwidth/
+coreutils-7.6/gnulib-tests/uniwidth/test-uc_width2.sh
+coreutils-7.6/gnulib-tests/uniwidth/test-uc_width2.c
+coreutils-7.6/gnulib-tests/uniwidth/test-uc_width.c
+coreutils-7.6/gnulib-tests/test-openat-safer.c
+coreutils-7.6/gnulib-tests/test-getdelim.c
+coreutils-7.6/gnulib-tests/sleep.c
+coreutils-7.6/gnulib-tests/test-freadseek.sh
+coreutils-7.6/gnulib-tests/test-closein.sh
+coreutils-7.6/gnulib-tests/test-stddef.c
+coreutils-7.6/gnulib-tests/test-xprintf-posix.c
+coreutils-7.6/gnulib-tests/test-perror.c
+coreutils-7.6/gnulib-tests/test-iconv.c
+coreutils-7.6/gnulib-tests/test-wcrtomb.sh
+coreutils-7.6/gnulib-tests/test-wcrtomb.c
+coreutils-7.6/gnulib-tests/test-isnand.h
+coreutils-7.6/gnulib-tests/test-atexit.sh
+coreutils-7.6/gnulib-tests/test-fopen-safer.c
+coreutils-7.6/gnulib-tests/test-mbsstr3.sh
+coreutils-7.6/gnulib-tests/test-fdopendir.c
+coreutils-7.6/gnulib-tests/test-open.c
+coreutils-7.6/gnulib-tests/test-exclude2.sh
+coreutils-7.6/gnulib-tests/test-getopt.c
+coreutils-7.6/gnulib-tests/test-xprintf-posix.sh
+coreutils-7.6/gnulib-tests/test-update-copyright.sh
+coreutils-7.6/gnulib-tests/test-dirent-safer.c
+coreutils-7.6/gnulib-tests/test-memchr.c
+coreutils-7.6/gnulib-tests/sys_ioctl.in.h
+coreutils-7.6/gnulib-tests/test-signbit.c
+coreutils-7.6/gnulib-tests/test-dirname.c
+coreutils-7.6/gnulib-tests/test-sys_socket.c
+coreutils-7.6/gnulib-tests/test-hash.c
+coreutils-7.6/gnulib-tests/test-btowc2.sh
+coreutils-7.6/gnulib-tests/test-vfprintf-posix.sh
+coreutils-7.6/gnulib-tests/test-mbsrtowcs.c
+coreutils-7.6/gnulib-tests/test-mbsinit.sh
+coreutils-7.6/gnulib-tests/zerosize-ptr.h
+coreutils-7.6/gnulib-tests/test-select-fd.c
+coreutils-7.6/gnulib-tests/test-exclude7.sh
+coreutils-7.6/gnulib-tests/test-signal.c
+coreutils-7.6/gnulib-tests/test-malloca.c
+coreutils-7.6/gnulib-tests/test-lstat.c
+coreutils-7.6/gnulib-tests/test-fseeko.sh
+coreutils-7.6/gnulib-tests/test-mbscasecmp.sh
+coreutils-7.6/gnulib-tests/test-mbsrtowcs4.sh
+coreutils-7.6/gnulib-tests/accept.c
+coreutils-7.6/gnulib-tests/test-freadseek.c
+coreutils-7.6/gnulib-tests/test-version-etc.c
+coreutils-7.6/gnulib-tests/test-u64.c
+coreutils-7.6/gnulib-tests/test-errno.c
+coreutils-7.6/gnulib-tests/test-freadahead.c
+coreutils-7.6/gnulib-tests/test-fseeko.c
+coreutils-7.6/gnulib-tests/test-xstrtoumax.c
+coreutils-7.6/gnulib-tests/test-snprintf.c
+coreutils-7.6/gnulib-tests/test-mbrtowc4.sh
+coreutils-7.6/gnulib-tests/test-open.h
+coreutils-7.6/gnulib-tests/test-file-has-acl.sh
+coreutils-7.6/gnulib-tests/test-ftello.c
+coreutils-7.6/gnulib-tests/test-mbrtowc3.sh
+coreutils-7.6/gnulib-tests/perror.c
+coreutils-7.6/gnulib-tests/test-freadptr.c
+coreutils-7.6/gnulib-tests/test-memcmp.c
+coreutils-7.6/gnulib-tests/test-getdate.c
+coreutils-7.6/gnulib-tests/test-fseterr.c
+coreutils-7.6/gnulib-tests/test-btowc.c
+coreutils-7.6/gnulib-tests/test-stdlib.c
+coreutils-7.6/gnulib-tests/test-select.c
+coreutils-7.6/gnulib-tests/test-isnand-nolibm.c
+coreutils-7.6/gnulib-tests/test-vasprintf-posix.c
+coreutils-7.6/gnulib-tests/test-wchar.c
+coreutils-7.6/gnulib-tests/test-c-strcase.sh
+coreutils-7.6/gnulib-tests/test-stdio.c
+coreutils-7.6/THANKS
+coreutils-7.6/COPYING
+coreutils-7.6/.x-sc_unmarked_diagnostics
+coreutils-7.6/.x-sc_GPL_version
+coreutils-7.6/.x-sc_program_name
+[classpya@lnxsrv09 ~]$ cd coreutils-7.6/
+[classpya@lnxsrv09 ~/coreutils-7.6]$ ls
+ABOUT-NLS       ChangeLog-2007  INSTALL      README
+aclocal.m4      ChangeLog-2008  lib          src
+AUTHORS         configure       m4           tests
+bootstrap       configure.ac    maint.mk     THANKS
+bootstrap.conf  COPYING         Makefile.am  THANKS-to-translators
+build-aux       dist-check.mk   Makefile.in  THANKStt.in
+cfg.mk          doc             man          TODO
+ChangeLog       gl              NEWS
+ChangeLog-2005  gnulib-tests    old
+ChangeLog-2006  GNUmakefile     po
+[classpya@lnxsrv09 ~/coreutils-7.6]$ cd ~/
+[classpya@lnxsrv09 ~]$ ls
+#assign1.html#        exer2.diff       hwnwdseng.htm
+assign1.html          exer2.html       hwords
+assign1.html.1        exer2.html~      junk
+assign2.html          exer3.diff       lab0-handout
+assign2.html.1        exer3.html       lab1-handout
+assign2.txt           exer3.html~      misEng
+buildwords            #exer4.diff#     #misEng#
+buildwords~           exer4.diff       misEngHaw
+coreutils-7.6         #exer4.html#     misHaw
+coreutils-7.6.tar.gz  exer4.html       misHawEng
+cp                    exer4.html~      nsdefault
+Desktop               file1            perl5
+Documents             #file1#          sameln
+Downloads             #file-emacs#     sameln~
+#exer1.html#          file-emacs       webhp?sourceid=chrome-instant
+exer1.html            #hwnwdseng.htm#  words
+[classpya@lnxsrv09 ~]$ cd coreutils-7.6/
+[classpya@lnxsrv09 ~/coreutils-7.6]$ cd ~/
+[classpya@lnxsrv09 ~]$ pwd
+/u/eng/class/classpya
+[classpya@lnxsrv09 ~/coreutils-7.6]$ ./configure --prefix=./configure --/u/eng/class/classpya/
+configure: error: unrecognized option: `--/u/eng/class/classpya/'
+Try `./configure --help' for more information.
+[classpya@lnxsrv09 ~/coreutils-7.6]$ ~/
+-bash: /u/eng/class/classpya/: Is a directory
+[classpya@lnxsrv09 ~/coreutils-7.6]$ pwd
+/u/eng/class/classpya/coreutils-7.6
+[classpya@lnxsrv09 ~/coreutils-7.6]$ ./configure --prefix=./configure --/u/eng/class/classpya/coreutils-7.6
+configure: error: unrecognized option: `--/u/eng/class/classpya/coreutils-7.6'
+Try `./configure --help' for more information.
+[classpya@lnxsrv09 ~/coreutils-7.6]$ ./configure --prefix=/u/eng/class/classpya/coreutils-7.6
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking dependency style of gcc... gcc3
+checking for gcc option to accept ISO C99... -std=gnu99
+checking for gcc -std=gnu99 option to accept ISO Standard C... (cached) -std=gnu99
+checking whether gcc -std=gnu99 and cc understand -c and -o together... yes
+checking how to run the C preprocessor... gcc -std=gnu99 -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking whether gcc -std=gnu99 needs -traditional... no
+checking for ranlib... ranlib
+checking whether ln -s works... yes
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for _LARGEFILE_SOURCE value needed for large files... no
+configure: autobuild project... GNU coreutils
+configure: autobuild revision... 7.6
+configure: autobuild hostname... lnxsrv09.seas.ucla.edu
+configure: autobuild timestamp... 20170128T060011Z
+checking for inline... inline
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for arpa/inet.h... yes
+checking for sys/param.h... yes
+checking for sys/socket.h... yes
+checking for dirent.h... yes
+checking for errno.h... yes
+checking for libgen.h... yes
+checking for fcntl.h... yes
+checking for float.h... yes
+checking for wctype.h... yes
+checking for stdio_ext.h... yes
+checking for sys/vfs.h... yes
+checking for sys/fs_types.h... no
+checking for netdb.h... yes
+checking for netinet/in.h... yes
+checking for termios.h... yes
+checking for sys/time.h... yes
+checking for iconv.h... yes
+checking for stdint.h... (cached) yes
+checking for wchar.h... yes
+checking for inttypes.h... (cached) yes
+checking for math.h... yes
+checking for sys/mman.h... yes
+checking for unistd.h... (cached) yes
+checking for sys/statvfs.h... yes
+checking for sys/select.h... yes
+checking for utmp.h... yes
+checking for utmpx.h... yes
+checking for locale.h... yes
+checking for signal.h... yes
+checking for stdarg.h... yes
+checking for stddef.h... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for time.h... yes
+checking for priv.h... no
+checking for utime.h... yes
+checking for sys/wait.h... yes
+checking for sys/ioctl.h... yes
+checking for hurd.h... no
+checking for paths.h... yes
+checking for stropts.h... no
+checking for sys/resource.h... yes
+checking for sys/systeminfo.h... no
+checking for syslog.h... yes
+checking for grp.h... yes
+checking for pwd.h... yes
+checking for OS.h... no
+checking whether the preprocessor supports include_next... yes
+checking for d_ino member in directory struct... yes
+checking whether system is Windows or MSDOS... no
+checking for long file names... yes
+checking for pathconf... yes
+checking for btowc... yes
+checking for canonicalize_file_name... yes
+checking for resolvepath... no
+checking for chown... yes
+checking for fdopendir... yes
+checking for dup2... yes
+checking for faccessat... yes
+checking for fchdir... yes
+checking for mempcpy... yes
+checking for isblank... yes
+checking for iswctype... yes
+checking for mbsrtowcs... yes
+checking for wmemchr... yes
+checking for wmemcpy... yes
+checking for wmempcpy... yes
+checking for __fpending... yes
+checking for fpurge... no
+checking for __fpurge... yes
+checking for __freading... yes
+checking for ftruncate... yes
+checking for lchmod... no
+checking for fstatfs... yes
+checking for microuptime... no
+checking for nanouptime... no
+checking for flockfile... yes
+checking for funlockfile... yes
+checking for __fsetlocking... yes
+checking for tcgetattr... yes
+checking for tcsetattr... yes
+checking for gettimeofday... yes
+checking for nanotime... no
+checking for link... yes
+checking for readlink... yes
+checking for lstat... yes
+checking for mbsinit... yes
+checking for mbrtowc... yes
+checking for mbrlen... yes
+checking for isascii... yes
+checking for mprotect... yes
+checking for fchmod... yes
+checking for alarm... yes
+checking for utmpname... yes
+checking for utmpxname... yes
+checking for wcscoll... yes
+checking for setenv... yes
+checking for settimeofday... yes
+checking for stime... yes
+checking for sigaction... yes
+checking for sigaltstack... yes
+checking for siginterrupt... yes
+checking for tzset... yes
+checking for strndup... yes
+checking for pipe... yes
+checking for futimes... yes
+checking for futimesat... yes
+checking for futimens... yes
+checking for utimensat... yes
+checking for vasnprintf... no
+checking for wcrtomb... yes
+checking for iswcntrl... yes
+checking for wcwidth... yes
+checking for symlink... yes
+checking for wctob... yes
+checking for strxfrm... yes
+checking for directio... no
+checking for nl_langinfo... yes
+checking for endgrent... yes
+checking for endpwent... yes
+checking for fchown... yes
+checking for iswspace... yes
+checking for mkfifo... yes
+checking for setgroups... yes
+checking for sethostname... yes
+checking for sync... yes
+checking for sysctl... yes
+checking for sysinfo... yes
+checking for tcgetpgrp... yes
+checking for C/C++ restrict keyword... __restrict
+checking for nl_langinfo and CODESET... yes
+checking for a traditional french locale... fr_FR
+checking whether strtold conforms to C99... yes
+checking for size_t... yes
+checking whether malloc, realloc, calloc are POSIX compliant... yes
+checking whether canonicalize_file_name is declared... yes
+checking for uid_t in sys/types.h... yes
+checking for unistd.h... (cached) yes
+checking for working chown... yes
+checking whether chown(2) dereferences symlinks... yes
+checking whether byte ordering is bigendian... no
+checking whether // is distinct from /... no
+checking for complete errno.h... yes
+checking whether strerror_r is declared... yes
+checking for strerror_r... yes
+checking whether strerror_r returns char *... yes
+checking whether setregid is declared... yes
+checking type of array argument to getgroups... gid_t
+checking for getgroups... yes
+checking for working getgroups... yes
+checking for mode_t... yes
+checking for promoted mode_t type... mode_t
+checking for st_dm_mode in struct stat... no
+checking whether strmode is declared... no
+checking for mbstate_t... yes
+checking whether stdin defaults to large file offsets... yes
+checking whether lstat dereferences a symlink specified with a trailing slash... yes
+checking whether <sys/socket.h> is self-contained... yes
+checking for shutdown... yes
+checking whether <sys/socket.h> defines the SHUT_* macros... yes
+checking for struct sockaddr_storage... yes
+checking for sa_family_t... yes
+checking for library containing gethostbyname... none required
+checking for gethostbyname... yes
+checking for library containing getservbyname... none required
+checking for getservbyname... yes
+checking for IPv4 sockets... yes
+checking for IPv6 sockets... yes
+checking whether getcwd (NULL, 0) allocates memory for result... yes
+checking whether getcwd is declared... yes
+checking for stdbool.h that conforms to C99... yes
+checking for _Bool... yes
+checking for compound literals... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for struct tm.tm_gmtoff... yes
+checking whether getdelim is declared... yes
+checking for arithmetic hrtime_t... no
+checking for long long int... yes
+checking whether getline is declared... yes
+checking for ssize_t... yes
+checking getopt.h usability... yes
+checking getopt.h presence... yes
+checking for getopt.h... yes
+checking for getopt_long_only... yes
+checking whether getopt is POSIX compatible... yes
+checking for working GNU getopt function... yes
+checking whether getenv is declared... yes
+checking whether getpass is declared... yes
+checking whether fflush_unlocked is declared... yes
+checking whether flockfile is declared... yes
+checking whether fputs_unlocked is declared... yes
+checking whether funlockfile is declared... yes
+checking whether putc_unlocked is declared... yes
+checking for struct timeval... yes
+checking for ld used by GCC... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for shared library run path origin... done
+checking for off_t... yes
+checking for unsigned long long int... yes
+checking whether stdint.h conforms to C99... yes
+checking for inttypes.h... (cached) yes
+checking whether the inttypes.h PRIxNN macros are broken... no
+checking whether imaxabs is declared... yes
+checking whether imaxdiv is declared... yes
+checking whether strtoimax is declared... yes
+checking whether strtoumax is declared... yes
+checking where to find the exponent in a 'float'... word 0 bit 23
+checking whether getc_unlocked is declared... yes
+checking whether we are using the GNU C Library 2.1 or newer... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking whether mbrtowc and mbstate_t are properly declared... (cached) yes
+checking for a traditional japanese locale... ja_JP
+checking for a transitional chinese locale... zh_CN.GB18030
+checking for a french Unicode locale... fr_FR.UTF-8
+checking whether mbrtowc handles incomplete characters... yes
+checking whether mbrtowc works as well as mbtowc... yes
+checking whether mbrtowc handles a NULL string argument... yes
+checking whether mbrtowc has a correct return value... yes
+checking whether mbrtowc returns 0 when parsing a NUL character... yes
+checking for mmap... yes
+checking for MAP_ANONYMOUS... yes
+checking for memchr... yes
+checking whether memchr works... yes
+checking whether memrchr is declared... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for external symbol _system_configuration... no
+checking for desired default level of POSIX conformance... none-specified
+checking whether lstat accepts an empty string... no
+checking whether <sys/select.h> is self-contained... yes
+checking for library containing setfilecon... -lselinux
+checking whether snprintf is declared... yes
+checking for wchar_t... yes
+checking whether strdup is declared... yes
+checking for working strerror function... yes
+checking whether strndup is declared... yes
+checking whether strnlen is declared... yes
+checking whether stat file-mode macros are broken... no
+checking for struct timespec in <time.h>... yes
+checking whether clearerr_unlocked is declared... yes
+checking whether feof_unlocked is declared... yes
+checking whether ferror_unlocked is declared... yes
+checking whether fgets_unlocked is declared... yes
+checking whether fputc_unlocked is declared... yes
+checking whether fread_unlocked is declared... yes
+checking whether fwrite_unlocked is declared... yes
+checking whether getchar_unlocked is declared... yes
+checking whether putchar_unlocked is declared... yes
+checking determine whether the utimes function works... yes
+checking for struct utimbuf... yes
+checking for wint_t... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for intmax_t... yes
+checking for snprintf... yes
+checking for strnlen... yes
+checking for wcslen... yes
+checking for wcsnlen... yes
+checking for mbrtowc... (cached) yes
+checking for wcrtomb... (cached) yes
+checking whether _snprintf is declared... no
+checking whether printf supports size specifiers as in C99... yes
+checking whether printf supports 'long double' arguments... yes
+checking whether printf supports infinite 'double' arguments... yes
+checking whether printf supports infinite 'long double' arguments... no
+checking whether printf supports the 'a' and 'A' directives... yes
+checking whether printf supports the 'F' directive... yes
+checking whether printf supports the 'n' directive... yes
+checking whether printf supports the 'ls' directive... yes
+checking whether printf supports POSIX/XSI format strings with positions... yes
+checking whether printf supports the grouping flag... yes
+checking whether printf supports the left-adjust flag correctly... yes
+checking whether printf supports the zero flag correctly... yes
+checking whether printf supports large precisions... yes
+checking whether printf survives out-of-memory conditions... yes
+checking POSIX termios... yes
+checking whether use of TIOCGWINSZ requires termios.h... no
+checking whether alarm is declared... yes
+checking whether ungetc works on arbitrary bytes... yes
+checking sys/acl.h usability... yes
+checking sys/acl.h presence... yes
+checking for sys/acl.h... yes
+checking for library containing acl_get_file... -lacl
+checking for acl_get_file... yes
+checking for acl_get_fd... yes
+checking for acl_set_file... yes
+checking for acl_set_fd... yes
+checking for acl_free... yes
+checking for acl_from_mode... yes
+checking for acl_from_text... yes
+checking for acl_delete_def_file... yes
+checking for acl_extended_file... yes
+checking for acl_delete_fd_np... no
+checking for acl_delete_file_np... no
+checking for acl_copy_ext_native... no
+checking for acl_create_entry_np... no
+checking for acl_to_short_text... no
+checking for acl_free_text... no
+checking for working acl_get_file... yes
+checking acl/libacl.h usability... yes
+checking acl/libacl.h presence... yes
+checking for acl/libacl.h... yes
+checking for acl_entries... yes
+checking for ACL_FIRST_ENTRY... yes
+checking for ACL_TYPE_EXTENDED... no
+checking for alloca as a compiler built-in... yes
+checking whether to enable assertions... yes
+checking for atexit... yes
+checking whether btowc(EOF) is correct... yes
+checking for GNU libc compatible calloc... yes
+checking whether this system has an arbitrary file name length limit... yes
+checking for library containing clock_gettime... none required
+checking for clock_gettime... yes
+checking for clock_settime... yes
+checking for d_ino member in directory struct... (cached) yes
+checking for d_type member in directory struct... yes
+checking for dirfd... yes
+checking whether dirfd is declared... yes
+checking whether dirfd is a macro... no
+checking whether // is distinct from /... (cached) no
+checking whether dup2 works... yes
+checking if environ is properly declared... yes
+checking for error_at_line... yes
+checking for euidaccess... yes
+checking for working fcntl.h... yes
+checking whether fflush works on input streams... no
+checking for struct stat.st_blocks... yes
+checking for flexible array member... yes
+checking for working GNU fnmatch... yes
+checking whether fopen recognizes a trailing slash... yes
+checking whether __fpending is declared... yes
+checking whether fpurge is declared... no
+checking whether frexp() can be used without linking with libm... yes
+checking whether frexp works... yes
+checking whether frexpl() can be used without linking with libm... yes
+checking whether frexpl works... yes
+checking whether frexpl is declared... yes
+checking for fseeko... yes
+checking for sys/mount.h... yes
+configure: checking how to get file system space usage
+checking for statvfs function (SVR4)... no
+checking for 3-argument statfs function (DEC OSF/1)... no
+checking for two-argument statfs with statfs.bsize member (AIX, 4.3BSD)... yes
+checking dustat.h usability... no
+checking dustat.h presence... no
+checking for dustat.h... no
+checking sys/fs/s5param.h usability... no
+checking sys/fs/s5param.h presence... no
+checking for sys/fs/s5param.h... no
+checking sys/filsys.h usability... no
+checking sys/filsys.h presence... no
+checking for sys/filsys.h... no
+checking sys/statfs.h usability... yes
+checking sys/statfs.h presence... yes
+checking for sys/statfs.h... yes
+checking for statfs that truncates block counts... no
+checking for ftello... yes
+checking for fchmodat... yes
+checking for mkdirat... yes
+checking for openat... yes
+checking for fchownat... yes
+checking whether fchownat works with AT_SYMLINK_NOFOLLOW... yes
+checking for struct statfs.f_type... yes
+configure: checking how to do getaddrinfo, freeaddrinfo and getnameinfo
+checking for library containing getaddrinfo... none required
+checking for getaddrinfo... yes
+checking for gai_strerror (possibly via ws2tcpip.h)... yes
+checking for struct sockaddr.sa_len... no
+checking whether getaddrinfo is declared... yes
+checking whether freeaddrinfo is declared... yes
+checking whether gai_strerror is declared... yes
+checking whether getnameinfo is declared... yes
+checking for struct addrinfo... yes
+checking whether getcwd handles long file names properly... yes
+checking for getpagesize... yes
+checking whether getcwd aborts when 4k < cwd_length < 16k... no
+checking for struct tm.tm_zone... yes
+checking for getdelim... yes
+checking for gethostname... yes
+checking for HOST_NAME_MAX... yes
+checking whether gethrtime is declared... no
+checking whether CLOCK_MONOTONIC or CLOCK_REALTIME is defined... yes
+checking for getline... yes
+checking for working getline function... yes
+checking for getloadavg... yes
+checking for pstat_getdynamic... no
+checking for kstat_open in -lkstat... no
+checking for perfstat_cpu_total in -lperfstat... no
+checking for getloadavg... yes
+checking whether getloadavg requires setgid... no
+checking sys/loadavg.h usability... no
+checking sys/loadavg.h presence... no
+checking for sys/loadavg.h... no
+checking whether getloadavg is declared... yes
+checking for getpagesize... (cached) yes
+checking whether __fsetlocking is declared... yes
+checking for gettimeofday with POSIX signature... yes
+checking whether gettimeofday clobbers localtime buffer... no
+checking type of array argument to getgroups... (cached) gid_t
+checking for getusershell... yes
+checking for group_member... yes
+checking host operating system... GNU/Linux
+checking for library containing gethostbyname... (cached) none required
+checking for gethostbyname... (cached) yes
+checking for iconv... yes
+checking for working iconv... yes
+checking for iconv declaration... 
+         extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);
+checking for library containing inet_ntop... none required
+checking whether inet_ntop is declared... yes
+checking whether the compiler generally respects inline... yes
+checking whether inttypes.h conforms to C99... yes
+checking whether INT32_MAX < INTMAX_MAX... yes
+checking whether INT64_MAX == LONG_MAX... yes
+checking whether UINT32_MAX < UINTMAX_MAX... yes
+checking whether UINT64_MAX == ULONG_MAX... yes
+checking for isapipe... no
+checking whether pipes are FIFOs (and for their link count)... yes (1)
+checking whether isnan(double) can be used without linking with libm... yes
+checking whether isnan(float) can be used without linking with libm... yes
+checking whether isnan(float) works... yes
+checking whether isnan(long double) can be used without linking with libm... yes
+checking whether isnanl works... no
+checking where to find the exponent in a 'long double'... word 2 bit 0
+checking for lchown... yes
+checking for flag to ignore unused libraries... -Wl,--as-needed
+checking whether link handles trailing slash correctly... yes
+checking whether link(2) dereferences a symlink... no
+checking whether lseek detects pipes... yes
+checking whether lstat dereferences a symlink specified with a trailing slash... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... (cached) yes
+checking whether NAN macro works... yes
+checking whether HUGE_VAL works... yes
+checking whether mbrtowc handles incomplete characters... (cached) yes
+checking whether mbrtowc works as well as mbtowc... (cached) yes
+checking whether mbrtowc handles a NULL string argument... (cached) yes
+checking whether mbrtowc has a correct return value... (cached) yes
+checking whether mbrtowc returns 0 when parsing a NUL character... (cached) yes
+checking whether mbrtowc handles incomplete characters... (cached) yes
+checking whether mbrtowc works as well as mbtowc... (cached) yes
+checking whether mbrtowc handles incomplete characters... (cached) yes
+checking whether mbrtowc works as well as mbtowc... (cached) yes
+checking whether mbsrtowcs works... yes
+checking whether mbswidth is declared in <wchar.h>... no
+checking for mbstate_t... (cached) yes
+checking for working memcmp... yes
+checking for working strcoll... yes
+checking for memcpy... yes
+checking for memmove... yes
+checking for mempcpy... (cached) yes
+checking for memrchr... yes
+checking for memset... yes
+checking for getgrouplist... yes
+checking whether mkdir fails due to a trailing slash... no
+checking for working mkstemp... yes
+checking for working mktime... yes
+checking for listmntent... no
+checking for getmntinfo... no
+checking for sys/ucred.h... no
+checking for sys/mount.h... (cached) yes
+checking mntent.h usability... yes
+checking mntent.h presence... yes
+checking for mntent.h... yes
+checking for sys/fs_types.h... (cached) no
+checking for struct fsstat.f_fstypename... no
+checking for library containing getmntent... none required
+checking for getmntent... yes
+checking for listmntent of Cray/Unicos-9... no
+checking for mntctl function and struct vmount... no
+checking for one-argument getmntent function... yes
+checking sys/mntent.h usability... no
+checking sys/mntent.h presence... no
+checking for sys/mntent.h... no
+checking for struct statfs.f_fstypename... no
+checking for library containing nanosleep... none required
+checking for working nanosleep... no (mishandles large arguments)
+checking whether <netinet/in.h> is self-contained... yes
+checking for obstacks... yes
+checking whether open recognizes a trailing slash... yes
+checking for fchmodat... (cached) yes
+checking for mkdirat... (cached) yes
+checking for openat... (cached) yes
+checking for fchownat... (cached) yes
+checking whether fchownat works with AT_SYMLINK_NOFOLLOW... (cached) yes
+checking for perl5.005 or newer... yes
+checking for sys/pstat.h... no
+checking for sys/sysmp.h... no
+checking for sys/sysinfo.h... yes
+checking for machine/hal_sysinfo.h... no
+checking for sys/table.h... no
+checking for sys/param.h... (cached) yes
+checking for sys/sysctl.h... yes
+checking for sys/systemcfg.h... no
+checking for pstat_getstatic... no
+checking for pstat_getdynamic... (cached) no
+checking for sysmp... no
+checking for getsysinfo... no
+checking for sysctl... (cached) yes
+checking for table... no
+checking for a shell that conforms to POSIX... /bin/sh
+checking whether frexp can be used without linking with libm... (cached) yes
+checking whether frexp works... (cached) yes
+checking whether ldexp can be used without linking with libm... yes
+checking whether frexpl can be used without linking with libm... (cached) yes
+checking whether frexpl works... (cached) yes
+checking whether frexpl is declared... (cached) yes
+checking whether ldexpl can be used without linking with libm... yes
+checking whether ldexpl works... yes
+checking whether ldexpl is declared... yes
+checking for getppriv... no
+checking whether program_invocation_name is declared... yes
+checking for putenv compatible with GNU and SVID... yes
+checking for raise... yes
+checking whether getutent is declared... yes
+checking for struct utmpx.ut_user... yes
+checking for struct utmp.ut_user... yes
+checking for struct utmpx.ut_name... yes
+checking for struct utmp.ut_name... yes
+checking for struct utmpx.ut_type... yes
+checking for struct utmp.ut_type... yes
+checking for struct utmpx.ut_pid... yes
+checking for struct utmp.ut_pid... yes
+checking for struct utmpx.ut_id... yes
+checking for struct utmp.ut_id... yes
+checking for struct utmpx.ut_exit... yes
+checking for struct utmp.ut_exit... yes
+checking for struct utmpx.ut_exit.ut_exit... no
+checking for struct utmp.ut_exit.ut_exit... no
+checking for struct utmpx.ut_exit.e_exit... yes
+checking for struct utmp.ut_exit.e_exit... yes
+checking for struct utmpx.ut_exit.ut_termination... no
+checking for struct utmp.ut_exit.ut_termination... no
+checking for struct utmpx.ut_exit.e_termination... yes
+checking for struct utmp.ut_exit.e_termination... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible realloc... yes
+checking for working re_compile_pattern... no
+checking libintl.h usability... yes
+checking libintl.h presence... yes
+checking for libintl.h... yes
+checking whether isblank is declared... yes
+checking whether rename is broken with a trailing slash... no
+checking whether rename is broken when the destination exists... no
+checking whether rename is broken with respect to destination slashes... no
+checking for rmdir... yes
+checking for rmdir-not-empty errno value... 39
+checking for rpmatch... yes
+checking whether select supports a 0 argument... yes
+checking selinux/flask.h usability... yes
+checking selinux/flask.h presence... yes
+checking for selinux/flask.h... yes
+checking selinux/selinux.h usability... yes
+checking selinux/selinux.h presence... yes
+checking for selinux/selinux.h... yes
+checking selinux/context.h usability... yes
+checking selinux/context.h presence... yes
+checking for selinux/context.h... yes
+checking for library containing getservbyname... (cached) none required
+checking for getservbyname... (cached) yes
+checking for sig2str... no
+checking for struct sigaction.sa_sigaction... yes
+checking for volatile sig_atomic_t... yes
+checking for signbit macro... yes
+checking for signbit compiler built-ins... yes
+checking for sigprocmask... yes
+checking for stdint.h... (cached) yes
+checking for SIZE_MAX... yes
+checking for snprintf... (cached) yes
+checking whether snprintf respects a size of 1... yes
+checking for library containing setsockopt... none needed
+checking for socklen_t... yes
+checking for ssize_t... (cached) yes
+checking for struct stat.st_atim.tv_nsec... yes
+checking whether struct stat.st_atim is of type struct timespec... yes
+checking for struct stat.st_birthtimespec.tv_nsec... no
+checking for struct stat.st_birthtimensec... no
+checking for struct stat.st_birthtim.tv_nsec... no
+checking for va_copy... yes
+checking whether NULL can be used in arbitrary expressions... yes
+checking whether stdint.h conforms to C99... (cached) yes
+checking for random.h... no
+checking for struct random_data... yes
+checking for stpcpy... yes
+checking for working stpncpy... yes
+checking for strcspn... yes
+checking for strdup... yes
+checking for strdup... (cached) yes
+checking for working strndup... yes
+checking for working strnlen... yes
+checking for strpbrk... yes
+checking for working strtod... yes
+checking whether strtod obeys C99... yes
+checking whether <inttypes.h> defines strtoimax as a macro... no
+checking for strtoimax... yes
+checking for strtol... yes
+checking for strtoll... yes
+checking for strtoul... yes
+checking for strtoull... yes
+checking whether <inttypes.h> defines strtoumax as a macro... no
+checking for strtoumax... yes
+checking for strverscmp... yes
+checking whether <sys/select.h> is self-contained... (cached) yes
+checking whether <sys/socket.h> is self-contained... (cached) yes
+checking for shutdown... (cached) yes
+checking whether <sys/socket.h> defines the SHUT_* macros... (cached) yes
+checking for struct sockaddr_storage... (cached) yes
+checking for sa_family_t... (cached) yes
+checking for nlink_t... yes
+checking whether localtime_r is compatible with its POSIX signature... yes
+checking whether tzset clobbers localtime buffer... no
+checking whether a running program can be unlinked... yes
+checking for unsetenv... yes
+checking for unsetenv() return type... int
+checking for /proc/uptime... yes
+checking for ptrdiff_t... yes
+checking for vasprintf... yes
+checking for vasprintf... (cached) yes
+checking for ptrdiff_t... (cached) yes
+checking for ptrdiff_t... (cached) yes
+checking whether <wchar.h> is standalone... yes
+checking whether mbrtowc handles incomplete characters... (cached) yes
+checking whether mbrtowc works as well as mbtowc... (cached) yes
+checking whether wcrtomb return value is correct... yes
+checking whether iswcntrl works... yes
+checking whether wcwidth is declared... yes
+checking whether wcwidth works reasonably in UTF-8 locales... yes
+checking whether use of TIOCGWINSZ requires sys/ioctl.h... yes
+checking whether use of TIOCGWINSZ requires termios.h... (cached) no
+checking whether use of struct winsize requires sys/ptem.h... no
+checking for stdint.h... (cached) yes
+checking for a traditional french locale... (cached) fr_FR
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking for a traditional french locale... (cached) fr_FR
+checking for a turkish Unicode locale... tr_TR.UTF-8
+checking for inet_pton... yes
+checking whether inet_pton is declared... yes
+checking where to find the exponent in a 'double'... word 1 bit 20
+checking where to find the exponent in a 'float'... (cached) word 0 bit 23
+checking where to find the exponent in a 'long double'... (cached) word 2 bit 0
+checking for a traditional french locale... (cached) fr_FR
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking for a traditional japanese locale... (cached) ja_JP
+checking for a transitional chinese locale... (cached) zh_CN.GB18030
+checking for a turkish Unicode locale... (cached) tr_TR.UTF-8
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking for a traditional french locale... (cached) fr_FR
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking for a traditional japanese locale... (cached) ja_JP
+checking for a transitional chinese locale... (cached) zh_CN.GB18030
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking for a transitional chinese locale... (cached) zh_CN.GB18030
+checking for mmap... (cached) yes
+checking for MAP_ANONYMOUS... yes
+checking for mmap... (cached) yes
+checking for MAP_ANONYMOUS... yes
+checking for mmap... (cached) yes
+checking for MAP_ANONYMOUS... yes
+checking for a traditional french locale... (cached) fr_FR
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking whether sleep is declared... yes
+checking for wchar_t... (cached) yes
+checking for wint_t... (cached) yes
+checking whether <sys/ioctl.h> declares ioctl... yes
+checking for shutdown... (cached) yes
+checking for a traditional french locale... (cached) fr_FR
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking for a traditional japanese locale... (cached) ja_JP
+checking for a transitional chinese locale... (cached) zh_CN.GB18030
+checking whether wctob works... yes
+checking whether wctob is declared... yes
+checking for library containing strerror... none required
+checking for function prototypes... yes
+checking for string.h... (cached) yes
+checking for working volatile... yes
+checking for sys/sysctl.h... (cached) yes
+checking for pid_t... yes
+checking whether sys/types.h defines makedev... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking whether free is declared... yes
+checking whether geteuid is declared... yes
+checking whether getlogin is declared... yes
+checking whether getuid is declared... yes
+checking whether lseek is declared... yes
+checking whether malloc is declared... yes
+checking whether memchr is declared... yes
+checking whether realloc is declared... yes
+checking whether getgrgid is declared... yes
+checking whether getpwuid is declared... yes
+checking whether ttyname is declared... yes
+checking whether isblank is declared... (cached) yes
+checking attr/error_context.h usability... yes
+checking attr/error_context.h presence... yes
+checking for attr/error_context.h... yes
+checking attr/libattr.h usability... yes
+checking attr/libattr.h presence... yes
+checking for attr/libattr.h... yes
+checking for library containing attr_copy_file... -lattr
+checking for attr_copy_file... yes
+checking for inline... (cached) inline
+checking for struct stat.st_author... no
+checking for ino_t... yes
+checking for major_t... no
+checking for minor_t... no
+checking for matchpathcon_init_prefix... yes
+checking for inotify_init... yes
+checking nfs/vfs.h usability... no
+checking nfs/vfs.h presence... no
+checking for nfs/vfs.h... no
+checking for struct statfs.f_namelen... yes
+checking for struct statfs.f_type... (cached) yes
+checking for library containing fdatasync... none required
+checking for fdatasync... yes
+checking for cap_get_file in -lcap... yes
+checking sys/capability.h usability... yes
+checking sys/capability.h presence... yes
+checking for sys/capability.h... yes
+checking vfork.h usability... no
+checking vfork.h presence... no
+checking for vfork.h... no
+checking for fork... yes
+checking for vfork... yes
+checking for working fork... yes
+checking for working vfork... (cached) yes
+checking for uname... yes
+checking for chroot... yes
+checking for gethostid... yes
+checking whether use of struct winsize requires sys/ptem.h... (cached) no
+checking whether localtime caches TZ... no
+checking for initgroups... yes
+checking for syslog... yes
+checking for 3-argument setpriority function... yes
+checking ut_host in struct utmp... yes
+checking for sysctl... (cached) yes
+checking for sys/sysctl.h... (cached) yes
+checking whether we can get the system boot time... yes
+checking POSIX termios... (cached) yes
+checking whether use of TIOCGWINSZ requires sys/ioctl.h... (cached) yes
+checking whether termios.h needs _XOPEN_SOURCE... no
+checking c_line in struct termios... yes
+checking whether use of struct winsize requires sys/ptem.h... (cached) no
+checking whether use of TIOCGWINSZ requires termios.h... (cached) no
+checking whether strsignal is declared... yes
+checking whether sys_siglist is declared... yes
+checking whether _sys_siglist is declared... yes
+checking whether __sys_siglist is declared... no
+checking for main in -lypsec... no
+checking for main in -lldgc... no
+checking for library containing yp_match... no
+checking for library containing getspnam... none required
+checking shadow.h usability... yes
+checking shadow.h presence... yes
+checking for shadow.h... yes
+checking for struct spwd.sp_pwdp... yes
+checking for getspnam... yes
+checking for library containing crypt... -lcrypt
+checking for library containing __gmpz_init... -lgmp
+checking whether this is an ELF system... yes
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/bin/msgfmt
+checking for gmsgfmt... /usr/bin/msgfmt
+checking for xgettext... /usr/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking for CFPreferencesCopyAppValue... no
+checking for CFLocaleCopyCurrent... no
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking for a traditional french locale... (cached) fr_FR
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating doc/Makefile
+config.status: creating lib/Makefile
+config.status: creating man/Makefile
+config.status: creating po/Makefile.in
+config.status: creating src/Makefile
+config.status: creating tests/Makefile
+config.status: creating gnulib-tests/Makefile
+config.status: creating lib/config.h
+config.status: executing depfiles commands
+config.status: executing po-directories commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+[classpya@lnxsrv09 ~/coreutils-7.6]$ make && make install
+make  all-recursive
+make[1]: Entering directory `/w/home.17/class/classpya/coreutils-7.6'
+Making all in lib
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+  GEN    alloca.h
+  GEN    arpa/inet.h
+  GEN    configmake.h
+  GEN    dirent.h
+  GEN    fcntl.h
+  GEN    inttypes.h
+  GEN    math.h
+  GEN    signal.h
+  GEN    stdio.h
+  GEN    stdlib.h
+  GEN    string.h
+  GEN    sys/stat.h
+  GEN    time.h
+  GEN    unistd.h
+make  all-recursive
+make[3]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+make[4]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+  CC     set-mode-acl.o
+  CC     copy-acl.o
+  CC     file-has-acl.o
+  CC     areadlink-with-size.o
+  CC     argv-iter.o
+  CC     base64.o
+  CC     c-ctype.o
+  CC     c-strcasecmp.o
+  CC     c-strncasecmp.o
+  CC     close-hook.o
+  CC     diacrit.o
+  CC     file-set.o
+  CC     filevercmp.o
+  CC     freadahead.o
+  CC     freading.o
+  CC     freadptr.o
+  CC     freadseek.o
+  CC     fseterr.o
+  CC     full-read.o
+  CC     full-write.o
+  CC     getdate.o
+  CC     hash-pjw.o
+  CC     hash-triple.o
+  CC     linebuffer.o
+  CC     localcharset.o
+  CC     malloca.o
+  CC     mbchar.o
+  CC     mbsalign.o
+  CC     mbscasecmp.o
+  CC     mbslen.o
+  CC     mbsstr.o
+  CC     mbswidth.o
+  CC     memchr2.o
+  CC     memcmp2.o
+  CC     openat-die.o
+  CC     printf-frexp.o
+  CC     printf-frexpl.o
+  CC     priv-set.o
+  CC     progname.o
+  CC     propername.o
+  CC     randint.o
+  CC     randperm.o
+  CC     randread.o
+  CC     rand-isaac.o
+  CC     readtokens0.o
+  CC     savewd.o
+  CC     sockets.o
+  CC     striconv.o
+  CC     strnlen1.o
+  CC     trim.o
+  CC     unicodeio.o
+  CC     unistr/u8-uctomb.o
+  CC     unistr/u8-uctomb-aux.o
+  CC     uniwidth/width.o
+  CC     verror.o
+  CC     version-etc.o
+  CC     version-etc-fsf.o
+  CC     xalloc-die.o
+  CC     xfreopen.o
+  CC     xgethostname.o
+  CC     xmemcoll.o
+  CC     xprintf.o
+  CC     xstriconv.o
+  CC     xstrndup.o
+  CC     xstrtoimax.o
+  CC     xstrtoumax.o
+  CC     xvasprintf.o
+  CC     xasprintf.o
+  CC     buffer-lcm.o
+  CC     xmemxfrm.o
+  CC     argmatch.o
+  CC     asnprintf.o
+  CC     asprintf.o
+  CC     backupfile.o
+  CC     basename.o
+  CC     c-strtod.o
+  CC     c-strtold.o
+  CC     canon-host.o
+  CC     canonicalize.o
+  CC     chdir-long.o
+  CC     cloexec.o
+  CC     close-stream.o
+  CC     closein.o
+  CC     closeout.o
+  CC     creat-safer.o
+  CC     cycle-check.o
+  CC     dirchownmod.o
+  CC     dirname.o
+  CC     dup-safer.o
+  CC     exclude.o
+  CC     exitfail.o
+  CC     fd-safer.o
+  CC     fflush.o
+  CC     file-type.o
+  CC     filemode.o
+  CC     filenamecat.o
+  CC     fopen-safer.o
+  CC     fprintftime.o
+  CC     fpurge.o
+  CC     fseeko.o
+  CC     fsusage.o
+  CC     fts.o
+  CC     gethrxtime.o
+  CC     getndelim2.o
+  CC     getpass.o
+  CC     gettime.o
+  CC     getugroups.o
+  CC     hard-locale.o
+  CC     hash.o
+  CC     human.o
+  CC     i-ring.o
+  CC     idcache.o
+  CC     imaxtostr.o
+  CC     isapipe.o
+  CC     isnanl.o
+  CC     long-options.o
+  CC     md5.o
+  CC     memcasecmp.o
+  CC     memcoll.o
+  CC     mgetgroups.o
+  CC     mkancesdirs.o
+  CC     mkdir-p.o
+  CC     mkstemp-safer.o
+  CC     modechange.o
+  CC     mountlist.o
+  CC     mpsort.o
+  CC     nanosleep.o
+  CC     offtostr.o
+  CC     open-safer.o
+  CC     openat-proc.o
+  CC     openat-safer.o
+  CC     opendir-safer.o
+  CC     physmem.o
+  CC     pipe-safer.o
+  CC     posixtm.o
+  CC     posixver.o
+  CC     printf-args.o
+  CC     printf-parse.o
+  CC     quote.o
+  CC     quotearg.o
+  CC     readtokens.o
+  CC     readutmp.o
+  CC     regex.o
+  CC     root-dev-ino.o
+  CC     safe-read.o
+  CC     safe-write.o
+  CC     same.o
+  CC     save-cwd.o
+  CC     savedir.o
+  CC     selinux-at.o
+  CC     settime.o
+  CC     sha1.o
+  CC     sha256.o
+  CC     sha512.o
+  CC     sig2str.o
+  CC     strftime.o
+  CC     stripslash.o
+  CC     tempname.o
+  CC     uinttostr.o
+  CC     umaxtostr.o
+  CC     unlinkdir.o
+  CC     userspec.o
+  CC     utimecmp.o
+  CC     utimens.o
+  CC     vasnprintf.o
+  CC     vasprintf.o
+  CC     vfprintf.o
+  CC     vprintf.o
+  CC     write-any-file.o
+  CC     xgetcwd.o
+  CC     xmalloc.o
+  CC     xnanosleep.o
+  CC     xstrtod.o
+  CC     xstrtol.o
+  CC     xstrtol-error.o
+  CC     xstrtold.o
+  CC     xstrtoul.o
+  CC     yesno.o
+  CC     euidaccess-stat.o
+  CC     fd-reopen.o
+  CC     xfts.o
+  CC     memxfrm.o
+  CC     strintcmp.o
+  CC     strnumcmp.o
+  AR     libcoreutils.a
+  GEN    charset.alias
+  GEN    ref-add.sed
+  GEN    ref-del.sed
+make[4]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+make[3]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+Making all in src
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/src'
+  GEN    version.c
+  GEN    version.h
+make  all-am
+make[3]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/src'
+  CC     version.o
+  AR     libver.a
+  CC     uname.o
+  CC     uname-uname.o
+  CCLD   uname
+  CC     chroot.o
+  CCLD   chroot
+  CC     hostid.o
+  CCLD   hostid
+  CC     nice.o
+  CCLD   nice
+  CC     who.o
+  CCLD   who
+  CC     users.o
+  CCLD   users
+  CC     pinky.o
+  CCLD   pinky
+  CC     uptime.o
+  CCLD   uptime
+  CC     stty.o
+  CCLD   stty
+  CC     df.o
+  CCLD   df
+  CC     stdbuf.o
+  CCLD   stdbuf
+  CC     lbracket.o
+  CCLD   [
+  CC     chcon.o
+  CCLD   chcon
+  CC     chgrp.o
+  CC     chown-core.o
+  CCLD   chgrp
+  CC     chown.o
+  CCLD   chown
+  CC     chmod.o
+  CCLD   chmod
+  CC     cp.o
+  CC     copy.o
+  CC     cp-hash.o
+  CCLD   cp
+  CC     dd.o
+  CCLD   dd
+  CC     dircolors.o
+  CCLD   dircolors
+  CC     du.o
+  CCLD   du
+  CC     ginstall-install.o
+  CC     ginstall-prog-fprintf.o
+  CC     ginstall-copy.o
+  CC     ginstall-cp-hash.o
+  CCLD   ginstall
+  CC     link.o
+  CCLD   link
+  CC     ln.o
+  CCLD   ln
+  CC     ls.o
+  CC     ls-dir.o
+  CCLD   dir
+  CC     ls-vdir.o
+  CCLD   vdir
+  CC     ls-ls.o
+  CCLD   ls
+  CC     mkdir.o
+  CC     prog-fprintf.o
+  CCLD   mkdir
+  CC     mkfifo.o
+  CCLD   mkfifo
+  CC     mknod.o
+  CCLD   mknod
+  CC     mktemp.o
+  CCLD   mktemp
+  CC     mv.o
+  CC     remove.o
+  CCLD   mv
+  CC     nohup.o
+  CCLD   nohup
+  CC     readlink.o
+  CCLD   readlink
+  CC     rm.o
+  CCLD   rm
+  CC     rmdir.o
+  CCLD   rmdir
+  CC     shred.o
+  CCLD   shred
+  CC     stat.o
+  CCLD   stat
+  CC     sync.o
+  CCLD   sync
+  CC     touch.o
+  CCLD   touch
+  CC     unlink.o
+  CCLD   unlink
+  CC     cat.o
+  CCLD   cat
+  CC     cksum.o
+  CCLD   cksum
+  CC     comm.o
+  CCLD   comm
+  CC     csplit.o
+  CCLD   csplit
+  CC     cut.o
+  CCLD   cut
+  CC     expand.o
+  CCLD   expand
+  CC     fmt.o
+  CCLD   fmt
+  CC     fold.o
+  CCLD   fold
+  CC     head.o
+  CCLD   head
+  CC     join.o
+  CCLD   join
+  CC     groups.o
+  CC     group-list.o
+  CCLD   groups
+  CC     md5sum-md5sum.o
+  CCLD   md5sum
+  CC     nl.o
+  CCLD   nl
+  CC     od.o
+  CCLD   od
+  CC     paste.o
+  CCLD   paste
+  CC     pr.o
+  CCLD   pr
+  CC     ptx.o
+  CCLD   ptx
+  CC     sha1sum-md5sum.o
+  CCLD   sha1sum
+  CC     sha224sum-md5sum.o
+  CCLD   sha224sum
+  CC     sha256sum-md5sum.o
+  CCLD   sha256sum
+  CC     sha384sum-md5sum.o
+  CCLD   sha384sum
+  CC     sha512sum-md5sum.o
+  CCLD   sha512sum
+  CC     shuf.o
+  CCLD   shuf
+  CC     sort.o
+  CCLD   sort
+  CC     split.o
+  CCLD   split
+  CC     sum.o
+  CCLD   sum
+  CC     tac.o
+  CCLD   tac
+  CC     tail.o
+  CCLD   tail
+  CC     tr.o
+  CCLD   tr
+  CC     tsort.o
+  CCLD   tsort
+  CC     unexpand.o
+  CCLD   unexpand
+  CC     uniq.o
+  CCLD   uniq
+  CC     wc.o
+  CCLD   wc
+  CC     basename.o
+  CCLD   basename
+  CC     date.o
+  CCLD   date
+  CC     dirname.o
+  CCLD   dirname
+  CC     echo.o
+  CCLD   echo
+  CC     env.o
+  CCLD   env
+  CC     expr.o
+  CCLD   expr
+  CC     factor.o
+  CCLD   factor
+  CC     false.o
+  CCLD   false
+  CC     id.o
+  CCLD   id
+  CC     kill.o
+  CC     operand2sig.o
+  CCLD   kill
+  CC     logname.o
+  CCLD   logname
+  CC     pathchk.o
+  CCLD   pathchk
+  CC     printenv.o
+  CCLD   printenv
+  CC     printf.o
+  CCLD   printf
+  CC     pwd.o
+  CCLD   pwd
+  CC     runcon.o
+In file included from runcon.c:49:0:
+/usr/include/selinux/flask.h:5:2: warning: #warning "Please remove any #include's of this header in your source code." [-Wcpp]
+ #warning "Please remove any #include's of this header in your source code."
+  ^
+/usr/include/selinux/flask.h:6:2: warning: #warning "Instead, use string_to_security_class() to map the class name to a value." [-Wcpp]
+ #warning "Instead, use string_to_security_class() to map the class name to a value."
+  ^
+  CCLD   runcon
+  CC     seq.o
+  CCLD   seq
+  CC     sleep.o
+  CCLD   sleep
+  CC     tee.o
+  CCLD   tee
+  CC     test.o
+  CCLD   test
+  CC     timeout.o
+  CCLD   timeout
+  CC     true.o
+  CCLD   true
+  CC     truncate.o
+  CCLD   truncate
+  CC     tty.o
+  CCLD   tty
+  CC     whoami.o
+  CCLD   whoami
+  CC     yes.o
+  CCLD   yes
+  CC     base64.o
+  CCLD   base64
+  CC     setuidgid.o
+  CCLD   setuidgid
+  CC     getlimits.o
+  CCLD   getlimits
+  CC     libstdbuf_so-libstdbuf.o
+  CCLD   libstdbuf.so
+  CC     su.o
+  CCLD   su
+make[3]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/src'
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/src'
+Making all in doc
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/doc'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/doc'
+Making all in man
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/man'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/man'
+Making all in po
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/po'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/po'
+Making all in tests
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/tests'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/tests'
+Making all in gnulib-tests
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make  all-recursive
+make[3]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make[4]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make[4]: Nothing to be done for `all-am'.
+make[4]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make[3]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6'
+make[2]: Nothing to be done for `all-am'.
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6'
+make[1]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6'
+make  install-recursive
+make[1]: Entering directory `/w/home.17/class/classpya/coreutils-7.6'
+Making install in lib
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+make  install-recursive
+make[3]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+make[4]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+make[5]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+if test yes = no; then \
+  case 'linux-gnu' in \
+    darwin[56]*) \
+      need_charset_alias=true ;; \
+    darwin* | cygwin* | mingw* | pw32* | cegcc*) \
+      need_charset_alias=false ;; \
+    *) \
+      need_charset_alias=true ;; \
+  esac ; \
+else \
+  need_charset_alias=false ; \
+fi ; \
+if $need_charset_alias; then \
+  /bin/sh /u/eng/class/classpya/coreutils-7.6/build-aux/install-sh -d /u/eng/class/classpya/coreutils-7.6/lib ; \
+fi ; \
+if test -f /u/eng/class/classpya/coreutils-7.6/lib/charset.alias; then \
+  sed -f ref-add.sed /u/eng/class/classpya/coreutils-7.6/lib/charset.alias > /u/eng/class/classpya/coreutils-7.6/lib/charset.tmp ; \
+  /usr/bin/install -c -m 644 /u/eng/class/classpya/coreutils-7.6/lib/charset.tmp /u/eng/class/classpya/coreutils-7.6/lib/charset.alias ; \
+  rm -f /u/eng/class/classpya/coreutils-7.6/lib/charset.tmp ; \
+else \
+  if $need_charset_alias; then \
+    sed -f ref-add.sed charset.alias > /u/eng/class/classpya/coreutils-7.6/lib/charset.tmp ; \
+    /usr/bin/install -c -m 644 /u/eng/class/classpya/coreutils-7.6/lib/charset.tmp /u/eng/class/classpya/coreutils-7.6/lib/charset.alias ; \
+    rm -f /u/eng/class/classpya/coreutils-7.6/lib/charset.tmp ; \
+  fi ; \
+fi
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+make[4]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+make[3]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+Making install in src
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/src'
+make  install-am
+make[3]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/src'
+make[4]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/src'
+test -z "/u/eng/class/classpya/coreutils-7.6/bin" || /usr/bin/mkdir -p "/u/eng/class/classpya/coreutils-7.6/bin"
+  ./ginstall ginstall '/u/eng/class/classpya/coreutils-7.6/bin/./install'
+  ./ginstall uname chroot hostid nice who users pinky uptime stty df stdbuf [ chcon chgrp chown chmod cp dd dircolors du link ln dir vdir ls mkdir mkfifo mknod mktemp mv nohup readlink rm rmdir shred stat sync touch unlink cat cksum comm csplit cut expand fmt fold head join groups md5sum nl od paste pr ptx sha1sum sha224sum sha256sum sha384sum sha512sum shuf sort split sum tac tail tr tsort unexpand uniq wc basename date dirname echo env expr factor false id kill logname pathchk printenv printf pwd runcon seq sleep tee test timeout true truncate tty whoami yes base64 '/u/eng/class/classpya/coreutils-7.6/bin'
+test -z "/u/eng/class/classpya/coreutils-7.6/lib/coreutils" || /usr/bin/mkdir -p "/u/eng/class/classpya/coreutils-7.6/lib/coreutils"
+  ./ginstall libstdbuf.so '/u/eng/class/classpya/coreutils-7.6/lib/coreutils'
+make  install-exec-hook
+make[5]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/src'
+make[5]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/src'
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/src'
+make[3]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/src'
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/src'
+Making install in doc
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/doc'
+make[3]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/doc'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/u/eng/class/classpya/coreutils-7.6/share/info" || /usr/bin/mkdir -p "/u/eng/class/classpya/coreutils-7.6/share/info"
+ /usr/bin/install -c -m 644 ./coreutils.info '/u/eng/class/classpya/coreutils-7.6/share/info'
+make[3]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/doc'
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/doc'
+Making install in man
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/man'
+make[3]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/man'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/u/eng/class/classpya/coreutils-7.6/share/man/man1" || /usr/bin/mkdir -p "/u/eng/class/classpya/coreutils-7.6/share/man/man1"
+ /usr/bin/install -c -m 644 uname.1 chroot.1 hostid.1 nice.1 who.1 users.1 pinky.1 uptime.1 stty.1 df.1 stdbuf.1 chcon.1 chgrp.1 chown.1 chmod.1 cp.1 dd.1 dircolors.1 du.1 install.1 link.1 ln.1 dir.1 vdir.1 ls.1 mkdir.1 mkfifo.1 mknod.1 mktemp.1 mv.1 nohup.1 readlink.1 rm.1 rmdir.1 shred.1 stat.1 sync.1 touch.1 unlink.1 cat.1 '/u/eng/class/classpya/coreutils-7.6/share/man/man1'
+ /usr/bin/install -c -m 644 cksum.1 comm.1 csplit.1 cut.1 expand.1 fmt.1 fold.1 head.1 join.1 groups.1 md5sum.1 nl.1 od.1 paste.1 pr.1 ptx.1 sha1sum.1 sha224sum.1 sha256sum.1 sha384sum.1 sha512sum.1 shuf.1 sort.1 split.1 sum.1 tac.1 tail.1 tr.1 tsort.1 unexpand.1 uniq.1 wc.1 basename.1 date.1 dirname.1 echo.1 env.1 expr.1 factor.1 false.1 '/u/eng/class/classpya/coreutils-7.6/share/man/man1'
+ /usr/bin/install -c -m 644 id.1 kill.1 logname.1 pathchk.1 printenv.1 printf.1 pwd.1 runcon.1 seq.1 sleep.1 tee.1 test.1 timeout.1 true.1 truncate.1 tty.1 whoami.1 yes.1 base64.1 '/u/eng/class/classpya/coreutils-7.6/share/man/man1'
+make[3]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/man'
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/man'
+Making install in po
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/po'
+/usr/bin/mkdir -p /u/eng/class/classpya/coreutils-7.6/share
+installing af.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/af/LC_MESSAGES/coreutils.mo
+installing af.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/af/LC_TIME/coreutils.mo
+installing be.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/be/LC_MESSAGES/coreutils.mo
+installing be.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/be/LC_TIME/coreutils.mo
+installing bg.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/bg/LC_MESSAGES/coreutils.mo
+installing bg.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/bg/LC_TIME/coreutils.mo
+installing ca.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/ca/LC_MESSAGES/coreutils.mo
+installing ca.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/ca/LC_TIME/coreutils.mo
+installing cs.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/cs/LC_MESSAGES/coreutils.mo
+installing cs.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/cs/LC_TIME/coreutils.mo
+installing da.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/da/LC_MESSAGES/coreutils.mo
+installing da.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/da/LC_TIME/coreutils.mo
+installing de.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/de/LC_MESSAGES/coreutils.mo
+installing de.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/de/LC_TIME/coreutils.mo
+installing el.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/el/LC_MESSAGES/coreutils.mo
+installing el.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/el/LC_TIME/coreutils.mo
+installing es.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/es/LC_MESSAGES/coreutils.mo
+installing es.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/es/LC_TIME/coreutils.mo
+installing et.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/et/LC_MESSAGES/coreutils.mo
+installing et.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/et/LC_TIME/coreutils.mo
+installing eu.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/eu/LC_MESSAGES/coreutils.mo
+installing eu.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/eu/LC_TIME/coreutils.mo
+installing fi.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/fi/LC_MESSAGES/coreutils.mo
+installing fi.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/fi/LC_TIME/coreutils.mo
+installing fr.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/fr/LC_MESSAGES/coreutils.mo
+installing fr.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/fr/LC_TIME/coreutils.mo
+installing ga.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/ga/LC_MESSAGES/coreutils.mo
+installing ga.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/ga/LC_TIME/coreutils.mo
+installing gl.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/gl/LC_MESSAGES/coreutils.mo
+installing gl.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/gl/LC_TIME/coreutils.mo
+installing hu.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/hu/LC_MESSAGES/coreutils.mo
+installing hu.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/hu/LC_TIME/coreutils.mo
+installing id.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/id/LC_MESSAGES/coreutils.mo
+installing id.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/id/LC_TIME/coreutils.mo
+installing it.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/it/LC_MESSAGES/coreutils.mo
+installing it.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/it/LC_TIME/coreutils.mo
+installing ja.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/ja/LC_MESSAGES/coreutils.mo
+installing ja.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/ja/LC_TIME/coreutils.mo
+installing ko.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/ko/LC_MESSAGES/coreutils.mo
+installing ko.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/ko/LC_TIME/coreutils.mo
+installing lt.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/lt/LC_MESSAGES/coreutils.mo
+installing lt.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/lt/LC_TIME/coreutils.mo
+installing ms.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/ms/LC_MESSAGES/coreutils.mo
+installing ms.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/ms/LC_TIME/coreutils.mo
+installing nb.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/nb/LC_MESSAGES/coreutils.mo
+installing nb.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/nb/LC_TIME/coreutils.mo
+installing nl.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/nl/LC_MESSAGES/coreutils.mo
+installing nl.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/nl/LC_TIME/coreutils.mo
+installing pl.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/pl/LC_MESSAGES/coreutils.mo
+installing pl.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/pl/LC_TIME/coreutils.mo
+installing pt.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/pt/LC_MESSAGES/coreutils.mo
+installing pt.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/pt/LC_TIME/coreutils.mo
+installing pt_BR.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/pt_BR/LC_MESSAGES/coreutils.mo
+installing pt_BR.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/pt_BR/LC_TIME/coreutils.mo
+installing ru.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/ru/LC_MESSAGES/coreutils.mo
+installing ru.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/ru/LC_TIME/coreutils.mo
+installing sk.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/sk/LC_MESSAGES/coreutils.mo
+installing sk.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/sk/LC_TIME/coreutils.mo
+installing sl.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/sl/LC_MESSAGES/coreutils.mo
+installing sl.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/sl/LC_TIME/coreutils.mo
+installing sv.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/sv/LC_MESSAGES/coreutils.mo
+installing sv.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/sv/LC_TIME/coreutils.mo
+installing tr.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/tr/LC_MESSAGES/coreutils.mo
+installing tr.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/tr/LC_TIME/coreutils.mo
+installing uk.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/uk/LC_MESSAGES/coreutils.mo
+installing uk.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/uk/LC_TIME/coreutils.mo
+installing vi.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/vi/LC_MESSAGES/coreutils.mo
+installing vi.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/vi/LC_TIME/coreutils.mo
+installing zh_CN.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/zh_CN/LC_MESSAGES/coreutils.mo
+installing zh_CN.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/zh_CN/LC_TIME/coreutils.mo
+installing zh_TW.gmo as /u/eng/class/classpya/coreutils-7.6/share/locale/zh_TW/LC_MESSAGES/coreutils.mo
+installing zh_TW.gmo link as /u/eng/class/classpya/coreutils-7.6/share/locale/zh_TW/LC_TIME/coreutils.mo
+if test "coreutils" = "gettext-tools"; then \
+  /usr/bin/mkdir -p /u/eng/class/classpya/coreutils-7.6/share/gettext/po; \
+  for file in Makefile.in.in remove-potcdate.sin quot.sed boldquot.sed en@quot.header en@boldquot.header insert-header.sin Rules-quot   Makevars.template; do \
+    /usr/bin/install -c -m 644 ./$file \
+		    /u/eng/class/classpya/coreutils-7.6/share/gettext/po/$file; \
+  done; \
+  for file in Makevars; do \
+    rm -f /u/eng/class/classpya/coreutils-7.6/share/gettext/po/$file; \
+  done; \
+else \
+  : ; \
+fi
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/po'
+Making install in tests
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/tests'
+make[3]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/tests'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/tests'
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/tests'
+Making install in gnulib-tests
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make  install-recursive
+make[3]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make[4]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make[5]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make[4]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make[3]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6'
+make[3]: Entering directory `/w/home.17/class/classpya/coreutils-7.6'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6'
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6'
+make[1]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6'
+[classpya@lnxsrv09 ~/coreutils-7.6]$ cd ~/coreutils-7.6/bin
+[classpya@lnxsrv09 ~/coreutils-7.6/bin]$ ./ls
+[	  chgrp   comm	  dd	     du      factor  head     kill     md5sum  mv     paste	printf	  rmdir      sha256sum	sleep	stty  tee      true	 unexpand  vdir
+base64	  chmod   cp	  df	     echo    false   hostid   link     mkdir   nice   pathchk	ptx	  runcon     sha384sum	sort	sum   test     truncate  uniq	   wc
+basename  chown   csplit  dir	     env     fmt     id       ln       mkfifo  nl     pinky	pwd	  seq	     sha512sum	split	sync  timeout  tsort	 unlink    who
+cat	  chroot  cut	  dircolors  expand  fold    install  logname  mknod   nohup  pr	readlink  sha1sum    shred	stat	tac   touch    tty	 uptime    whoami
+chcon	  cksum   date	  dirname    expr    groups  join     ls       mktemp  od     printenv	rm	  sha224sum  shuf	stdbuf	tail  tr       uname	 users	   yes
+[classpya@lnxsrv09 ~/coreutils-7.6/bin]$ ls
+[         chgrp   comm    dd         du      factor  head     kill     md5sum  mv     paste     printf    rmdir      sha256sum  sleep   stty  tee      true      unexpand  vdir
+base64    chmod   cp      df         echo    false   hostid   link     mkdir   nice   pathchk   ptx       runcon     sha384sum  sort    sum   test     truncate  uniq      wc
+basename  chown   csplit  dir        env     fmt     id       ln       mkfifo  nl     pinky     pwd       seq        sha512sum  split   sync  timeout  tsort     unlink    who
+cat       chroot  cut     dircolors  expand  fold    install  logname  mknod   nohup  pr        readlink  sha1sum    shred      stat    tac   touch    tty       uptime    whoami
+chcon     cksum   date    dirname    expr    groups  join     ls       mktemp  od     printenv  rm        sha224sum  shuf       stdbuf  tail  tr       uname     users     yes
+[classpya@lnxsrv09 ~/coreutils-7.6/bin]$ ./ls -l /bin/bash
+-rwxr-xr-x 1 root root 960616 2016-10-17 03:05 /bin/bash
+[classpya@lnxsrv09 ~/coreutils-7.6/bin]$ packet_write_wait: Connection to 164.67.100.209 port 22: Broken pipe
+yangbochaodeMacBook-Pro:~ StevenYang$ ssh classpya@lnxsrv09.seas.ucla.edu
+classpya@lnxsrv09.seas.ucla.edu's password: 
+Last login: Fri Jan 27 21:42:51 2017 from vpn-128-97-245-65.host.ucla.edu
+*****************************************************************************
+                        lnxsrv09.seas.ucla.edu RHEL 7
+*****************************************************************************
+
+        RedHat 7 -- may not behave the same as other lnxsrv
+        Will be used by CS 35L, CS 33, CS 111, and CS 131
+
+*****************************************************************************
+*****************************************************************************
+* ========================================================================= *
+* ACCOUNT RENEWALS                                             May 23, 2016 *
+*                                                                           *
+* SEASnet has begun notifying users of the account renewal process.  The    *
+* first notification has already been sent via email to your SEASnet        *
+* account or Official UCLA Email Address.  Although the account renewal     *
+* process actually takes place in October, we send out the first notice     *
+* early as a courtesy in case you are planning on taking a leave of absence *
+* for the upcoming fall quarter.  Please make sure you check your email for *
+* this important announcement.  Accounts that are not renewed or placed on  *
+* hold by October 31, 2016 will be removed and will NOT be restored.        *
+*                                                                           *
+* Detailed information about the renewal process can also be found here:    *
+*       http://www.seasnet.ucla.edu/seasnet-accounts                        *
+* ========================================================================= *
+* Starting winter quarter 2016, SEASnet will be restricting access to our   *
+* instructional linux and eeapps servers to on campus IP addresses.  Users  *
+* needing to use these machines will need to connect from:                  *
+*       -a machine on the campus network                                    *
+*       -machines off-campus, but connected to the campus VPN server        *
+*       -SEASnet's terminal server                                          *
+* ========================================================================= *
+* SEASnet Computing Access                                                  *
+*                                                                           *
+* Priority is given both on the servers and in the student labs to those    *
+* students doing coursework. Computing support for research is provided by  *
+* each department.                                                          *
+*****************************************************************************
+* For assistance please contact help@seas.ucla.edu or call 206-6864.        *
+*****************************************************************************
+[classpya@lnxsrv09 ~]$ ls
+#assign1.html#        exer2.diff       hwnwdseng.htm
+assign1.html          exer2.html       hwords
+assign1.html.1        exer2.html~      junk
+assign2.html          exer3.diff       lab0-handout
+assign2.html.1        exer3.html       lab1-handout
+assign2.txt           exer3.html~      misEng
+buildwords            #exer4.diff#     #misEng#
+buildwords~           exer4.diff       misEngHaw
+coreutils-7.6         #exer4.html#     misHaw
+coreutils-7.6.tar.gz  exer4.html       misHawEng
+cp                    exer4.html~      nsdefault
+Desktop               file1            perl5
+Documents             #file1#          sameln
+Downloads             #file-emacs#     sameln~
+#exer1.html#          file-emacs       webhp?sourceid=chrome-instant
+exer1.html            #hwnwdseng.htm#  words
+[classpya@lnxsrv09 ~]$ cd coreutils-7.6
+[classpya@lnxsrv09 ~/coreutils-7.6]$ touch patchfile
+[classpya@lnxsrv09 ~/coreutils-7.6]$ ls
+ABOUT-NLS       ChangeLog-2007  GNUmakefile  patchfile
+aclocal.m4      ChangeLog-2008  INSTALL      po
+AUTHORS         config.log      lib          README
+bin             config.status   m4           share
+bootstrap       configure       maint.mk     src
+bootstrap.conf  configure.ac    Makefile     tests
+build-aux       COPYING         Makefile.am  THANKS
+cfg.mk          dist-check.mk   Makefile.in  THANKS-to-translators
+ChangeLog       doc             man          THANKStt.in
+ChangeLog-2005  gl              NEWS         TODO
+ChangeLog-2006  gnulib-tests    old
+[classpya@lnxsrv09 ~/coreutils-7.6]$ emacs patchfile
+[classpya@lnxsrv09 ~/coreutils-7.6]$ patch -p1 < patchfile
+patching file NEWS
+patch: **** malformed patch at line 6: outline -*-
+
+[classpya@lnxsrv09 ~/coreutils-7.6]$ ./ls -l /bin/bash
+-bash: ./ls: No such file or directory
+[classpya@lnxsrv09 ~/coreutils-7.6]$ cd ~/coreutils-7.6/bin
+[classpya@lnxsrv09 ~/coreutils-7.6/bin]$ $ ./ls -l /bin/bash
+-bash: $: command not found
+[classpya@lnxsrv09 ~/coreutils-7.6/bin]$ ./ls -l /bin/bash
+-rwxr-xr-x 1 root root 960616 2016-10-17 03:05 /bin/bash
+[classpya@lnxsrv09 ~/coreutils-7.6/bin]$ emacs patchfile
+[classpya@lnxsrv09 ~/coreutils-7.6/bin]$ emacs patchfile
+[classpya@lnxsrv09 ~/coreutils-7.6/bin]$ emacs patchfile
+[classpya@lnxsrv09 ~/coreutils-7.6/bin]$ emacs patchfile
+[classpya@lnxsrv09 ~/coreutils-7.6/bin]$ patch -p1 < patchfile
+can't find file to patch at input line 5
+Perhaps you used the wrong -p or --strip option?
+The text leading up to this was:
+--------------------------
+|diff --git a/src/ls.c b/src/ls.c
+|index 1bb6873..4531b94 100644
+|--- a/src/ls.c
+|+++ b/src/ls.c
+--------------------------
+File to patch: 
+Skip this patch? [y] y
+Skipping patch.
+patch unexpectedly ends in middle of line
+2 out of 2 hunks ignored
+[classpya@lnxsrv09 ~/coreutils-7.6/bin]$ emacs patchfile
+[classpya@lnxsrv09 ~/coreutils-7.6/bin]$ patch -p1 < patchfile
+can't find file to patch at input line 5
+Perhaps you used the wrong -p or --strip option?
+The text leading up to this was:
+--------------------------
+|diff --git a/src/ls.c b/src/ls.c
+|index 1bb6873..4531b94 100644
+|--- a/src/ls.c
+|+++ b/src/ls.c
+--------------------------
+File to patch: 
+Skip this patch? [y] y
+Skipping patch.
+patch: **** malformed patch at line 28: index 1571c9c..0380975 100644
+
+[classpya@lnxsrv09 ~/coreutils-7.6/bin]$ emacs patchfile
+[classpya@lnxsrv09 ~/coreutils-7.6/bin]$ cd ~/coreutils-7.6
+[classpya@lnxsrv09 ~/coreutils-7.6]$ patch -p1 < patch_file
+-bash: patch_file: No such file or directory
+[classpya@lnxsrv09 ~/coreutils-7.6]$ patch -p1 < patchfile
+patching file NEWS
+patch: **** malformed patch at line 6: outline -*-
+
+[classpya@lnxsrv09 ~/coreutils-7.6]$ emacs patchfile
+[classpya@lnxsrv09 ~/coreutils-7.6]$ ls
+ABOUT-NLS       ChangeLog-2007  GNUmakefile  patchfile
+aclocal.m4      ChangeLog-2008  INSTALL      patchfile~
+AUTHORS         config.log      lib          po
+bin             config.status   m4           README
+bootstrap       configure       maint.mk     share
+bootstrap.conf  configure.ac    Makefile     src
+build-aux       COPYING         Makefile.am  tests
+cfg.mk          dist-check.mk   Makefile.in  THANKS
+ChangeLog       doc             man          THANKS-to-translators
+ChangeLog-2005  gl              NEWS         THANKStt.in
+ChangeLog-2006  gnulib-tests    old          TODO
+[classpya@lnxsrv09 ~/coreutils-7.6]$ cd patchfile
+-bash: cd: patchfile: Not a directory
+[classpya@lnxsrv09 ~/coreutils-7.6]$ cd ~/coreutils-7.6/patchfile
+-bash: cd: /u/eng/class/classpya/coreutils-7.6/patchfile: Not a directory
+[classpya@lnxsrv09 ~/coreutils-7.6]$ cd ../../coreutils-7.6/src/
+-bash: cd: ../../coreutils-7.6/src/: No such file or directory
+[classpya@lnxsrv09 ~/coreutils-7.6]$ cd ../coreutils-7.6/src/
+[classpya@lnxsrv09 ~/coreutils-7.6/src]$ patch -p0 < patch.diff
+-bash: patch.diff: No such file or directory
+[classpya@lnxsrv09 ~/coreutils-7.6/src]$ patch -p0 < patchfile
+-bash: patchfile: No such file or directory
+[classpya@lnxsrv09 ~/coreutils-7.6/src]$ cd ..
+[classpya@lnxsrv09 ~/coreutils-7.6]$ ls
+ABOUT-NLS       ChangeLog-2007  GNUmakefile  patchfile
+aclocal.m4      ChangeLog-2008  INSTALL      patchfile~
+AUTHORS         config.log      lib          po
+bin             config.status   m4           README
+bootstrap       configure       maint.mk     share
+bootstrap.conf  configure.ac    Makefile     src
+build-aux       COPYING         Makefile.am  tests
+cfg.mk          dist-check.mk   Makefile.in  THANKS
+ChangeLog       doc             man          THANKS-to-translators
+ChangeLog-2005  gl              NEWS         THANKStt.in
+ChangeLog-2006  gnulib-tests    old          TODO
+[classpya@lnxsrv09 ~/coreutils-7.6]$ emacs patchfile
+[classpya@lnxsrv09 ~/coreutils-7.6]$ cd ../coreutils-7.6/src/
+[classpya@lnxsrv09 ~/coreutils-7.6/src]$ ls
+[                false.o                   nl.o                stty.c
+base64           fmt                       nohup               stty.o
+base64.c         fmt.c                     nohup.c             su
+base64.o         fmt.o                     nohup.o             su.c
+basename         fold                      od                  sum
+basename.c       fold.c                    od.c                sum.c
+basename.o       fold.o                    od.o                sum.o
+c99-to-c89.diff  fs.h                      operand2sig.c       su.o
+cat              getlimits                 operand2sig.h       sync
+cat.c            getlimits.c               operand2sig.o       sync.c
+cat.o            getlimits.o               paste               sync.o
+chcon            ginstall                  paste.c             system.h
+chcon.c          ginstall-copy.o           paste.o             tac
+chcon.o          ginstall-cp-hash.o        pathchk             tac.c
+chgrp            ginstall-install.o        pathchk.c           tac.o
+chgrp.c          ginstall-prog-fprintf.o   pathchk.o           tac-pipe.c
+chgrp.o          group-list.c              pinky               tail
+chmod            group-list.h              pinky.c             tail.c
+chmod.c          group-list.o              pinky.o             tail.o
+chmod.o          groups                    pr                  tee
+chown            groups.c                  pr.c                tee.c
+chown.c          groups.o                  printenv            tee.o
+chown-core.c     head                      printenv.c          test
+chown-core.h     head.c                    printenv.o          test.c
+chown-core.o     head.o                    printf              test.o
+chown.o          hostid                    printf.c            timeout
+chroot           hostid.c                  printf.o            timeout.c
+chroot.c         hostid.o                  pr.o                timeout.o
+chroot.o         hostname.c                prog-fprintf.c      touch
+cksum            id                        prog-fprintf.h      touch.c
+cksum.c          id.c                      prog-fprintf.o      touch.o
+cksum.o          id.o                      ptx                 tr
+comm             install.c                 ptx.c               tr.c
+comm.c           join                      ptx.o               tr.o
+comm.o           join.c                    pwd                 true
+copy.c           join.o                    pwd.c               true.c
+copy.h           kill                      pwd.o               true.o
+copy.o           kill.c                    readlink            truncate
+cp               kill.o                    readlink.c          truncate.c
+cp.c             lbracket.c                readlink.o          truncate.o
+cp-hash.c        lbracket.o                remove.c            tsort
+cp-hash.h        libstdbuf.c               remove.h            tsort.c
+cp-hash.o        libstdbuf.so              remove.o            tsort.o
+cp.o             libstdbuf_so-libstdbuf.o  rm                  tty
+csplit           libver.a                  rm.c                tty.c
+csplit.c         link                      rmdir               tty.o
+csplit.o         link.c                    rmdir.c             uname
+cut              link.o                    rmdir.o             uname-arch.c
+cut.c            ln                        rm.o                uname.c
+cut.o            ln.c                      runcon              uname.h
+date             ln.o                      runcon.c            uname.o
+date.c           logname                   runcon.o            uname-uname.c
+date.o           logname.c                 seq                 uname-uname.o
+dcgen            logname.o                 seq.c               unexpand
+dd               ls                        seq.o               unexpand.c
+dd.c             ls.c                      setuidgid           unexpand.o
+dd.o             ls-dir.c                  setuidgid.c         uniq
+df               ls-dir.o                  setuidgid.o         uniq.c
+df.c             ls.h                      sha1sum             uniq.o
+df.o             ls-ls.c                   sha1sum-md5sum.o    unlink
+dir              ls-ls.o                   sha224sum           unlink.c
+dircolors        ls.o                      sha224sum-md5sum.o  unlink.o
+dircolors.c      ls-vdir.c                 sha256sum           uptime
+dircolors.h      ls-vdir.o                 sha256sum-md5sum.o  uptime.c
+dircolors.hin    Makefile                  sha384sum           uptime.o
+dircolors.o      Makefile.am               sha384sum-md5sum.o  users
+dirname          Makefile.in               sha512sum           users.c
+dirname.c        md5sum                    sha512sum-md5sum.o  users.o
+dirname.o        md5sum.c                  shred               vdir
+du               md5sum-md5sum.o           shred.c             version.c
+du.c             mkdir                     shred.o             version.h
+du.o             mkdir.c                   shuf                version.o
+echo             mkdir.o                   shuf.c              wc
+echo.c           mkfifo                    shuf.o              wc.c
+echo.o           mkfifo.c                  sleep               wc.o
+env              mkfifo.o                  sleep.c             wheel-gen.pl
+env.c            mknod                     sleep.o             wheel.h
+env.o            mknod.c                   sort                wheel-size.h
+expand           mknod.o                   sort.c              who
+expand.c         mktemp                    sort.o              whoami
+expand.o         mktemp.c                  split               whoami.c
+expr             mktemp.o                  split.c             whoami.o
+expr.c           mv                        split.o             who.c
+expr.o           mv.c                      stat                who.o
+extract-magic    mv.o                      stat.c              yes
+factor           nice                      stat.o              yes.c
+factor.c         nice.c                    stdbuf              yes.o
+factor.o         nice.o                    stdbuf.c
+false            nl                        stdbuf.o
+false.c          nl.c                      stty
+[classpya@lnxsrv09 ~/coreutils-7.6/src]$ cd ...
+-bash: cd: ...: No such file or directory
+[classpya@lnxsrv09 ~/coreutils-7.6/src]$ cd ..
+[classpya@lnxsrv09 ~/coreutils-7.6]$ ls
+ABOUT-NLS       ChangeLog-2007  GNUmakefile  patchfile
+aclocal.m4      ChangeLog-2008  INSTALL      patchfile~
+AUTHORS         config.log      lib          po
+bin             config.status   m4           README
+bootstrap       configure       maint.mk     share
+bootstrap.conf  configure.ac    Makefile     src
+build-aux       COPYING         Makefile.am  tests
+cfg.mk          dist-check.mk   Makefile.in  THANKS
+ChangeLog       doc             man          THANKS-to-translators
+ChangeLog-2005  gl              NEWS         THANKStt.in
+ChangeLog-2006  gnulib-tests    old          TODO
+[classpya@lnxsrv09 ~/coreutils-7.6]$ emacs patchfile
+[classpya@lnxsrv09 ~/coreutils-7.6]$ patch -p1 < patchfile
+patching file src/ls.c
+Hunk #1 succeeded at 2013 (offset -1 lines).
+patch unexpectedly ends in middle of line
+Hunk #2 succeeded at 2028 with fuzz 1 (offset -1 lines).
+[classpya@lnxsrv09 ~/coreutils-7.6]$ make
+make  all-recursive
+make[1]: Entering directory `/w/home.17/class/classpya/coreutils-7.6'
+Making all in lib
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+make  all-recursive
+make[3]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+make[4]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+make[4]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+make[3]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/lib'
+Making all in src
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/src'
+make  all-am
+make[3]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/src'
+  CC     ls.o
+  CCLD   dir
+  CCLD   vdir
+  CCLD   ls
+make[3]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/src'
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/src'
+Making all in doc
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/doc'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/doc'
+Making all in man
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/man'
+  GEN    dir.1
+  GEN    vdir.1
+  GEN    ls.1
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/man'
+Making all in po
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/po'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/po'
+Making all in tests
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/tests'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/tests'
+Making all in gnulib-tests
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make  all-recursive
+make[3]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make[4]: Entering directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make[4]: Nothing to be done for `all-am'.
+make[4]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make[3]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6/gnulib-tests'
+make[2]: Entering directory `/w/home.17/class/classpya/coreutils-7.6'
+make[2]: Nothing to be done for `all-am'.
+make[2]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6'
+make[1]: Leaving directory `/w/home.17/class/classpya/coreutils-7.6'
+[classpya@lnxsrv09 ~/coreutils-7.6]$ cd ..
+[classpya@lnxsrv09 ~]$ ls
+#assign1.html#  assign2.html.1  coreutils-7.6         Documents     exer2.diff   exer3.html    #exer4.html#  #file1#          hwnwdseng.htm  lab1-handout  misHaw     sameln
+assign1.html    assign2.txt     coreutils-7.6.tar.gz  Downloads     exer2.html   exer3.html~   exer4.html    #file-emacs#     hwords         misEng        misHawEng  sameln~
+assign1.html.1  buildwords      cp                    #exer1.html#  exer2.html~  #exer4.diff#  exer4.html~   file-emacs       junk           #misEng#      nsdefault  webhp?sourceid=chrome-instant
+assign2.html    buildwords~     Desktop               exer1.html    exer3.diff   exer4.diff    file1         #hwnwdseng.htm#  lab0-handout   misEngHaw     perl5      words
+[classpya@lnxsrv09 ~]$ cd coreutils-7.6
+[classpya@lnxsrv09 ~/coreutils-7.6]$ touch -t 9906201010
+touch: missing file operand
+Try 'touch --help' for more information.
+[classpya@lnxsrv09 ~/coreutils-7.6]$ touch -t 9906201010 oldtestfile
+[classpya@lnxsrv09 ~/coreutils-7.6]$ touch newtestfile
+[classpya@lnxsrv09 ~/coreutils-7.6]$ ls
+ABOUT-NLS   bootstrap       ChangeLog       ChangeLog-2008  configure.ac   gl            lib       Makefile.am  newtestfile  patchfile~  src                    THANKStt.in
+aclocal.m4  bootstrap.conf  ChangeLog-2005  config.log      COPYING        gnulib-tests  m4        Makefile.in  old          po          tests                  TODO
+AUTHORS     build-aux       ChangeLog-2006  config.status   dist-check.mk  GNUmakefile   maint.mk  man          oldtestfile  README      THANKS
+bin         cfg.mk          ChangeLog-2007  configure       doc            INSTALL       Makefile  NEWS         patchfile    share       THANKS-to-translators
+[classpya@lnxsrv09 ~/coreutils-7.6]$ ~/coreutilsInstall/bin/ls -l
+-bash: /u/eng/class/classpya/coreutilsInstall/bin/ls: No such file or directory
+[classpya@lnxsrv09 ~/coreutils-7.6]$ ~/coreutils-7.6/bin/ls -l
+total 4704
+-rw-r--r--  1 classpya class   80541 2008-09-18 00:19 ABOUT-NLS
+-rw-r--r--  1 classpya class   47272 2009-09-10 22:56 aclocal.m4
+-rw-r--r--  1 classpya class    3571 2009-09-01 04:01 AUTHORS
+drwxr-xr-x  2 classpya class    8192 2017-01-28 14:47 bin
+-rwxr-xr-x  1 classpya class   23005 2009-09-01 04:01 bootstrap
+-rw-r--r--  1 classpya class    5641 2009-09-10 22:52 bootstrap.conf
+drwxr-xr-x  2 classpya class    4096 2009-09-10 23:15 build-aux
+-rw-r--r--  1 classpya class    7744 2009-09-10 11:29 cfg.mk
+-rw-r--r--  1 classpya class  310286 2009-09-10 23:15 ChangeLog
+-rw-r--r--  1 classpya class  448879 2009-09-01 04:01 ChangeLog-2005
+-rw-r--r--  1 classpya class  153390 2009-09-01 04:01 ChangeLog-2006
+-rw-r--r--  1 classpya class  158644 2009-09-01 04:01 ChangeLog-2007
+-rw-r--r--  1 classpya class   13716 2009-09-01 04:01 ChangeLog-2008
+-rw-r--r--  1 classpya class 1565439 2017-01-27 22:01 config.log
+-rwxr-xr-x  1 classpya class   77298 2017-01-27 22:01 config.status
+-rwxr-xr-x  1 classpya class 1179944 2009-09-10 22:56 configure
+-rw-r--r--  1 classpya class   15617 2009-09-10 22:52 configure.ac
+-rw-r--r--  1 classpya class   35147 2009-09-01 04:01 COPYING
+-rw-r--r--  1 classpya class    4838 2009-09-01 04:01 dist-check.mk
+drwxr-xr-x  2 classpya class    4096 2017-01-27 22:01 doc
+drwxr-xr-x  3 classpya class    4096 2009-09-10 23:15 gl
+drwxr-xr-x  5 classpya class   20480 2017-01-27 22:01 gnulib-tests
+-rw-r--r--  1 classpya class    4702 2009-03-15 00:11 GNUmakefile
+-rw-r--r--  1 classpya class   15513 2009-08-30 01:52 INSTALL
+drwxr-xr-x  8 classpya class   61440 2017-01-27 22:03 lib
+drwxr-xr-x  2 classpya class   28672 2009-09-10 23:15 m4
+-rw-r--r--  1 classpya class   28788 2009-09-08 00:47 maint.mk
+-rw-r--r--  1 classpya class   56479 2017-01-27 22:01 Makefile
+-rw-r--r--  1 classpya class    4619 2009-09-01 04:01 Makefile.am
+-rw-r--r--  1 classpya class   59635 2009-09-10 22:56 Makefile.in
+drwxr-xr-x  2 classpya class   16384 2017-01-28 15:09 man
+-rw-r--r--  1 classpya class  110479 2009-09-10 22:53 NEWS
+-rw-r--r--  1 classpya class       0 2017-01-28 15:12 newtestfile
+drwxr-xr-x  5 classpya class    4096 2009-09-10 23:15 old
+-rw-r--r--  1 classpya class       0 1999-06-20 10:10 oldtestfile
+-rw-r--r--  1 classpya class     973 2017-01-28 15:07 patchfile
+-rw-r--r--  1 classpya class    1640 2017-01-28 14:39 patchfile~
+drwxr-xr-x  2 classpya class    8192 2017-01-27 22:01 po
+-rw-r--r--  1 classpya class   10637 2009-09-01 04:01 README
+drwxr-xr-x  5 classpya class    4096 2017-01-27 22:03 share
+drwxr-xr-x  3 classpya class   32768 2017-01-28 15:09 src
+drwxr-xr-x 22 classpya class    4096 2017-01-27 22:01 tests
+-rw-r--r--  1 classpya class   34903 2009-09-10 10:33 THANKS
+-rw-r--r--  1 classpya class    1678 2009-09-10 23:06 THANKS-to-translators
+-rw-r--r--  1 classpya class     121 2009-09-01 04:01 THANKStt.in
+-rw-r--r--  1 classpya class    7658 2009-09-01 04:01 TODO
+[classpya@lnxsrv09 ~/coreutils-7.6]$ ./coreutils-7.6/src/ls -l
+-bash: ./coreutils-7.6/src/ls: No such file or directory
+[classpya@lnxsrv09 ~/coreutils-7.6]$ ~/coreutils-7.6/src/ls -l
+total 4704
+-rw-r--r--  1 classpya class   80541 Sep 18  2008 ABOUT-NLS
+-rw-r--r--  1 classpya class   47272 Sep 10  2009 aclocal.m4
+-rw-r--r--  1 classpya class    3571 Sep  1  2009 AUTHORS
+drwxr-xr-x  2 classpya class    8192 Jan 28 14:47 bin
+-rwxr-xr-x  1 classpya class   23005 Sep  1  2009 bootstrap
+-rw-r--r--  1 classpya class    5641 Sep 10  2009 bootstrap.conf
+drwxr-xr-x  2 classpya class    4096 Sep 10  2009 build-aux
+-rw-r--r--  1 classpya class    7744 Sep 10  2009 cfg.mk
+-rw-r--r--  1 classpya class  310286 Sep 10  2009 ChangeLog
+-rw-r--r--  1 classpya class  448879 Sep  1  2009 ChangeLog-2005
+-rw-r--r--  1 classpya class  153390 Sep  1  2009 ChangeLog-2006
+-rw-r--r--  1 classpya class  158644 Sep  1  2009 ChangeLog-2007
+-rw-r--r--  1 classpya class   13716 Sep  1  2009 ChangeLog-2008
+-rw-r--r--  1 classpya class 1565439 Jan 27 22:01 config.log
+-rwxr-xr-x  1 classpya class   77298 Jan 27 22:01 config.status
+-rwxr-xr-x  1 classpya class 1179944 Sep 10  2009 configure
+-rw-r--r--  1 classpya class   15617 Sep 10  2009 configure.ac
+-rw-r--r--  1 classpya class   35147 Sep  1  2009 COPYING
+-rw-r--r--  1 classpya class    4838 Sep  1  2009 dist-check.mk
+drwxr-xr-x  2 classpya class    4096 Jan 27 22:01 doc
+drwxr-xr-x  3 classpya class    4096 Sep 10  2009 gl
+drwxr-xr-x  5 classpya class   20480 Jan 27 22:01 gnulib-tests
+-rw-r--r--  1 classpya class    4702 Mar 15  2009 GNUmakefile
+-rw-r--r--  1 classpya class   15513 Aug 30  2009 INSTALL
+drwxr-xr-x  8 classpya class   61440 Jan 27 22:03 lib
+drwxr-xr-x  2 classpya class   28672 Sep 10  2009 m4
+-rw-r--r--  1 classpya class   28788 Sep  8  2009 maint.mk
+-rw-r--r--  1 classpya class   56479 Jan 27 22:01 Makefile
+-rw-r--r--  1 classpya class    4619 Sep  1  2009 Makefile.am
+-rw-r--r--  1 classpya class   59635 Sep 10  2009 Makefile.in
+drwxr-xr-x  2 classpya class   16384 Jan 28 15:09 man
+-rw-r--r--  1 classpya class  110479 Sep 10  2009 NEWS
+-rw-r--r--  1 classpya class       0 Jan 28 15:12 newtestfile
+drwxr-xr-x  5 classpya class    4096 Sep 10  2009 old
+-rw-r--r--  1 classpya class       0 Jun 20  1999 oldtestfile
+-rw-r--r--  1 classpya class     973 Jan 28 15:07 patchfile
+-rw-r--r--  1 classpya class    1640 Jan 28 14:39 patchfile~
+drwxr-xr-x  2 classpya class    8192 Jan 27 22:01 po
+-rw-r--r--  1 classpya class   10637 Sep  1  2009 README
+drwxr-xr-x  5 classpya class    4096 Jan 27 22:03 share
+drwxr-xr-x  3 classpya class   32768 Jan 28 15:09 src
+drwxr-xr-x 22 classpya class    4096 Jan 27 22:01 tests
+-rw-r--r--  1 classpya class   34903 Sep 10  2009 THANKS
+-rw-r--r--  1 classpya class    1678 Sep 10  2009 THANKS-to-translators
+-rw-r--r--  1 classpya class     121 Sep  1  2009 THANKStt.in
+-rw-r--r--  1 classpya class    7658 Sep  1  2009 TODO
+[classpya@lnxsrv09 ~/coreutils-7.6]$ packet_write_wait: Connection to 164.67.100.209 port 22: Broken pipe
+yangbochaodeMacBook-Pro:~ StevenYang$ 

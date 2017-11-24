@@ -1,0 +1,110 @@
+CS35L LAB6 ASSIGNMENT 7
+Yang Pochao 204631541
+
+I first use 
+
+	$ dpkg --get-selections | grep openssh
+
+to check whether both server and client are installed
+then I got the output that 
+
+	openssh-client					install
+
+which means I still need to install server part
+so then I 
+
+	$ sudo apt-get install openssh-server
+
+and after that, I run the prior command again, and got
+
+	openssh-client					install
+	openssh-server					install
+	openssh-sftp-server				install
+
+
+For the SERVER part:
+first I use 
+
+	$ ssh-keygen
+
+to generate my public and private keys, and saved them at default addressm and set empty as the passphrase
+next, I runt the command
+
+	$ sudo useradd –d /home/35l –m zhouyang
+
+to create an account for the client on the server, in the name of my lab partner
+and then set the initial password
+
+	$ sudo passwd zhouyang
+
+then I create .ssh new directory for the client
+
+	$ cd /home/35l
+	$ sudo mkdir .ssh
+
+then I change ownership and permission on .ssh directory
+
+	$ sudo chown –R zhouyang .ssh
+	$ sudo chmod 700 .ssh
+
+then I want to use emacs to disable password-based authentication
+
+	$ emcas /etc/ssh/sshd_config
+
+but then I find out I need to install emacs at first
+
+	$ sudo apt install emacs24
+
+and after that
+
+	$ emcas /etc/ssh/sshd_config
+
+and change PasswordAuthentication from yes to no
+I use 
+
+	$ ifconfig
+
+to see my IP address, which is 10.97.85.138.
+here my SERVER part is done.
+
+For the CLIENT part:
+first I use
+
+	$ ssh-keygen
+
+to generate my public and private keys
+then I copy my public key to the server for key-based authentication
+
+	$ ssh-copy-id –i zhouyang@10.97.85.138
+
+then I add private key to authentication agent
+
+	$ ssh-add
+
+and then initialize SSH to server
+
+	$ ssh –X zhouyang@10.97.85.138
+
+and then I run a command on the remote host
+
+	$ firefox
+
+here my CLIENT part is done.
+
+To verify the successful two-way relation
+I use the command 
+
+	$ ps aux | grep firefox
+
+to see all the running processes on the server related to firefox
+and I get the output of
+
+	zhouyang 8262 16.8 2.2 626852 184092 pts/2 sl+ 13:16 0:03 /usr/lib/firefox/firefox
+
+which means I am good.
+
+After that, my partner and I do a vice-versa job that we change each other's role.
+With similar command and similar output, we succeed again. 
+What a beautiful day.
+
+

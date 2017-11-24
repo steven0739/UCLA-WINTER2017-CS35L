@@ -1,0 +1,107 @@
+hw9.txt
+CS35L LAB6 ASSIGNMENT9
+HOMEWORK PART
+Yang Pochao 204631541
+2.
+Check out version 3.0 of Diffutils from repository, into a new branch named “quote”:
+	$ cd diffutils
+	$ git checkout -b 'quote' 
+and the output is 
+Switched to a new branch 'quote'
+3.
+Install change into this new branch:
+	$ patch -p1 < quote-3.0-patch.txt 
+and the output is
+patching file src/cmp.c
+patching file src/diff.c
+patching file src/diff3.c
+patching file src/dir.c
+patching file src/sdiff.c
+patching file src/util.c
+4-5.
+$ emacs src/cmp.c
+$ emacs src/diff.c
+$ emacs src/diff3.c
+$ emacs src/dir.c
+$ emacs src/sdiff.c
+$ emacs src/util.c
+
+for each file, I use
+C-x 4 a to write something: quote 'like this' or "like this", not `like this'
+6.
+Commit changes to the new branch:
+	$ git add .
+	$ git commit -F ChangeLog
+and the output is
+[quote1 eb18ec6] 2017-03-15  Po-Chao Yang  <classpya@lnxsrv06.seas.ucla.edu>
+ Committer: Po-Chao Yang <classpya@lnxsrv06.seas.ucla.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 6 files changed, 43 insertions(+), 43 deletions(-)
+7.
+generate a file formatted-patch.txt:
+	$ git format-patch -1 --stdout > formatted-patch.txt
+8.
+my partner's name is Zineng Guo, and his UID is 404607125
+ 	$ git checkout v3.0 -b partner
+ 	$ git am < ../partner_patch.txt
+the output shows it's succeed: Applying: 2017-03-15 Zineng Guo <classzin@lnxsrv06.seas.ucla.edu>
+ 	$ ./bootstrap
+ 	$ configure
+ 	$ make
+ 	$ make check
+ 	$ diff . -
+ diff: cannot compare '-' to a directory
+ 	$ diff --help
+ FILES are 'FILE1 FILE2' or 'DIR1 DIR2' or 'DIR FILE...' or 'FILE... DIR'.
+ If a FILE is '-', read standard input.
+
+ the output shows my partner's patch works
+ 9.
+ Verify ChangeLog entry works:
+ 	$ make distdir
+ after that, it created a new folder for me which is diffutils-3.0.1-eb18-dirty
+ then I go to that folder
+	$ cd diffutils-3.0.1-eb18-dirty
+	$ emacs ChangeLog 
+
+ 2017-03-15  Po-Chao Yang  <classpya@lnxsrv06.seas.ucla.edu>
+
+        2017-03-15  Po-Chao Yang  <classpya@lnxsrv06.seas.ucla.edu>
+                * src/util.c: quote 'like this' or "like this", not `like this'
+
+                * src/sdiff.c: quote 'like this' or "like this", not `like this'
+
+                * src/dir.c: quote 'like this' or "like this", not `like this'
+
+                * src/diff3.c: quote 'like this' or "like this", not `like this'
+
+                * src/diff.c: quote 'like this' or "like this", not `like this'
+
+                * src/cmp.c: quote 'like this' or "like this", not `like this'
+
+2010-05-03  Jim Meyering  <meyering@redhat.com>
+
+        version 3.0
+        * NEWS: Record release date.
+
+        build: update gnulib submodule to latest
+
+I see my commit is on the very top, which verifies my work.
+10.
+I use ssh -X username@lnxsrv06.seas.ucla.edu to enable X-11
+then I change directory to 
+	$ cd ~eggert/src/gnu/emacs
+and then run
+	$ gitk
+

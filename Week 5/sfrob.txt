@@ -1,0 +1,94 @@
+1.
+Call the rewritten program sfrobu. Measure any differences in performance between sfrob and sfrobu using the time command. Run your program on inputs of varying numbers of input lines, and estimate the number of comparisons as a function of the number of input lines.
+
+First I find files of different sizes under my directory.
+Then I see that 
+	$ wc -l misEng
+	39 misEng
+also
+	$ wc -l input.txt
+	19566 input.txt
+and
+	$ wc -l words
+	479828 words
+so these are my testing files.
+
+Next, 
+------------------------------------------------
+	$ time ./sfrob < misEng > output
+	real	0m0.003s
+	user	0m0.001s
+	sys	0m0.001s
+
+	$ time ./sfrobu < misEng > output
+	real	0m0.004s
+	user	0m0.000s
+	sys	0m0.001s
+
+	$ time ./sfrobu -f < misEng > output
+	real	0m0.005s
+	user	0m0.000s
+	sys	0m0.002s
+
+	$ time ./sfrobs < misEng > output
+	real	0m0.011s
+	user	0m0.001s
+	sys	0m0.006s
+
+	$ time ./sfrobs -f < misEng > output
+	real	0m0.010s
+	user	0m0.004s
+	sys	0m0.004s
+
+------------------------------------------------
+	$ time ./sfrob < input.txt > output
+	real	0m0.004s
+	user	0m0.000s
+	sys	0m0.001s
+
+	$ time ./sfrobu < input.txt > output
+	real	0m0.124s
+	user	0m0.051s
+	sys	0m0.026s
+
+	$ time ./sfrobu -f < input.txt > output
+	real	0m0.132s
+	user	0m0.062s
+	sys	0m0.025s
+
+	$ time ./sfrobs < input.txt > output
+	real	0m0.079s
+	user	0m0.021s
+	sys	0m0.025s
+
+	$ time ./sfrobs -f < input.txt > output
+	real	0m0.077s
+	user	0m0.023s
+	sys	0m0.021s
+
+------------------------------------------------
+	$ time ./sfrob < words > output
+	real	0m0.101s
+	user	0m0.047s
+	sys	0m0.008s
+
+	$ time ./sfrobu < words > output
+	real	0m0.313s
+	user	0m0.254s
+	sys	0m0.013s
+
+	$ time ./sfrobu -f < words > output
+	real	0m0.100s
+	user	0m0.046s
+	sys	0m0.007s
+
+	$ time ./sfrobs < words > output
+	real	0m0.074s
+	user	0m0.015s
+	sys	0m0.021s
+
+	$ time ./sfrobs -f < words > output
+	real	0m0.072s
+	user	0m0.015s
+	sys	0m0.021s
+------------------------------------------------

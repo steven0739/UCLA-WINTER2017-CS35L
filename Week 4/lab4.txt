@@ -1,0 +1,161 @@
+Yang Po-chao 204631541
+CS35L LAB 6 Assignment 4
+
+I first download a tar file from the asaignment website to my pc, and then move it to the linux server
+
+$ scp ~/Downloads/coreutils-with-bug.tar.gz bradleyz@lnxsrv.seas.ucla.edu:~/lab4
+
+Then I untar it
+
+$ tar xzvf coreutils-with-bug.tar.gz
+
+Then I change directory into this coreutils-with-bugs directory
+
+$ cd coreutils-with-bug
+
+And configure and make it
+
+$ ./configure --prefix=/u/eng/class/classpya/coreutils
+$ make
+
+Here we see the problem in the output that
+
+In file included from utimecmp.c:41:0:
+utimens.h:2:5: error: conflicting types for 'futimens'
+ int futimens (int, char const *, struct timespec const [2]);
+     ^
+In file included from utimecmp.h:25:0,
+                 from utimecmp.c:25:
+/usr/include/sys/stat.h:373:12: note: previous declaration of 'futimens' was here
+ extern int futimens (int __fd, const struct timespec __times[2]) __THROW;
+
+ Then we download the renaming patch from our assignment website
+
+ $ wget http://web.cs.ucla.edu/classes/winter17/cs35L/assign/coreutils.diff
+
+ Then I patch it
+
+ $ patch -p0 < coreutils.diff
+
+ Then it shows which are patched
+
+patching file lib/utimens.c
+patching file lib/utimens.h
+patching file src/copy.c
+patching file src/tee.c
+patching file src/touch.c
+
+I then remake it
+
+$ make && make install
+
+This time everything is fine since renaming patch fixs the error we encountered by renaming that function and changing its arguments
+
+Now we are reproducing the problem
+
+First we create a temporary directory
+
+$ tmp=$(mktemp -d)
+
+And then change to it
+
+$ cd $tmp
+
+We create a old file
+
+$ touch -d '1918-11-11 11:00 GMT' wwi-armistice
+
+And a new one
+
+$ touch now
+
+Another one
+
+$ sleep 1
+$ touch now1
+
+Then we run it
+
+$ ~/coreutils-with-bug/src/ls -lt --full-time wwi-armistice now now1
+
+The output looks probelmatic as it treats wwi-armistice as created in the future
+
+-rw-r--r-- 1 classpya class 0 1918-11-11 03:00:00.000000000 -0800 wwi-armistice
+-rw-r--r-- 1 classpya class 0 2017-02-08 14:45:21.861422986 -0800 now1
+-rw-r--r-- 1 classpya class 0 2017-02-08 14:44:55.673999514 -0800 now
+
+We are now using the GNU debugger to see why the error happends
+
+$ gdb ~/coreutils-with-bug/src/ls
+
+We want to first see the information of those functions related to ls
+
+(gdb) info functions
+
+I notice there's a file called compare_mtime which can be the source of our error,
+so I set a breakpoint here
+
+(gdb) break compare_mtime
+
+Then I run the program
+
+(gdb) run -lt wwi-armistice now now1
+
+And I see
+
+2879	{
+2880	  int diff = timespec_cmp (get_stat_mtime (&b->stat),
+2881				   get_stat_mtime (&a->stat));
+2882	  return diff ? diff : cmp (a->name, b->name);
+2883	}
+
+Then I need to set a breakpoint for function timespec_cmp
+Again run, and step into the function timespec_cmp
+
+(gdb) step
+(gdb) step
+
+This time I notice a detail 
+
+48	  int diff = a.tv_sec - b.tv_sec;
+
+This line will cause problem since if a.tv_sec is really small, integer overflow may occurs
+
+I first change directory to 
+
+$ cd ~/coreutils-with-bug
+
+And then 
+
+$ cd lib
+
+I first create a copy of timespec.h, which is named as newtimespec.h
+
+$ cp timespec.h newtimespec.h
+
+And then using emacs to change the file newtimespec.h
+And change the line
+
+int diff = a.tv_sec - b.tv_sec;
+return diff ? diff : a.tv_nsec - b.tv_nsec;
+
+into
+
+return a.tv_sec > b.tv_sec ? 1 : (a.tv_sec < b.tv_sec ? -1 : a.tv_nsec - b.tv_nsec);
+
+so there's no more operation, thus no possibility of overflowing.
+
+Then I create the diff file
+
+$ diff -u timespec.h newtimespec.h > ~/lab4.diff
+
+When we try our linux server
+We get
+
+-rw-r--r-- 1 classpya class 0 2054-12-17 09:28:16.000000000 -0800 wwi-armistice
+-rw-r--r-- 1 classpya class 0 2017-02-08 15:58:57.156124000 -0800 new1
+-rw-r--r-- 1 classpya class 0 2017-02-08 15:58:46.191101000 -0800 new
+
+which seems like our linux server also does badly.
+
+

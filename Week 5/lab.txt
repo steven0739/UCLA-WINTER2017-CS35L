@@ -1,0 +1,138 @@
+1-2.
+For both tr2u.c and tr2b.c
+I first check how many arguments passed, which should be three
+Next, I check whether from and to strings have same length
+Then I check whether there's duplicates in from string
+
+After those initial checks, I loop through the input file
+and compare each char with that in from string
+if there's match, then change that char in file 
+to the corresponding char in to string
+and write that char.
+
+The difference is that for tr2u.c
+I use read and write functions
+for tr2b.c
+I use getchar and putchar functions.
+
+3.
+I first change them into executable files
+
+gcc -o tr2u ./tr2u.c
+gcc -o tr2b ./tr2b.c
+and then make a test file
+touch test.txt
+emacs test.txt
+
+run some test to see tr2u.c and tr2b.c both do checkings
+
+cat test.txt | ./tr2b "step" "ste"
+cat test.txt | ./tr2b "steven" "selina"
+cat test.txt | ./tr2b "hbao" "HBAO"
+
+cat test.txt | ./tr2u "step" "ste"
+cat test.txt | ./tr2u "steven" "selina"
+cat test.txt | ./tr2u "hbao" "HBAO"
+
+create a file that contains at least 5,000,000 bytes.
+
+dd if=/dev/urandom of=input.txt bs=1000000 count=5
+
+copy one file to another:
+1.tr2b
+strace -c ./tr2b 'a' 'A' < input.txt > boutfile
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 28.83    0.000081          20         4           open
+ 28.11    0.000079          26         3           read
+ 13.17    0.000037          19         2           write
+ 10.68    0.000030           4         8           mmap
+  6.05    0.000017           4         4           mprotect
+  3.91    0.000011           2         5           fstat
+  2.85    0.000008           8         1           munmap
+  1.78    0.000005           1         4           brk
+  1.42    0.000004           1         3           close
+  1.42    0.000004           4         1         1 access
+  1.07    0.000003           3         1           execve
+  0.36    0.000001           1         1           arch_prctl
+  0.36    0.000001           1         1           fadvise64
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.000281                    38         1 total
+
+2.tr2u
+strace -c ./tr2u 'a' 'A' < input.txt > uoutfile
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 55.33    5.615623           1   5000000           write
+ 44.67    4.533883           1   5000002           read
+  0.00    0.000040           6         7           mmap
+  0.00    0.000032          32         1           brk
+  0.00    0.000025           6         4           mprotect
+  0.00    0.000016           8         2           open
+  0.00    0.000010          10         1           munmap
+  0.00    0.000009           9         1         1 access
+  0.00    0.000008           4         2           fstat
+  0.00    0.000007           4         2           close
+  0.00    0.000006           6         1           execve
+  0.00    0.000004           4         1           arch_prctl
+------ ----------- ----------- --------- --------- ----------------
+100.00   10.149663              10000024         1 total
+
+
+copy a file to terminal:
+1.tr2b
+strace -c ./tr2b 'a' 'A' < input.txt
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 30.15    0.000041          21         2           read
+ 23.53    0.000032           4         9           mmap
+ 13.24    0.000018           5         4           mprotect
+  5.88    0.000008           4         2           open
+  5.88    0.000008           2         4           fstat
+  5.88    0.000008           8         1           munmap
+  4.41    0.000006           6         1           write
+  3.68    0.000005           5         1         1 access
+  3.68    0.000005           5         1           execve
+  1.47    0.000002           1         2           close
+  1.47    0.000002           2         1           brk
+  0.74    0.000001           1         1           arch_prctl
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.000136                    29         1 total
+ 
+2.tr2u
+strace -c ./tr2u 'a' 'A' < input.txt
+cat uoutput
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 55.80    5.934583           1   5000000           write
+ 44.20    4.700873           1   5000002           read
+  0.00    0.000043           6         7           mmap
+  0.00    0.000028           7         4           mprotect
+  0.00    0.000015           8         2           open
+  0.00    0.000010          10         1           munmap
+  0.00    0.000007           7         1         1 access
+  0.00    0.000007           7         1           execve
+  0.00    0.000006           3         2           close
+  0.00    0.000006           3         2           fstat
+  0.00    0.000004           4         1           brk
+  0.00    0.000004           4         1           arch_prctl
+------ ----------- ----------- --------- --------- ----------------
+100.00   10.635586              10000024         1 total
+
+the time difference is mainly caused by number of system calls. We see unbuffer ones make less system calls,
+so the time they use are really short.
+
+time:
+1.tr2b
+time ./tr2b 'abcde' 'ABCDE' < input.txt > boutfile1
+real	0m0.003s
+user	0m0.000s
+sys		0m0.001s
+
+2.tr2u
+time ./tr2u 'abcde' 'ABCDE' < input.txt > uoutfile1
+real	0m6.645s
+user	0m0.455s
+sys		0m6.104s
+
+I see the time difference, that tr2b is much much quicker than tr2u, because of the usage of buffer.

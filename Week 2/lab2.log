@@ -1,0 +1,200 @@
+CS 35 Lab 6 Assignment 2
+Yang Pochao 204631541
+
+-----------------------------Part 1----------------------------------
+
+1.
+After logging into linux server 09, I first typed 
+$ locale
+to see if am in the standard C.
+The system returned 
+...="en_US.UTF-8"
+So I then typed 
+$ export LC_ALL='C'
+The system returned
+... ="C"
+which means am in the standard C.
+
+2.
+I use
+$ sort /usr/share/dict/words > words
+to sort the contents of the file /usr/share/dict/words and then save it to my
+working directory.
+
+3. 
+I use
+$ wget http://web.cs.ucla.edu/classes/winter17/cs35L/assign/assign2.html
+to take a html file containing the HTML in this assignment's web page 
+and named it assign2.html
+I then use
+$ mv assign2.html assign2.txt
+to change it into a text file.
+
+4.
+The first command is
+$ cat < assign2.txt | tr -c 'A-Za-z' '[\n*]'
+which means translate every characters except A-Z and a-z into a new line
+command, with 0 or more occurrences.
+
+The second command is
+$ cat < assign2.txt | tr -cs 'A-Za-z' '[\n*]'
+which means translate present characters except A-Z and a-z into a new
+line command.
+
+Diffenrence:
+If there are 2 or more characters except A-Z and a-z continuously
+present, then this command will squeeze the repetitions and let 
+there be only one translation.
+
+The third command is
+$ cat < assign2.txt | tr -cs 'A-Za-z' '[\n*]' | sort
+which means translate every un-continuously present characters 
+except A-Z and a-z into a new line command.
+
+Difference:
+The output file is sorted.
+
+The fourth command is
+$ cat < assign2.txt | tr -cs 'A-Za-z' '[\n*]' | sort -u
+which means translate every un-continuously present characters except 
+A-Z and a-z into a new line command, and then sort the output file.
+
+Difference: 
+It removes duplicates in the sorted ouput file.
+
+The fifth command is
+$ cat < assign2.txt | tr -cs 'A-Za-z' '[\n*]' | sort -u | comm - words
+which means translate every un-continuously present characters except 
+A-Z and a-z into a new line command, sort the output file, and then 
+removes duplicates in the sorted ouput file.
+
+Difference:
+It compares the sorted and duplication-removed output file with 
+words line by line.
+Column one contains lines unique to our former output file, column two 
+contains lines unique to words, and column three contains lines common to 
+both files.
+
+The sixth command is
+$ cat < assign2.txt | tr -cs 'A-Za-z' '[\n*]' | sort -u | comm -23 - words
+which means translate every un-continuously present characters except 
+A-Z and a-z into a new line command, sort the output file, removes duplicates 
+in the sorted ouput file, and then compares the sorted and duplication-removed 
+output file with words line by line.
+
+Difference:
+It only shows the first column of the comparation, which is the one contains 
+lines unique to our former output file.
+
+-----------------------------Part 2----------------------------------
+
+I first use 
+$ wget http://mauimapp.com/moolelo/hwnwdseng.htm
+to obtain copy of that web page
+
+then there's my log:
+
+#!/bin/sh
+#CS 35L YangPochao                                                              
+
+sed '/<!DOCTYPE/,/Adopt<\/td>/d' | \
+#reomove everything before                                                       
+
+sed '/<\/table>/,/<\/html>/d' | \
+#remove everything after                                                         
+
+grep '<td>.\{1,\}<\/td>' | \
+#grep every English and Hawaian words                                            
+
+sed -n '2~2!p' - | \
+#only Hawaian words are left                                                     
+
+tr "[:upper:]\`" "[:lower:]\'" | \
+#translate upper case and ` into lower case and '                                
+
+sed -e '/-/d' |\
+#delete Hawaian words with -
+
+sed -e '/?/d' |\
+#delete Hawaian words with ?
+
+sed 's/<td>//g;s/<\/td>//g;s/<u>//g;s/<\/u>//g' | \
+#clear all the disturbing things                                                 
+
+sed "s/^\s*//g" | \
+#delete all empty line                                                           
+
+sed -E "s/,\s|\s/\n/g" | \
+#treat comma and space as new line character                                     
+
+tr -cs "pk\'mnwlhaeiou" '[\n*]' | \
+#delete wrong hawaian words                                                      
+
+sort -u
+#sort the final file   
+
+end of log.
+
+After that I type the following command in my terminal
+$ cat hwnwdseng.htm | ./buildwords > hwords
+
+-----------------------------Part 3----------------------------------
+
+1.
+I use the following command to count the number of "misspelled" 
+English words on this web page
+$ cat assign2.html | tr -cs 'A-Za-z' '[\n*]' | tr '[:upper:]' '[:lower:]' | 
+sort -u | comm -23 - words > misEng
+$ wc -w misEng = 38
+
+2.
+I use the following command to count the number of "misspelled" Hawaiian 
+words on this web page
+$ cat assign2.html | tr -cs "pk\'mnwlhaeiou" '[\n*]' | sort -u | 
+comm -23 - hwords > misHaw
+$ wc -w misHaw = 199
+
+3.
+Yes there are words that are "misspelled" as English, but not as Hawaiian, 
+and we can use the following command to check
+$ comm -23 misEng misHaw > misEngHaw
+$ wc -w misEngHaw = 33
+
+some of the examples are:
+
+linux
+ndash
+onlinepubs
+opengroup
+posix
+sameln
+seasnet
+td
+toc
+usr
+utf
+vandebogart
+wget
+wiki
+wikipedia
+
+4.
+Vice versa do exist, and we can use similar command to check
+$ comm -13 misEng misHaw > misHawEng
+$ wc -w misHawEng = 194
+
+some of the examples are:
+
+ail
+ain
+ainin
+ake
+al
+ale
+alen
+ali
+all
+ameln
+amine
+amp
+ample

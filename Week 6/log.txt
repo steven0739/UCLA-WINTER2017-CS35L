@@ -1,0 +1,55 @@
+CS35L LAB6
+Yang Pochao
+204631541
+
+I first see where my sort command is originally
+
+	$ whereis sort
+
+the result is /usr/bin/sort
+so then I add a new path
+
+	$ export PATH=/usr/local/cs/bin:$PATH
+
+here I run again to see where is sort
+and now it shows /usr/local/cs/bin/sort which is what I want
+
+then I want to generate a file containing 10,000,000 random single-precision floating point numbers, in textual form, one per line with no white space
+
+	$ od -t f -N80000000 < /dev/urandom | sed -E "s/\s+/\n/g" | sed -n '1~3!p' - > lab6num.txt
+
+then I use time -p to time the command sort -g on that data, with the output sent to /dev/null
+
+	$ time -p sort -g lab6num.txt > /dev/null
+
+	real 38.60
+	user 196.10
+	sys 0.63
+
+after that, I invoke sort with the --parallel option as well as the -g option, and run my benchmark with 1, 2, 4, and 8 threads
+
+	$ time -p sort -g --parallel=1 lab6num.txt > /dev/null	
+
+	real 185.73
+	user 185.46
+	sys 0.24
+
+	$ time -p sort -g --parallel=2 lab6num.txt > /dev/null
+
+	real 96.84
+	user 185.25
+	sys 0.36
+
+	$ time -p sort -g --parallel=4 lab6num.txt > /dev/null
+
+	real 54.77
+	user 185.93
+	sys 0.42
+
+	$ time -p sort -g --parallel=8 lab6num.txt > /dev/null
+
+	real 36.84
+	user 195.69
+	sys 0.54
+
+So we see that the default version is using 8 threads.

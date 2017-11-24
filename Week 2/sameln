@@ -1,0 +1,73 @@
+#!/bin/sh
+#CS 35L Yang Pochao
+
+dir=$1
+#get the first argument
+ALLFILE=`ls -a $dir | sort`
+#sort all files systematically
+IFS=$'\n'
+#deal with filename starts with new line character
+
+declare -a DAR
+declare -a NDAR
+declare -a SAR
+#declare two arrays for two kinds of files
+#and the third array(later as the concatenation)
+
+let cDAR=0
+let cNDAR=0
+let cSAR=0
+#declare two size-counting variables
+#declare the third one(later as the sum)
+
+for FILE in $ALLFILE
+#loop through all the files that are listed
+do
+    if [ ! -r "$dir/$FILE" ]
+    then
+        echo "This file is not readable."
+#check if file is readable, or print error message
+    else
+        if [ -L "$dir/$FILE" || ! -f "$dir/$FILE" ]
+        then
+            :
+#silently ignore file if not regular or a symbolic link
+        else
+            if [ "${FILE:0:1}" == "." ]
+            then
+                DAR[$cDAR]="$dir/$FILE"
+                let cDAR+=1
+#put file which name starts with dot into specific array
+#increment that array size by one
+            else
+            then
+                NDAR[$cNDAR]="$dir/$FILE"
+                let cNDAR+=1
+#put other files into another array
+#increment that array size by one
+            fi
+        fi
+    fi
+done
+
+SAR=("${DAR[@]}" "${NDAR[@]}")
+#concatenate two arrays into this one
+let cSAR=cDAR+cNDAR
+#sum up two sizes into this one
+
+for (( i=0; i<$cSAR; i++ ))
+do
+#start with the file in position i in the sum array
+    for (( j=i+1; j<$cSAR; j++ ))
+    do
+#compare to every files after position i
+        cmp -s "${SAR[$i]}" "${SAR[$j]}"
+        if [ $? -eq 0 ]
+#if two files are the same
+        then
+            ln -f -P "${SAR[$i]}" "${SAR[$j]}"
+            SAR[$j] = SAR[$i]
+#replace the lower precedence one with a hard link
+        fi
+    done
+done

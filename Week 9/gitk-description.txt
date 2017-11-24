@@ -1,0 +1,15 @@
+gitk-description.txt
+1.
+The upper left window shows a hierarchical tree structure of commit.
+It's actually the structure of repositories with head and branches.
+
+2.
+The upper right window shows the author's name and email address who make the commit,
+and exact date and time.
+
+3.
+The lower left window shows the commit in diff version with many more information,
+such as parent and child and branches.
+
+4.
+The lower right part is just the comment, which is now blank.

@@ -1,0 +1,88 @@
+Pochao Yang CS 35L Winter 2017 Lab 6 Assignment 1
+
+1.1 Moving around in Emacs
+1.e m a c s e x e r 1 . h t m l Enter
+2.C-s P U B L I C Enter
+3.C-s L a b o r a t o r y Enter M-b
+4.C-s s e l f - r e f e r e n t i a l Enter M-b M-b
+5.C-s a r r o w Enter M-b
+6.C-e
+7.C-a
+8.using commands
+9.no
+10.C-x C-c n y e s Enter
+
+1.2 Deleting text in Emacs
+1.e m a c s e x e r 2 . h t m l Enter
+2.M-g g 18 Enter C-k DEL
+3.C-s D E L E T E M E Enter C-a C-k 
+4.C-s < ! - - Enter M-z - C-a C-k
+5.C-s < ! - - Entre C-b C-b M-z >
+  C-s < ! - - Enter C-a C-k 
+
+1.3 Inserting text in Emacs
+1.e m a c s e x e r 3 . h t m l Enter
+2.C-s A s s i g n m e n t 1 M-% A s s i g n m e n t 3 7 Enter y y n
+3.C-x [ C-s U T F - 8 M-% U S - A S C I I Entre y n
+4.C-x [ C-s < / o l > Enter C-a Enter
+5.C-x C-s C-x C-c
+
+1.4 Other editing tasks in Emacs
+1.c a t e x e r 2 . h t m l e x e r 2 . d i f f  > e x e r 4 . h t m l Enter
+2.e m a c s e x e r 4 . h t m l Enter
+3.M-g g 409 Enter C-f C-@ C-s - > M-w M-g g 354 Enter C-y
+4.M-g g 400 Enter C-s < ! Enter C-b C-b C-@ C-s - > M-w
+  M-g g 339 Enter C-s l i n e s Enter C-y
+  
+  M-g g 378 Enter C-f C-@ C-s - - > M-w
+  M-g g 303 Enter C-y C-n DEL C-a C-d C-p C-d
+  
+  M-g g 371 Enter C-f C-@ C-s - > M-w
+  M-g g 93 Enter C-y
+  
+  M-g g 362 Enter C-f C-@ C-s - > M-w
+  M-g g 18 Enter C-y
+5.C-@ M-> DEL
+6.C-x u
+7.C-s - - - SP C-b C-b C-b C-b < ! - - C-o
+  C-s - - > M-% - - > Enter y y y y y C-o - - >
+8.7
+9.Yes I am right.
+
+1.5 Doing commands in Emacs
+1.e m a c s
+  M-x m k d i r Enter j u n k Enter
+2.C-x C-f ~ / j u n k / h e l l o . c
+  (copy and paste the given code into file)
+3.M-x c o m p i l e Enter DEL DEL DEL DEL DEL DEL DEL DEL g c c h e l l o . c - o h e l l o
+4.M-x c o m p i l e Enter 
+  . / h e l l o Enter
+  C-x C-w h e l l o - o u t
+5.C-x C-f h e l l o - o u t Enter C-y C-x C-s
+-*- mode: compilation; default-directory: "~/junk/" -*-
+Compilation started at Sat Jan  14 21:14:33
+
+./hello
+#include <stdio.h>
+int
+main (void)
+{
+  char n = '\n';
+  char b = '\\';
+  char q = '"';
+  char const *p = "#include <stdio.h>%cint%cmain (void)%c{%c  char n = '%cn';%c  char b = '%c%c';%c  char q = '%c';%c  char const *p = %c%s%c;%c  printf (p, n, n, n, n, b, n, b, b, n, q, n, q, p, q, n, n, n, n);%c  return 0;%c}%c";
+  printf (p, n, n, n, n, b, n, b, b, n, q, n, q, p, q, n, n, n, n);
+  return 0;
+}
+Compilation finished at Sat Jan  14 21:14:33
+
+1.6 Running Elisp code
+1. C-x b Enter
+2. ( r a n d o m ) C-j
+3. ( s e t q x ( r a n d o m ) ) C-j Enter
+   ( s e t q y ( r a n d o m ) ) C-j
+4. ( * x y) C-j
+5. M-: ( * x y ) Enter 
+   It's same as (* x y) with an additional part of (#o75660107343123454100, #xf760477194e5840)
+6. No, it's not random. Since generating random number follows some algorithm, which contradicts to the defnition of randomness in mathematical sense.
+7. The probability is 27%

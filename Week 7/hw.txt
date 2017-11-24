@@ -1,0 +1,18 @@
+CS35L LAB6 ASSIGNMENT 7
+
+1. 
+(1)
+If the other teams really had been observing all the bytes going across the network, my resulting network will still be save. Even though they have all the bytes, but those bytes are encrypted by the public key. Unless the other team has my private key, which is impossible in this case, they won't be able to get any useful data.
+
+(2)
+If the other teams had also tapped your keyboards and had observed all of your team's keystrokes, my resulting network will still be save. They will know the passphrase need to access to my private key, but again, they still don't have my private key, which is needed to decrypt the bytes they record.
+
+(3)
+If the other teams temporarily had physical control of the USB, then my resulting network will not be safe. If the system files are on the USB without any protection, then the other team will have access to my private key, which they can then use to decrypt all the data I sent.
+
+2.
+(1)
+The gpg --verify command in the instructions doesn't really verify that someone personally created the tar file in question is because what the command does is to compare whether the signature matches with the tar file. Because the public key is public that anyone can know, if other people re-create the tar file, and then output the signature, then it also can be verified by the command.
+
+(2)
+To fix it, we can just send out public key to the receiver directly, or publish it publicly. So if anyone want to see whether the file is created by me, they can check my public key and compare.

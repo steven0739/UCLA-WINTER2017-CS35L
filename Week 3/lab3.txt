@@ -1,0 +1,82 @@
+lab3.txt
+CS35L LAB3
+YANG POCHAO 204631541
+
+I first use wget to grab coreutils 7.6
+
+	$ wget ftp://ftp.gnu.org/gnu/coreutils/coreutils-7.6.tar.gz
+
+next, I unziped it
+
+	$ tar -xzvf coreutils-7.6.tar.gz
+
+after that, i go to the folder created and configure the path
+
+	$ ./configure --prefix=/u/eng/class/classpya/coreutils-7.6
+
+then I install the package
+
+	$ make && make install
+
+then I change directory to which contains ls command
+
+	$ cd ~/coreutils-7.6/bin
+
+run the command to reproduce the problem
+
+	$ ./ls -l /bin/bash
+
+we get the result of
+
+	-rwxr-xr-x 1 root root 960616 2016-10-17 03:05 /bin/bash
+
+which obviously is the wrong version.
+
+I copy and paste Brady's patch into a file called patchfile by emacs
+
+	$ touch patchfile
+	$ emacs patchfile
+	(copy and paste things)
+
+then I apply the patch
+
+	$ patch -p1 < patchfile
+
+I go back to the coreutils-7.6 directory and execute make
+
+	$ make
+
+Only those commands remaking src(ls.c) are needed.
+They are
+ 
+  CC     ls.o #create an object file
+  CCLD   dir
+  CCLD   vdir #not necessarily need to be change
+  CCLD   ls #ls.o is affected, so we need to execute again
+
+In order to test whether patch works, I created two file, one new one old enough
+	
+	$ touch newtestfile
+	$ touch -t 9906201010 oldtestfile
+
+I run the former ls command
+
+	$ ~/coreutilsInstall/bin/ls -l
+
+and get the result of 
+	
+	-rw-r--r--  1 classpya class       0 2017-01-28 15:12 newtestfile
+	-rw-r--r--  1 classpya class       0 1999-06-20 10:10 oldtestfile
+
+I then run the new ls command
+
+	$ ~/coreutils-7.6/src/ls -l
+
+and get the result of 
+
+	-rw-r--r--  1 classpya class       0 Jan 28 15:12 newtestfile
+	-rw-r--r--  1 classpya class       0 Jun 20  1999 oldtestfile
+
+which means my patch works.
+
+
